@@ -1,20 +1,28 @@
-# Mapas de laboratórios de treinamento AI-900
+---
+ms.openlocfilehash: 69f8fd8920fccc0aecc4fb5d5a40e506935f8340
+ms.sourcegitcommit: 276908bd75615fb4d4712b912426129587e9c307
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2022
+ms.locfileid: "140788216"
+---
+# <a name="ai-900-trainer-lab-mapping"></a>Mapas de laboratórios de treinamento AI-900
 
-Este curso, AI-900: Princípios básicos da IA, tem um subconjunto de laboratórios designados para treinamento com instrutor e adaptados para serem realizados em um curso de um dia.
+Este curso, AI-900: O curso Conceitos básicos de IA tem um subconjunto de laboratórios designados para treinamento com instrutor e adaptados para serem realizados em um curso de um dia.
 
-Os laboratórios de treinamento AI-900 são um subconjunto dos laboratórios AI-900 (01-11) e foram extraídos do [repositório de laboratórios AI-900](https://github.com/MicrosoftLearning/AI-900BR-Microsoft-Azure-AI-Fundamentals).
+Os laboratórios do treinador do AI-900 são um subconjunto dos laboratórios do AI-900 que se encontram no Microsoft Learn.
 
-> Observação: Os instrutores podem optar por adicionar outros laboratórios do conjunto completo de laboratórios AI-900 (01-11) aos módulos do curso.
+> Observação: Os instrutores podem adicionar outros laboratórios do conjunto completo de laboratórios do AI-900 aos módulos do curso que ministram.
 
-## Mapa do módulo AI-900 para laboratórios
+## <a name="ai-900-module-mapping-to-labs"></a>Mapa do módulo AI-900 para laboratórios
 
 O subconjunto de laboratórios AI-900 usado neste curso é mapeado por módulo conforme exibido abaixo: 
 
-| Laboratório de treinamento AI-900 # | Tópico | Arquivo Markdown |
+| Laboratório de treinamento AI-900 # | Tópico | Instruções |
 | --- | --- | --- |
-| 01: AI-900 Módulo 01 | Introdução à inteligência artificial no Azure | [00 - Get started with AI on Azure.md](https://github.com/MicrosoftLearning/AI-900BR-Microsoft-Azure-AI-Fundamentals/blob/master/Instructions/00%20-%20Get%20started%20with%20AI%20on%20Azure.md) |
-| 02: AI-900 Módulo 02 | Usar o machine learning automatizado no Azure Machine Learning | [00a-automated-machine-learning.md](https://github.com/MicrosoftLearning/AI-900BR-Microsoft-Azure-AI-Fundamentals/blob/master/Instructions/00a-automated-machine-learning.md) |
-| 03: AI-900 Módulo 03 | Classificação de imagem  | [02-lab-Instructions.md](https://github.com/MicrosoftLearning/AI-900BR-Microsoft-Azure-AI-Fundamentals/blob/master/Instructions/02-lab-Instructions.md) |
-| 04: AI-900 Módulo 04 | Reconhecimento vocal | [10-lab-Instructions.md](https://github.com/MicrosoftLearning/AI-900BR-Microsoft-Azure-AI-Fundamentals/blob/master/Instructions/10-lab-Instructions.md) |
-| 05: AI-900 Módulo 05 | Bot de QnA | [11-lab-Instructions.md](https://github.com/MicrosoftLearning/AI-900BR-Microsoft-Azure-AI-Fundamentals/blob/master/Instructions/11-lab-Instructions.md) |
+| 01: AI-900 Módulo 01 | Explorar os Serviços Cognitivos | [01-Lab-Instructions](https://aka.ms/ai900-module-01) |
+| 02: AI-900 Módulo 02 | Explorar o machine learning automatizado | [02-Lab-Instructions](https://aka.ms/ai900-module-02) |
+| 03: AI-900 Módulo 03 | Analisar imagens com a Pesquisa Visual Computacional  | [03-Lab-Instructions](https://aka.ms/ai900-module-03) |
+| 04: AI-900 Módulo 04 | Analisar o texto com o serviço de linguagem | [04-Lab-Instructions](https://aka.ms/ai900-module-04) |
+
 
