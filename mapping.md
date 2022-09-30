@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 69f8fd8920fccc0aecc4fb5d5a40e506935f8340
+ms.sourcegitcommit: 276908bd75615fb4d4712b912426129587e9c307
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2022
+ms.locfileid: "140788216"
+---
 # <a name="ai-900-trainer-lab-mapping"></a>Mapas de laboratórios de treinamento AI-900
 
 Este curso, AI-900: O curso Conceitos básicos de IA tem um subconjunto de laboratórios designados para treinamento com instrutor e adaptados para serem realizados em um curso de um dia.
