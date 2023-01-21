@@ -96,7 +96,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que você já definiu a chave e o ponto de extremidade, pode usar o recurso dos Serviços Cognitivos para extrair texto de uma imagem.
+1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que você já definiu a chave e o ponto de extremidade, pode usar o recurso dos Serviços Cognitivos para extrair texto de uma imagem.
 
     Vamos usar a API de **Leitura**. Nesse caso, você tem uma imagem de anúncio da empresa fictícia de varejo Northwind Traders que inclui texto.
 

@@ -91,7 +91,7 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
+1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
 
     A detecção de anomalias é uma técnica de inteligência artificial usada para determinar se os valores de uma série estão dentro dos parâmetros esperados. O aplicativo cliente de exemplo usará seu serviço do Detector de Anomalias para analisar um arquivo que contém uma série de datas/horas e valores numéricos. O aplicativo deve retornar resultados que indicam em cada ponto de tempo se o valor numérico está dentro dos parâmetros esperados.
 
