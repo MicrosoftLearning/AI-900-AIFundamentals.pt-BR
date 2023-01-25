@@ -126,9 +126,11 @@ Para treinar um modelo, você precisa aplicar algumas transformações de pré-p
 
     ![Captura de tela do local da biblioteca de ativos do designer, da barra de pesquisa e do ícone de componentes.](media/create-classification-model/designer-asset-library-components.png)
 
-1. Localize o módulo **Normalizar Dados** e coloque-o na tela, abaixo do conjunto de dados **diabetes-data**. Em seguida, conecte a saída da parte inferior do conjunto de dados **dados de diabetes** à entrada na parte superior do módulo **Normalizar Dados**, desta forma:
+1. Localize o módulo **Selecionar Colunas no Conjunto de Dados** e coloque-o na tela, abaixo do conjunto de dados **diabetes-data**. Em seguida, conecte a saída da parte inferior do conjunto de dados **diabetes-data** à entrada na parte superior do módulo **Selecionar Colunas no Conjunto de Dados**.
 
-    ![Captura de tela de um pipeline com o conjunto de dados conectado com um módulo Normalizar Dados.](media/create-classification-model/dataset-normalize.png)
+1. Localize o módulo **Normalizar Dados** e coloque-o na tela, abaixo do módulo **Selecionar Colunas no Conjunto de Dados**. Em seguida, conecte a saída da parte inferior do módulo **Selecionar Colunas no Conjunto de Dados** à entrada na parte superior do módulo **Normalizar Dados**, desta forma:
+
+    ![Captura de tela de um pipeline com o conjunto de dados conectado para selecionar colunas e o módulo Normalizar Dados.](media/create-classification-model/dataset-normalize.png)
 
 1. Clique duas vezes no módulo **Normalizar Dados** para ver as respectivas configurações, observando que é necessário especificar o método de transformação e as colunas a serem transformadas. 
 
@@ -277,6 +279,7 @@ O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um
     
     - Adicione um componente de **entrada de serviço Web** para que novos dados sejam enviados.
     - Substitua o conjunto de dados **diabetes-data** por um módulo **Inserir Dados Manualmente** que não inclui a coluna de rótulo (**Diabético**).
+    - Edite as colunas selecionadas no módulo **Selecionar Colunas no Conjunto de Dados**.
     - Remova o módulo **Avaliar Modelo**.
     - Insira um módulo **Executar script Python** antes da saída do serviço Web para retornar apenas a ID do paciente, o valor do rótulo previsto e a probabilidade.
 
@@ -293,6 +296,8 @@ O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um
 
 1. Conecte o novo módulo **Inserir Dados Manualmente** à mesma entrada de **Conjunto de dados** do módulo **Aplicar Transformação** como a **Entrada do Serviço Web**.
 
+1. Edite o módulo **Selecionar Colunas no Conjunto de Dados**. Remova **Diabetic** das *Colunas Selecionadas*. 
+
 1. O pipeline de inferência inclui o módulo **Avaliar Modelo**, que não é útil para prever dados novos, portanto, exclua esse módulo.
 
 1. A saída do módulo **Pontuar Modelo** inclui todas as características de entrada, bem como o rótulo previsto e a pontuação de probabilidade. Para limitar a saída somente para a previsão e a probabilidade:
@@ -304,7 +309,7 @@ import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
 
-    scored_results = dataframe1[['PatientID', 'Scored Labels', 'Scored Probabilities']]
+    scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
     scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
                                 'Scored Probabilities':'Probability'},
                         inplace=True)
