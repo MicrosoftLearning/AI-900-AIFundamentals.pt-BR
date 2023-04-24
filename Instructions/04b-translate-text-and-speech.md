@@ -1,6 +1,7 @@
 ---
 lab:
   title: Explorar a tradução
+  module: Module 4 - Natural Language Processing (NLP)
 ---
 
 # <a name="explore-translation"></a>Explorar a tradução

@@ -1,6 +1,7 @@
 ---
 lab:
   title: Explorar a fala
+  module: Module 4 - Natural Language Processing (NLP)
 ---
 
 # <a name="explore-speech"></a>Explorar a fala
