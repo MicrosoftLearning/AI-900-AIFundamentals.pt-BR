@@ -1,7 +1,6 @@
 ---
 lab:
   title: Explorar a detecção de objetos
-  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-object-detection"></a>Explorar a detecção de objetos

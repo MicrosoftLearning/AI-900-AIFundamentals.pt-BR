@@ -10,10 +10,8 @@ Esses exercícios práticos foram projetados para dar suporte ao conteúdo de tr
 
 Para concluir os exercícios, você precisará de uma assinatura do Microsoft Azure. Inscreva-se para uma avaliação gratuita em [https://azure.microsoft.com](https://azure.microsoft.com).
 
-## <a name="labs"></a>Laboratório
-
-{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions'" %}
-| módulo | Laboratório |
-| --- | --- | 
-{% for activity in labs  %}| {{ activity.lab.module }} | [{{ activity.lab.title }}{% if activity.lab.type %} - {{ activity.lab.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
+{% assign labs = site.pages | where_exp:"page", "page.url contains '/instructions'" %}
+| Exercícios |
+| ------- | 
+{% for activity in labs  %}| [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }}) |
 {% endfor %}

@@ -1,7 +1,6 @@
 ---
 lab:
   title: Explorar o reconhecimento de formulários
-  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-form-recognition"></a>Explorar o reconhecimento de formulários

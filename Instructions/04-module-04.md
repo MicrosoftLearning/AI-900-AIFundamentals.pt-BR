@@ -1,7 +1,6 @@
 ---
 lab:
   title: Explorar a análise de texto
-  module: Module 4 - Natural Language Processing (NLP)
 ---
 
 # <a name="explore-text-analytics"></a>Explorar a análise de texto
