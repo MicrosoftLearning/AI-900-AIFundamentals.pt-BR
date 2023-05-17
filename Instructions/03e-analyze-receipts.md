@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar o reconhecimento de formulários
+  title: 'Explorar o reconhecimento de formulários'
 ---
 
 # <a name="explore-form-recognition"></a>Explorar o reconhecimento de formulários

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar o reconhecimento de linguagem
+  title: 'Explorar o reconhecimento de linguagem'
 ---
 
 # <a name="explore-language-understanding"></a>Explorar o reconhecimento de linguagem

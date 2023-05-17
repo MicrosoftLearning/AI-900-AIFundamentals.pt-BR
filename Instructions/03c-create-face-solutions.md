@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar o reconhecimento facial
+  title: 'Explorar o reconhecimento facial'
 ---
 
 # <a name="explore-face-recognition"></a>Explorar o reconhecimento facial

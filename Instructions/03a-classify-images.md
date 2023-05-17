@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar a classificação de imagem
+  title: 'Explorar a classificação de imagem'
 ---
 
 # <a name="explore-image-classification"></a>Explorar a classificação de imagem

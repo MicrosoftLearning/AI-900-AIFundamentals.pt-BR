@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar a análise de texto
+  title: 'Explorar a análise de texto'
 ---
 
 # <a name="explore-text-analytics"></a>Explorar a análise de texto

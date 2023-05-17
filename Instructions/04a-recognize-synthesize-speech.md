@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar a fala
+  title: 'Explorar a fala'
 ---
 
 # <a name="explore-speech"></a>Explorar a fala

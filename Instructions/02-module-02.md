@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar o machine learning automatizado no Azure ML
+  title: 'Explorar o machine learning automatizado no Azure ML'
 ---
 
 # <a name="explore-automated-machine-learning-in-azure-ml"></a>Explorar o machine learning automatizado no Azure ML
