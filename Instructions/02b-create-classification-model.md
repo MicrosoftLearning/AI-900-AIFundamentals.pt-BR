@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar a classificação com o designer do Azure Machine Learning'
+  title: Explorar a classificação com o designer do Azure Machine Learning
 ---
 
 # <a name="explore-classification-with-azure-machine-learning-designer"></a>Explorar a classificação com o designer do Azure Machine Learning

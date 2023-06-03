@@ -1,6 +1,6 @@
 ---
 lab:
-    title: 'Explorar os Serviços Cognitivos'
+  title: Explorar os Serviços Cognitivos
 ---
 
 # <a name="explore-cognitive-services"></a>Explorar os Serviços Cognitivos

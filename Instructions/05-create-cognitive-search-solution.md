@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar a mineração de conhecimento'
+  title: Explorar a mineração de conhecimento
 ---
 
 # <a name="explore-knowledge-mining"></a>Explorar a mineração de conhecimento

@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar a Pesquisa Visual Computacional'
+  title: Explorar a Pesquisa Visual Computacional
 ---
 
 # <a name="explore-computer-vision"></a>Explorar a Pesquisa Visual Computacional

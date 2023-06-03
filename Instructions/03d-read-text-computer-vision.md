@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar o reconhecimento óptico de caracteres'
+  title: Explorar o reconhecimento óptico de caracteres
 ---
 
 # <a name="explore-optical-character-recognition"></a>Explorar o reconhecimento óptico de caracteres

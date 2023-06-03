@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar a tradução'
+  title: Explorar a tradução
 ---
 
 # <a name="explore-translation"></a>Explorar a tradução

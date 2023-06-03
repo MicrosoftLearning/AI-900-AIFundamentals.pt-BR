@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar a detecção de objetos'
+  title: Explorar a detecção de objetos
 ---
 
 # <a name="explore-object-detection"></a>Explorar a detecção de objetos

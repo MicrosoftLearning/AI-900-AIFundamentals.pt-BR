@@ -1,6 +1,6 @@
 ---
 lab:
-  title: 'Explorar o recurso respostas às perguntas'
+  title: Explorar o recurso respostas às perguntas
 ---
 
 # <a name="explore-question-answering"></a>Explorar o recurso respostas às perguntas
