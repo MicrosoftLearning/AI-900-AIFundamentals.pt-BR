@@ -3,7 +3,7 @@ lab:
   title: Explorar o reconhecimento óptico de caracteres
 ---
 
-# <a name="explore-optical-character-recognition"></a>Explorar o reconhecimento óptico de caracteres
+# Explorar o reconhecimento óptico de caracteres
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -11,13 +11,13 @@ Um desafio comum da Pesquisa Visual Computacional é detectar e interpretar text
 
 Para testar as funcionalidades da API de Leitura, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="use-the-computer-vision-service-to-read-text-in-an-image"></a>Usar o serviço de Pesquisa Visual Computacional para ler texto em uma imagem
+## Usar o serviço de Pesquisa Visual Computacional para ler texto em uma imagem
 
 O serviço cognitivo **Pesquisa Visual Computacional** fornece suporte para tarefas de OCR, incluindo:
 
 - Uma API de **Leitura**, otimizada para documentos maiores. Essa API é usada de forma assíncrona e pode ser usada para textos impressos e manuscritos.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *Serviços Cognitivos*
 
 Você pode usar o serviço Pesquisa Visual Computacional criando um recurso **Pesquisa Visual Computacional** ou um recurso dos **Serviços Cognitivos**.
 
@@ -37,7 +37,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell no Azure.
 
@@ -59,7 +59,7 @@ Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicat
 
     ![Aguarde o início do PowerShell.](media/read-text-computer-vision/powershell-prompt.png) 
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um modelo personalizado, pode executar um aplicativo cliente simples que usa o serviço de OCR.
 
@@ -129,6 +129,6 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 1. Examine os resultados da análise da segunda imagem. Também devem ser retornados o texto e as caixas delimitadoras do texto.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos de OCR do serviço de Pesquisa Visual Computacional. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-ocr).

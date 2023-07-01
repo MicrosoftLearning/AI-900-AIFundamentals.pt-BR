@@ -3,7 +3,7 @@ lab:
   title: Explorar o reconhecimento de formulários
 ---
 
-# <a name="explore-form-recognition"></a>Explorar o reconhecimento de formulários
+# Explorar o reconhecimento de formulários
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -15,7 +15,7 @@ O Reconhecimento de Formulários usa modelos de machine learning treinados para 
 
 Para testar os recursos do serviço de Reconhecimento de Formulários, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *Serviços Cognitivos*
 
 Você pode usar o serviço de Reconhecimento de Formulários com a criação de um recurso do **Reconhecimento de Formulários** ou de um recurso dos **Serviços Cognitivos.**
 
@@ -35,7 +35,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar os recursos do serviço de Reconhecimento de Formulários, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell no Azure. 
 
@@ -57,7 +57,7 @@ Para testar os recursos do serviço de Reconhecimento de Formulários, usaremos 
 
     ![Aguarde o início do PowerShell.](media/analyze-receipts/powershell-prompt.png) 
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um modelo personalizado, pode executar um aplicativo cliente simples que usa o serviço de Reconhecimento de Formulários.
 
@@ -109,6 +109,6 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 1. Examine os resultados retornados. Veja que o Reconhecimento de Formulários é capaz de interpretar os dados no formulário, identificando corretamente o endereço e o número de telefone da loja e a data e hora da transação, bem como os itens de linha, subtotal, impostos e valores totais.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos do Reconhecimento de Formulários do serviço de Pesquisa Visual Computacional. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página do Reconhecimento de Formulários](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/overview).

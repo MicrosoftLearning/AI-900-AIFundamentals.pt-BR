@@ -3,7 +3,7 @@ lab:
   title: Explorar o reconhecimento facial
 ---
 
-# <a name="explore-face-recognition"></a>Explorar o reconhecimento facial
+# Explorar o reconhecimento facial
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -11,7 +11,7 @@ As soluções de pesquisa visual computacional costumam exigir uma solução de 
 
 Para testar os recursos do serviço de Detecção Facial, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *Serviços Cognitivos*
 
 O serviço de Detecção Facial pode ser usado por meio da criação de um recurso de **Detecção Facial** ou dos **Serviços Cognitivos**.
 
@@ -31,7 +31,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar os recursos do serviço de Detecção Facial, usaremos um aplicativo de linha de comando simples executado no Cloud Shell no Azure. 
 
@@ -53,7 +53,7 @@ Para testar os recursos do serviço de Detecção Facial, usaremos um aplicativo
 
     ![Aguarde o início do PowerShell.](media/create-face-solutions/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um modelo personalizado, pode executar um aplicativo cliente simples que usa o serviço de Detecção Facial.
 
@@ -133,6 +133,6 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 1. Examine os resultados da análise do rosto da terceira imagem.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Detecção Facial. Para saber o que você pode fazer com esse serviço, confira a [página da API de Detecção Facial](https://azure.microsoft.com/services/cognitive-services/face/).
