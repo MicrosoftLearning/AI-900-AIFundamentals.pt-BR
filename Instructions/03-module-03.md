@@ -3,7 +3,7 @@ lab:
   title: Explorar a Pesquisa Visual Computacional
 ---
 
-# <a name="explore-computer-vision"></a>Explorar a Pesquisa Visual Computacional
+# Explorar a Pesquisa Visual Computacional
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -13,7 +13,7 @@ Por exemplo, suponha que o varejista fictício *Northwind Traders* tenha decidid
 
 Neste laboratório, você usará um aplicativo de linha de comando simples para ver o serviço Pesquisa Visual Computacional em ação. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *Serviços Cognitivos*
 
 Você pode usar o serviço Pesquisa Visual Computacional criando um recurso **Pesquisa Visual Computacional** ou um recurso dos **Serviços Cognitivos**.
 
@@ -33,7 +33,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar os recursos do serviço de Pesquisa Visual Computacional, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell no Azure.
 
@@ -55,7 +55,7 @@ Para testar os recursos do serviço de Pesquisa Visual Computacional, usaremos u
 
     ![Aguarde o início do PowerShell.](media/analyze-images-computer-vision-service/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simples que usa o serviço de Pesquisa Visual Computacional para analisar uma imagem.
 
@@ -134,6 +134,6 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
 
 1. Examine os resultados da análise da terceira imagem.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Pesquisa Visual Computacional. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
