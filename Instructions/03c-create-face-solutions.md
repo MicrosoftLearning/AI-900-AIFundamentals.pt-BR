@@ -11,25 +11,24 @@ As soluções de pesquisa visual computacional costumam exigir uma solução de 
 
 Para testar os recursos do serviço de Detecção Facial, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso da *API de Detecção Facial*
 
-O serviço de Detecção Facial pode ser usado por meio da criação de um recurso de **Detecção Facial** ou dos **Serviços Cognitivos**.
+Você pode usar o serviço Detecção Facial criando um recurso **Detecção Facial**. (A API de Detecção Facial não está mais disponível nos Serviços Cognitivos)
 
-Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Caso ainda não tenha feito isso, crie um recurso de **API de Detecção Facial** em sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso**, procure por *Detecção Facial* e crie um recurso de **Detecção Facial** com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
     - **Nome**: *insira um nome exclusivo*.
-    - **Tipo de preço**: Standard S0
-    - **Ao marcar esta caixa, confirmo que li e compreendi todos os termos abaixo**: selecionada.
+    - **Tipo de preço**: F0 gratuito
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação. Em seguida, vá para o recurso implantado.
 
-1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
+1. Exiba a página **Chaves e Ponto de Extremidade** do seu recurso Detecção Facial. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
 ## Executar o Cloud Shell
 
@@ -79,7 +78,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para detectar rostos em uma imagem](media/create-face-solutions/find-faces-code.png)
 
-1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do seu recurso dos Serviços Cognitivos. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e os copie no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
+1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do seu recurso de Detecção Facial. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e os copie no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 
@@ -135,4 +134,4 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 ## Saiba mais
 
-Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Detecção Facial. Para saber o que você pode fazer com esse serviço, confira a [página da API de Detecção Facial](https://azure.microsoft.com/services/cognitive-services/face/).
+Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Detecção Facial. Para saber o que você pode fazer com esse serviço, confira a [página da API de Detecção Facial](https://azure.microsoft.com/en-us/products/cognitive-services/vision-services).
