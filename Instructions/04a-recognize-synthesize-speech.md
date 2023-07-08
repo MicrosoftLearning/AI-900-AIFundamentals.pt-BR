@@ -3,7 +3,7 @@ lab:
   title: Explorar a fala
 ---
 
-# <a name="explore-speech"></a>Explorar a fala
+# Explorar a fala
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -13,7 +13,7 @@ Por exemplo, suponha que você queira criar um dispositivo inteligente que possa
 
 Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso de *Serviços Cognitivos*
+## Criar um recurso de *Serviços Cognitivos*
 
 O serviço de Fala pode ser usado por meio da criação de um recurso de **Fala** ou de **Serviços Cognitivos**.
 
@@ -31,13 +31,13 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Revise e crie o recurso.
 
-### <a name="get-the-key-and-location-for-your-cognitive-services-resource"></a>Obter a chave e o local do recurso dos Serviços Cognitivos
+### Obter a chave e o local do recurso dos Serviços Cognitivos
 
 1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos Serviços Cognitivos e, na página de **visão geral**, clique no link para gerenciar as chaves do serviço. Você precisará do ponto de extremidade e das chaves para se conectar ao recurso dos Serviços Cognitivos de aplicativos cliente.
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do seu recurso. Você precisará do **local/região** e da **chave** para se conectar de aplicativos cliente.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de comando simples executado no Cloud Shell no Azure.
 
@@ -59,7 +59,7 @@ Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de 
 
     ![Aguarde o início do PowerShell.](media/recognize-synthesize-speech/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um modelo personalizado, pode executar um aplicativo cliente simples que usa o serviço de Fala.
 
@@ -117,6 +117,6 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     <div class="embeddedvideo"><iframe src="https://www.microsoft.com/videoplayer/embed/RWMSIU" frameborder="0" allowfullscreen="true" data-linktype="external"></iframe></div>
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Fala. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página de Fala](https://azure.microsoft.com/services/cognitive-services/speech-services/).

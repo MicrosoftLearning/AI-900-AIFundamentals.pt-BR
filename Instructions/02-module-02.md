@@ -3,13 +3,13 @@ lab:
   title: Explorar o machine learning automatizado no Azure ML
 ---
 
-# <a name="explore-automated-machine-learning-in-azure-ml"></a>Explorar o machine learning automatizado no Azure ML
+# Explorar o machine learning automatizado no Azure ML
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
 Nesse caso, você usará um conjunto de dados de detalhes históricos de aluguel de bicicleta para treinar um modelo que prevê o número de aluguéis de bicicletas que deve ser esperado em um determinado dia, com base em características sazonais e meteorológicas.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Criar um workspace do Azure Machine Learning  
+## Criar um workspace do Azure Machine Learning  
 
 1. Entre no [portal do Azure](https://portal.azure.com?azure-portal=true) usando suas credenciais da Microsoft.
 
@@ -27,17 +27,15 @@ Nesse caso, você usará um conjunto de dados de detalhes históricos de aluguel
 
 1. Selecione **Iniciar o estúdio** (ou abra uma nova guia do navegador, acesse [https://ml.azure.com](https://ml.azure.com?azure-portal=true) e entre no Estúdio do Azure Machine Learning usando a conta Microsoft).
 
-1. Se a mensagem **Quais são as metas de machine learning hoje?** for exibida, selecione **Cancelar**.
+1. Feche todas as mensagens exibidas.
 
-1. Se a mensagem **Bem-vindo(a) ao Estúdio!** for exibida, selecione **X**.
-
-1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, clique em **Microsoft** no menu à esquerda. Depois, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados à assinatura estão listados. Escolha o que você criou para este exercício. 
+1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, selecione o diretório do Azure no menu à esquerda. Em seguida, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados ao diretório estão listados e selecione aquele que você criou para este exercício.
 
 > **Observação** Este módulo é um dos vários que usam um workspace do Azure Machine Learning, incluindo os outros módulos do roteiro de aprendizagem [Conceitos básicos de IA do Microsoft Azure: explore ferramentas visuais para machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se você estiver usando sua assinatura do Azure, considere a possibilidade de criar o workspace uma vez e reutilizá-lo em outros módulos. Será cobrada uma pequena quantidade de armazenamento de dados em sua assinatura do Azure se o workspace do Azure Machine Learning existir na assinatura. Portanto, recomendamos que você exclua o workspace do Azure Machine Learning quando ele não for mais necessário.
 
-## <a name="create-compute"></a>Criar computação
+## Criar computação
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione o ícone **&#8801;** (um ícone de menu que se parece com uma pilha de três linhas) na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
 
 1. Na página **Computação**, selecione a guia **Clusters de cálculo** e adicione um novo cluster de cálculo com as configurações a seguir. Você o usará para treinar um modelo de machine learning:
     - **Localização**: *selecione a mesma que a do workspace. Se essa localização não estiver listada, escolha a mais próxima de você*.
@@ -51,18 +49,18 @@ Nesse caso, você usará um conjunto de dados de detalhes históricos de aluguel
     - **Número mínimo de nós**: 0
     - **Número máximo de nós**: 2
     - **Segundos de espera antes de reduzir verticalmente**: 120
-    - **Habilitar o acesso SSH**: desmarque
+    - **Habilitar o acesso SSH**: não habilitar
     - Escolha **Criar**
 
 > **Observação** As instâncias de computação e os clusters de cálculo se baseiam em imagens de máquina virtual do Azure Standard. Para este módulo, a imagem *Standard_DS11_v2* é recomendada para atingir o equilíbrio ideal entre custo e desempenho. Se a sua assinatura tiver uma cota que não inclua essa imagem, escolha uma imagem alternativa. Mas tenha em mente que uma imagem maior pode gerar um custo maior e uma imagem menor pode não ser suficiente para concluir as tarefas. Como alternativa, peça ao administrador do Azure para estender sua cota.
 
 O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a próxima etapa enquanto aguarda.
 
-## <a name="create-a-dataset"></a>Criar um conjunto de dados
+## Criar um ativo de dados
 
 1. Exiba os dados separados por vírgula em [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true) no seu navegador da Web.
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas no canto superior esquerdo da tela para expandir o painel. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
 
 1. Na página **Dados**, na guia **Ativos de dados**, selecione **Criar**. Depois, defina um ativo de dados com as seguintes configurações:
     * **Tipo de dados**:
@@ -90,11 +88,11 @@ O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a pr�
 
 > **Citação**: *esses dados são derivados de [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) e são usados de acordo com [contrato de licença](https://www.capitalbikeshare.com/data-license-agreement) dos dados publicados*.
 
-## <a name="run-an-automated-machine-learning-job"></a>Executar um trabalho de machine learning automatizado
+## Executar um trabalho de machine learning automatizado
 
 Siga as próximas etapas para executar um trabalho que usa o machine learning automatizado para treinar um modelo de regressão que prevê aluguéis de bicicletas.
 
-1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), veja a página **ML Automatizado** (em **Criar**).
+1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), veja a página **ML Automatizado** (em **Criação**).
 
 1. Crie um trabalho de ML automatizado com as seguintes configurações:
     - **Selecione o ativo de dados**:
@@ -136,13 +134,12 @@ Siga as próximas etapas para executar um trabalho que usa o machine learning au
 
 1. Aguarde a conclusão do trabalho. Isso pode demorar um pouco, então agora é um bom momento para um café.
 
-## <a name="review-the-best-model"></a>Examinar o melhor modelo
+## Examinar o melhor modelo
 
 1. Na guia **Visão geral** do trabalho de machine learning automatizado, observe o resumo do melhor modelo.
     ![Captura de tela do resumo do melhor modelo do trabalho de machine learning automatizado com uma caixa em torno do nome do algoritmo.](media/use-automated-machine-learning/complete-run.png)
 
-    >[!NOTE]
-    > Você pode ver uma mensagem sob o status "Aviso: pontuação de saída especificada pelo usuário atingida...". Essa é uma mensagem esperada. Continue na próxima etapa.  
+    > **Note**: você pode ver uma mensagem sob o status "Aviso: pontuação de saída especificada pelo usuário atingida...". Essa é uma mensagem esperada. Continue na próxima etapa.  
 1. Selecione o texto em **Nome do algoritmo** do melhor modelo para exibir os respectivos detalhes.
 
 1. Ao lado do valor de *Raiz do erro quadrático médio normalizada*, selecione **Exibir todas as outras métricas** para ver os valores das outras métricas de avaliação possíveis para um modelo de regressão.
@@ -158,7 +155,7 @@ Siga as próximas etapas para executar um trabalho que usa o machine learning au
 
     ![Captura de tela do gráfico de importância do recurso na guia Explicações.](media/use-automated-machine-learning/feature-importance.png)
 
-## <a name="deploy-a-predictive-service"></a>Implantar um serviço de previsão
+## Implantar um serviço de previsão
 
 1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na página **ML Automatizado**, selecione o trabalho de machine learning automatizado.
 
@@ -177,7 +174,7 @@ Siga as próximas etapas para executar um trabalho que usa o machine learning au
 1. No Estúdio do Azure Machine Learning, no menu à esquerda, selecione **Pontos de Extremidade**.
     ![Captura de tela da localização dos pontos de extremidade no menu à esquerda.](media/use-automated-machine-learning/find-endpoints.png)
 
-## <a name="test-the-deployed-service"></a>Testar o serviço implantado
+## Testar o serviço implantado
 
 Agora você pode testar o serviço implantado.
 
@@ -221,15 +218,14 @@ Vamos revisar o que você fez. Você usou um conjunto de dados históricos de lo
 
 Você acabou de testar um serviço que está pronto para ser conectado a um aplicativo cliente usando as credenciais na guia **Consumir**. Vamos encerrar o laboratório aqui. Fique à vontade para continuar experimentando o serviço que você acabou de implantar.
 
-## <a name="clean-up"></a>Limpar
+## Limpar
 
-O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Interrompa também a instância de computação até que precise dela novamente.
+O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Você também deve excluir o cluster de cálculo.
 
 1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na guia **Pontos de extremidade**, selecione o ponto de extremidade **predict-rentals**. Depois, selecione **Excluir** e confirme que você deseja excluir o ponto de extremidade.
-2. Na página **Computação**, na guia **Instâncias de Computação**, selecione sua instância de computação e escolha **Parar**.
+2. Na página **Computação**, na guia **Clusters de cálculo**, selecione o cluster de cálculo e escolha **Excluir**.
 
->[!NOTE]
-> Parar sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
+> **Observação** Excluir sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
 >
 > Para excluir seu workspace:
 > 1. No [portal do Azure](https://portal.azure.com?azure-portal=true), na página **Grupos de recursos**, abra o grupo de recursos que você especificou ao criar seu Workspace do Azure Machine Learning.

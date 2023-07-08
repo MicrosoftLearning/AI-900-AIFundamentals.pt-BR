@@ -3,11 +3,11 @@ lab:
   title: Explorar a classificação com o designer do Azure Machine Learning
 ---
 
-# <a name="explore-classification-with-azure-machine-learning-designer"></a>Explorar a classificação com o designer do Azure Machine Learning
+# Explorar a classificação com o designer do Azure Machine Learning
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Criar um workspace do Azure Machine Learning  
+## Criar um workspace do Azure Machine Learning  
 
 1. Entre no [portal do Azure](https://portal.azure.com?azure-portal=true) usando suas credenciais da Microsoft.
 
@@ -25,13 +25,13 @@ lab:
 
 1. Selecione **Iniciar o estúdio** (ou abra uma nova guia do navegador, acesse [https://ml.azure.com](https://ml.azure.com?azure-portal=true) e entre no Estúdio do Azure Machine Learning usando a conta Microsoft).
 
-1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, clique em **Microsoft** no menu à esquerda. Depois, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados à assinatura estão listados. Escolha o que você criou para este exercício. 
+1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, selecione o diretório do Azure no menu à esquerda. Em seguida, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados ao diretório estão listados e selecione aquele que você criou para este exercício.
 
 > **Observação** Este módulo é um dos vários que usam um workspace do Azure Machine Learning, incluindo os outros módulos do roteiro de aprendizagem [Conceitos básicos de IA do Microsoft Azure: explore ferramentas visuais para machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se você estiver usando sua assinatura do Azure, considere a possibilidade de criar o workspace uma vez e reutilizá-lo em outros módulos. Será cobrada uma pequena quantidade de armazenamento de dados em sua assinatura do Azure se o workspace do Azure Machine Learning existir na assinatura. Portanto, recomendamos que você exclua o workspace do Azure Machine Learning quando ele não for mais necessário.
 
-## <a name="create-compute"></a>Criar computação
+## Criar computação
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione o ícone **&#8801;** (um ícone de menu que se parece com uma pilha de três linhas) na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
 
 1. Na página **Computação**, selecione a guia **Clusters de cálculo** e adicione um novo cluster de cálculo com as configurações a seguir. Você o usará para treinar um modelo de machine learning:
     - **Localização**: *selecione a mesma que a do workspace. Se essa localização não estiver listada, escolha a mais próxima de você*.
@@ -52,11 +52,11 @@ lab:
 
 O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a próxima etapa enquanto aguarda.
 
-## <a name="create-a-pipeline-in-designer"></a>Criar um pipeline no Designer
+## Criar um pipeline no Designer
 
 Para começar a usar o designer do Azure Machine Learning, primeiro você precisa criar um pipeline e adicionar o conjunto de dados com o qual deseja trabalhar.
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas no canto superior esquerdo da tela para expandir o painel. Veja a página **Designer** (em **Criar**) e selecione **+** para criar um pipeline.
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Veja a página **Designer** (em **Criar**) e selecione **+** para criar um pipeline.
 
 1. No canto superior direito da tela, selecione **Configurações**. Se o painel **Configurações** não estiver visível, selecione o ícone de engrenagem ao lado do nome do pipeline na parte superior.
 
@@ -68,9 +68,9 @@ Para começar a usar o designer do Azure Machine Learning, primeiro você precis
 
     ![Captura de tela do painel Configurações do Estúdio do Azure Machine Learning.](media/create-classification-model/create-pipeline-help.png)
 
-## <a name="create-a-dataset"></a>Criar um conjunto de dados
+## Criar um conjunto de dados
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas no canto superior esquerdo da tela para expandir o painel. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
 
 1. Na página **Dados**, na guia **Ativos de dados**, selecione **Criar**. Depois, defina um ativo de dados com as seguintes configurações:
     * **Tipo de dados**:
@@ -96,7 +96,7 @@ Para começar a usar o designer do Azure Machine Learning, primeiro você precis
 
 1. Depois que o conjunto de dados tiver sido criado, abra-o e exiba a página **Explorar** para ver uma amostra dos dados. Esses dados representam detalhes de pacientes que foram testados para diabetes.
 
-### <a name="load-data-to-canvas"></a>Carregar dados na tela
+### Carregar dados na tela
 
 1. Retorne ao pipeline selecionando **Designer** no menu à esquerda. Na página **Designer**, selecione o pipeline **Treinamento de diabetes**.
 
@@ -118,7 +118,7 @@ Para começar a usar o designer do Azure Machine Learning, primeiro você precis
 
     ![Captura de tela do conjunto de dados diabetes-data na tela do designer.](media/create-classification-model/diabetes-data.png)
 
-## <a name="add-transformations"></a>Adicionar transformações
+## Adicionar transformações
 
 Para treinar um modelo, você precisa aplicar algumas transformações de pré-processamento aos dados.
 
@@ -128,27 +128,26 @@ Para treinar um modelo, você precisa aplicar algumas transformações de pré-p
 
 1. Localize o módulo **Selecionar Colunas no Conjunto de Dados** e coloque-o na tela, abaixo do conjunto de dados **diabetes-data**. Em seguida, conecte a saída da parte inferior do conjunto de dados **diabetes-data** à entrada na parte superior do módulo **Selecionar Colunas no Conjunto de Dados**.
 
+1. Clique duas vezes no módulo **Selecionar Colunas no Conjunto de Dados** para acessar um painel de configurações à direita. Selecione **Editar coluna**. Na janela **Selecionar colunas**, selecione **Por nome** e **Adicionar todas** as colunas. Em seguida, remova **PatientID** e clique em **Salvar**. 
+
 1. Localize o módulo **Normalizar Dados** e coloque-o na tela, abaixo do módulo **Selecionar Colunas no Conjunto de Dados**. Em seguida, conecte a saída da parte inferior do módulo **Selecionar Colunas no Conjunto de Dados** à entrada na parte superior do módulo **Normalizar Dados**, desta forma:
 
     ![Captura de tela de um pipeline com o conjunto de dados conectado para selecionar colunas e o módulo Normalizar Dados.](media/create-classification-model/dataset-normalize.png)
 
 1. Clique duas vezes no módulo **Normalizar Dados** para ver as respectivas configurações, observando que é necessário especificar o método de transformação e as colunas a serem transformadas. 
 
-1. Defina o *Método de transformação* como **MinMax** e o *Usar 0 para colunas constantes quando marcadas* como **True**. Edite as colunas para incluir as seguintes colunas por nome, conforme mostrado na imagem:
-    - **Gravidezes**
-    - **PlasmaGlucose**
-    - **DiastolicBloodPressure**
-    - **TricepsThickness**
-    - **SerumInsulin**
-    - **BMI**
-    - **DiabetesPedigree**
-    - **Age**
+1. Defina o *Método de transformação* como **MinMax** e o *Usar 0 para colunas constantes quando marcadas* como **True**. Edite as colunas a serem transformadas com **Editar colunas**. Selecione colunas **Com Regras** e copie e cole a seguinte lista em incluir nomes de coluna:  
 
-    ![Captura de tela das colunas selecionadas para a normalização.](media/create-classification-model/normalize-data.png)
+```
+Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsulin, BMI, DiabetesPedigree, Age
+```
+![Captura de tela das colunas selecionadas para a normalização.](media/create-classification-model/normalize-data.png)
+
+Clique em **Salvar** e feche a caixa de seleção. 
 
 A transformação de dados está normalizando as colunas numéricas para colocá-las na mesma escala, o que deve ajudar a evitar que colunas com valores grandes dominem o treinamento do modelo. Normalmente, você aplicaria um número grande de transformações de pré-processamento como essa para preparar seus dados para treinamento, mas vamos manter as coisas simples neste exercício.
 
-## <a name="run-the-pipeline"></a>Executar o pipeline
+## Executar o pipeline
 
 Para aplicar suas transformações de dados, você precisa executar o pipeline como um experimento.
 
@@ -160,7 +159,7 @@ Para aplicar suas transformações de dados, você precisa executar o pipeline c
 
     Observe que o painel esquerdo agora está no painel **Trabalhos Enviados**. Você saberá quando a execução for concluída porque o status do trabalho será alterado para **Concluído**.
 
-## <a name="view-the-transformed-data"></a>Ver os dados transformados
+## Ver os dados transformados
 
 1. Quando a execução for concluída, o conjunto de dados estará preparado para treinamento de modelo. Clique em **Detalhes do trabalho**. Você será direcionado a uma nova guia.
 
@@ -172,7 +171,7 @@ Para aplicar suas transformações de dados, você precisa executar o pipeline c
 
 Depois de usar as transformações de dados para prepará-los, é possível usá-las para treinar um modelo de machine learning.
 
-## <a name="add-training-modules"></a>Adicionar módulos de treinamento
+## Adicionar módulos de treinamento
 
 É uma prática comum treinar o modelo usando um subconjunto dos dados, simultaneamente retendo alguns dados com os quais testar o modelo treinado. Isso permite que você compare os rótulos que o modelo prevê com os rótulos reais conhecidos no conjunto de dados original.
 
@@ -207,7 +206,7 @@ Siga as etapas abaixo, usando a imagem acima para referência, à medida que voc
 
 1. Na **Biblioteca de ativos**, procure o módulo **Pontuar modelo** e coloque-o na tela, sob o módulo **Treinar modelo**. Em seguida, conecte a saída do módulo **Treinar Modelo** à entrada **Modelo treinado** (à esquerda) do módulo **Pontuar Modelo** e conecte a saída do **Conjunto de dados de resultado2** (à direita) do módulo **Dividir dados** à entrada **Conjunto de dados** (à direita) do módulo **Pontuar Modelo**.
 
-## <a name="run-the-training-pipeline"></a>Executar o pipeline de treinamento
+## Executar o pipeline de treinamento
 
 Agora você está pronto para executar o pipeline de treinamento e treinar o modelo.
 
@@ -227,7 +226,7 @@ O modelo está prevendo valores para o rótulo **Diabético**, mas o quão confi
 
 Os dados de validação que você reteve e usou para pontuar o modelo incluem os valores conhecidos para o rótulo. Portanto, para validar o modelo, é possível comparar os valores verdadeiros para o rótulo com os valores de rótulo que foram previstos quando você pontuou o conjunto de dados de validação. Com base nessa comparação, é possível calcular várias métricas que descrevem o quão bom é o desempenho do modelo.
 
-## <a name="add-an-evaluate-model-module"></a>Adicionar um módulo Avaliar Modelo
+## Adicionar um módulo Avaliar Modelo
 
 1. Abra o pipeline de **Treinamento de Diabetes** que você criou.
 
@@ -261,9 +260,9 @@ Os dados de validação que você reteve e usou para pontuar o modelo incluem os
 
 O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um mínimo de engenharia de recursos e pré-processamento. É possível tentar um algoritmo de classificação diferente, como a **floresta de decisão de duas classes**, e comparar os resultados. É possível conectar as saídas do módulo **Dividir Dados** a vários módulos **Treinar Modelo** e **Pontuar Modelo** e conectar um segundo módulo **Pontuar Modelo** ao módulo **Avaliar Modelo** para ver uma comparação lado a lado. O objetivo do exercício é simplesmente apresentar a você a classificação e a interface do designer do Azure Machine Learning, não treinar um modelo perfeito!
 
-## <a name="create-an-inference-pipeline"></a>Criar um pipeline de inferência
+## Criar um pipeline de inferência
 
-1. No Estúdio do Azure Machine Learning, selecione as três linhas no canto superior esquerdo da tela para expandir o painel. Clique em **Trabalhos** (em **Ativos**) para exibir todos os trabalhos executados. Selecione o teste **mslearn-diabetes-training** e o pipeline **Treinamento de diabetes**.
+1. No Estúdio do Azure Machine Learning, expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Clique em **Trabalhos** (em **Ativos**) para exibir todos os trabalhos executados. Selecione o teste **mslearn-diabetes-training** e o pipeline **Treinamento de diabetes**.
 
 1. Localize o menu acima da tela e clique em **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
 
@@ -283,7 +282,7 @@ O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um
     - Remova o módulo **Avaliar Modelo**.
     - Insira um módulo **Executar script Python** antes da saída do serviço Web para retornar apenas a ID do paciente, o valor do rótulo previsto e a probabilidade.
 
-1. O pipeline não inclui automaticamente um componente **Entrada de serviço Web** para modelos criados com base em conjuntos de dados personalizados. Procure um componente **Entrada de serviço Web** na biblioteca de ativos e coloque-o na parte superior do pipeline. Conecte a saída do componente **Entrada de serviço Web** à entrada do lado direito do componente **Aplicar transformação** que já está na tela.
+1. O pipeline não inclui automaticamente um componente **Entrada de serviço Web** para modelos criados com base em conjuntos de dados personalizados. Procure um componente **Entrada de serviço Web** na biblioteca de ativos e coloque-o na parte superior do pipeline. Conecte a saída do componente **Entrada de serviço Web** ao componente **Selecionar colunas no conjunto de dados** que já está na tela.
 
 1. O pipeline de inferência assume que os novos dados corresponderão ao esquema dos dados de treinamento originais, de modo que o conjunto de dados **dados de diabetes** do pipeline de treinamento é incluído. No entanto, esses dados de entrada incluem o rótulo **Diabético** que o modelo prevê, que não está incluído em novos dados de pacientes para os quais uma previsão de diabetes ainda não foi feita. Exclua esse módulo e substitua-o por um módulo **Inserir Dados Manualmente**, contendo os seguintes dados CSV, o que inclui valores de recursos sem rótulos para três novas observações de pacientes:
 
@@ -294,7 +293,7 @@ O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um
     1228510,4,115,50,29,243,34.69215364,0.741159926,59
     ```
 
-1. Conecte o novo módulo **Inserir Dados Manualmente** à mesma entrada de **Conjunto de dados** do módulo **Aplicar Transformação** como a **Entrada do Serviço Web**.
+1. Conecte o novo módulo **Inserir Dados Manualmente** à mesma entrada de **Conjunto de dados** do módulo **Selecionar Colunas no Conjunto de Dados** como a **Entrada do Serviço Web**.
 
 1. Edite o módulo **Selecionar Colunas no Conjunto de Dados**. Remova **Diabetic** das *Colunas Selecionadas*. 
 
@@ -332,7 +331,7 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
 
 > **Observação** Neste exercício, você implantará o serviço Web em uma ACI (Instância de Contêiner do Azure). Esse tipo de computação é criado dinamicamente e é útil para desenvolvimento e teste. Para produção, você deve criar um *cluster de inferência*, que gera um cluster AKS (Serviço de Kubernetes do Azure), o qual, por sua vez, fornece melhor escalabilidade e segurança.
 
-## <a name="deploy-a-service"></a>Implantar um serviço
+## Implantar um serviço
 
 1. Veja o pipeline de inferência **Prever Diabetes** criado na unidade anterior.
 
@@ -351,7 +350,7 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
 
 1. Aguarde até que o serviço Web seja implantado. Isso pode levar vários minutos. O status da implantação é mostrado na parte superior esquerda da interface do designer.
 
-## <a name="test-the-service"></a>Teste o serviço
+## Teste o serviço
 
 1. Na página **Pontos de extremidade**, abra o ponto de extremidade em tempo real **prever diabetes**.
 
@@ -387,15 +386,15 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
 
     Você acabou de testar um serviço que está pronto para ser conectado a um aplicativo cliente usando as credenciais na guia **Consumir**. Vamos encerrar o laboratório aqui. Fique à vontade para continuar experimentando o serviço que você acabou de implantar.
 
-## <a name="clean-up"></a>Limpar
+## Limpar
 
-O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure.
+O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Você também deve excluir o cluster de cálculo.
 
 1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na guia **Pontos de extremidade**, selecione o ponto de extremidade **prever diabetes**. Depois, selecione **Excluir** e confirme que deseja excluir o ponto de extremidade.
 
 1. Na página **Computação**, na guia **Clusters de cálculo**, selecione a instância de computação e escolha **Excluir**.
 
->**Observação** A interrupção da computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
+>**Observação** Excluir sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
 >
 > Para excluir seu workspace:
 >

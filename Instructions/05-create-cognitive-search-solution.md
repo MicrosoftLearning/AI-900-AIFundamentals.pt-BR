@@ -3,7 +3,7 @@ lab:
   title: Explorar a mineração de conhecimento
 ---
 
-# <a name="explore-knowledge-mining"></a>Explorar a mineração de conhecimento
+# Explorar a mineração de conhecimento
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -18,7 +18,7 @@ Neste laboratório, você vai:
 - Consultar o índice de pesquisa
 - Examinar os resultados salvos em um Repositório de Conhecimento
 
-## <a name="azure-resources-needed"></a>Recursos do Azure necessários
+## Recursos do Azure necessários
 
 A solução que você criará para a Fourth Coffee exige os seguintes recursos na sua assinatura do Azure:
 
@@ -29,7 +29,7 @@ A solução que você criará para a Fourth Coffee exige os seguintes recursos n
 
 - Uma **Conta de armazenamento** com contêineres de blob, que armazena documentos brutos e outras coleções de tabelas, objetos ou arquivos.
 
-### <a name="create-an-azure-cognitive-search-resource"></a>Criar um recurso do *Azure Cognitive Search*
+### Criar um recurso do *Azure Cognitive Search*
 
 1. Entre no [portal do Azure](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
@@ -45,7 +45,7 @@ A solução que você criará para a Fourth Coffee exige os seguintes recursos n
 
 1. Após a implantação ser concluída, selecione **Ir para o recurso**. Na página de visão geral do Azure Cognitive Search, você pode adicionar índices, importar dados e pesquisar índices criados.
 
-### <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
+### Criar um recurso dos Serviços Cognitivos
 
 Você precisará provisionar um recurso de **Serviços Cognitivos** que está na mesma localização que o recurso Azure Cognitive Search. Sua solução de pesquisa usará esse recurso para enriquecer os dados no armazenamento de dados com insights gerados pela IA.
 
@@ -61,7 +61,7 @@ Você precisará provisionar um recurso de **Serviços Cognitivos** que está na
 
 1. Aguarde a conclusão da implantação e veja os detalhes da implantação.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### Criar uma conta de armazenamento
 
 1. Retorne à página inicial do portal do Azure e selecione o botão **+ Criar um recurso**.
 
@@ -75,7 +75,7 @@ Você precisará provisionar um recurso de **Serviços Cognitivos** que está na
 
 1. Clique em **Examinar e criar** e depois clique em **Criar**. Aguarde a conclusão da implantação e acesse o recurso implantado.
 
-## <a name="upload-documents-to-azure-storage"></a>Carregar documentos no Armazenamento do Azure
+## Carregar documentos no Armazenamento do Azure
 
 1. Na conta de Armazenamento do Azure que você criou, no painel do menu à esquerda, selecione **Contêineres**.
 
@@ -102,7 +102,7 @@ Você precisará provisionar um recurso de **Serviços Cognitivos** que está na
 
 1. Quando o carregamento for concluído, você poderá fechar o painel **Carregar blob**. Seus documentos estão agora no seu contêiner de armazenamento *coffee-reviews*.
 
-## <a name="index-the-documents"></a>Indexar os documentos
+## Indexar os documentos
 
 Quando os documentos estiverem no armazenamento, você poderá usar o Azure Cognitive Search para extrair insights deles. O portal do Azure fornece um *assistente de importação de dados*. Com esse assistente, você pode criar automaticamente um índice e um indexador para as fontes de dados com suporte. Você usará o assistente para criar um índice e importar os documentos de pesquisa do armazenamento para o índice do Azure Cognitive Search.
 
@@ -190,7 +190,7 @@ Quando os documentos estiverem no armazenamento, você poderá usar o Azure Cogn
 
     ![Captura de tela que mostra o indexador “coffee-indexer” criado com êxito.](media/create-cognitive-search-solution/6a-search-indexer-success.png)
 
-## <a name="query-the-index"></a>Consulte o índice
+## Consulte o índice
 
 Use o Gerenciador de pesquisa para escrever e testar as consultas. O Gerenciador de pesquisa é uma ferramenta criada no portal do Azure que oferece uma maneira fácil de validar a qualidade de seu índice de pesquisa. Use o Gerenciador de pesquisa para escrever consultas e revisar os resultados em JSON.
 
@@ -206,15 +206,15 @@ Use o Gerenciador de pesquisa para escrever e testar as consultas. O Gerenciador
 
     > **Observação** Se aparecer uma mensagem **Para pesquisar no portal, permita a origem do portal nas configurações de CORS do índice**, selecione **Permitir portal** e depois **Pesquisar**.
 
-1. Agora, vamos filtrar por localização. Insira `search=$filter=locations eq 'Chicago'` no campo **Cadeia de caracteres de consulta** e selecione **Pesquisar**. A consulta pesquisa todos os documentos no índice e filtra as análises com uma localização de Chicago.
+1. Agora, vamos filtrar por localização. Insira `search=locations:'Chicago'` no campo **Cadeia de caracteres de consulta** e selecione **Pesquisar**. A consulta pesquisa todos os documentos no índice e filtra as análises com uma localização de Chicago.
 
-1. Agora, vamos filtrar por sentimento. Insira `search=$filter=sentiment eq 'negative'` no campo **Cadeia de caracteres de consulta** e selecione **Pesquisar**. A consulta pesquisa todos os documentos no índice e filtra as análises com um sentimento negativo.
+1. Agora, vamos filtrar por sentimento. Insira `search=sentiment:'negative'` no campo **Cadeia de caracteres de consulta** e selecione **Pesquisar**. A consulta pesquisa todos os documentos no índice e filtra as análises com um sentimento negativo.
 
    > **Observação** Veja como os resultados são classificados por `@search.score`. Essa é a pontuação atribuída pelo mecanismo de pesquisa para mostrar o quanto os resultados correspondem à consulta fornecida.
 
 1. Um dos problemas que queremos resolver é o motivo pelo qual pode haver determinadas avaliações. Vamos dar uma olhada nas frases-chave associadas à avaliação negativa. Qual você acha que pode ser a causa da avaliação?
 
-## <a name="review-the-knowledge-store"></a>Revisar o repositório de conhecimento
+## Revisar o repositório de conhecimento
 
 Por fim, vejamos o poder do repositório de conhecimento em ação. Quando você executou o *Assistente de importação de dados*, também criou um repositório de conhecimento. No repositório de conhecimento, você verá que os dados enriquecidos extraídos por habilidades de IA persistem na forma de projeções e tabelas.
 
@@ -250,6 +250,6 @@ Por fim, vejamos o poder do repositório de conhecimento em ação. Quando você
 
     Confira as frases-chave que o repositório de conhecimento conseguiu capturar do conteúdo nas avaliações. Muitos dos campos são chaves, então é possível vincular as tabelas como um banco de dados relacional. O último campo mostra as frases-chave que foram extraídas pelo conjunto de habilidades.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Essa pesquisa simples indexa apenas algumas das funcionalidades do serviço Azure Cognitive Search. Para saber mais sobre o que você pode fazer com o serviço, confira a [página do serviço Azure Cognitive Search](/azure/search/search-what-is-azure-search).

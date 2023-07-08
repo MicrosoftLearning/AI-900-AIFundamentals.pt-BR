@@ -3,7 +3,7 @@ lab:
   title: Explorar a análise de texto
 ---
 
-# <a name="explore-text-analytics"></a>Explorar a análise de texto
+# Explorar a análise de texto
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -15,7 +15,7 @@ Por exemplo, suponha que a organização fictícia *Margie's Travel* incentive o
 
 Para testar os recursos do serviço de linguagem, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *Serviços Cognitivos*
 
 O serviço de linguagem pode ser usado por meio da criação de um recurso de **Linguagem** ou dos **Serviços Cognitivos**.
 
@@ -33,13 +33,13 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Revise e crie o recurso.
 
-### <a name="get-the-key-and-endpoint-for-your-cognitive-services-resource"></a>Obtenha a chave e o ponto de extremidade para seu recurso de Serviços Cognitivos
+### Obtenha a chave e o ponto de extremidade para seu recurso de Serviços Cognitivos
 
 1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos Serviços Cognitivos e, na página de **Visão geral**, selecione o link para gerenciar as chaves do serviço. Você precisará do ponto de extremidade e das chaves para se conectar ao recurso dos Serviços Cognitivos de aplicativos cliente.
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do seu recurso. Você precisará da **chave** e do **ponto de extremidade** para se conectar em aplicativos clientes.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar as funcionalidades de análise de texto do serviço de linguagem, vamos usar um aplicativo de linha de comando simples que é executado no Cloud Shell no Azure.
 
@@ -61,7 +61,7 @@ Para testar as funcionalidades de análise de texto do serviço de linguagem, va
 
     ![Aguarde o início do PowerShell.](media/analyze-text-language-service/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um modelo personalizado, pode executar um aplicativo cliente simples que usa o serviço de linguagem.
 
@@ -154,6 +154,6 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 1. Examine a saída.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos do serviço de linguagem. Saiba mais sobre o que você pode fazer com esse serviço conferindo a [página do serviço de linguagem](https://azure.microsoft.com/services/cognitive-services/language-service/).

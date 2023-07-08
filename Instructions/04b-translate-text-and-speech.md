@@ -3,7 +3,7 @@ lab:
   title: Explorar a tradução
 ---
 
-# <a name="explore-translation"></a>Explorar a tradução
+# Explorar a tradução
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -13,7 +13,7 @@ A IA (Inteligência Artificial) pode ajudar a simplificar a comunicação traduz
 
 Para testar os recursos do serviço de Tradução, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *Serviços Cognitivos*
 
 O serviço de Tradução pode ser usado por meio da criação de um recurso **Tradutor** ou de um recurso dos **Serviços Cognitivos**.
 
@@ -33,7 +33,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará das chaves e do local para se conectar de aplicativos cliente.
 
-### <a name="get-the-key-and-location-for-your-cognitive-services-resource"></a>Obter a chave e o local do recurso dos Serviços Cognitivos
+### Obter a chave e o local do recurso dos Serviços Cognitivos
 
 1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos Serviços Cognitivos e, na página de **Visão geral**, selecione o link para gerenciar as chaves do serviço. Você precisará das chaves e do local para se conectar ao recurso dos Serviços Cognitivos de aplicativos cliente.
 
@@ -41,7 +41,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 > **Observação** Para usar o serviço Tradução, não é preciso usar o ponto de extremidade do Serviço Cognitivo. Um ponto de extremidade global apenas para o serviço Tradutor é fornecido. 
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Para testar os recursos do serviço de Tradução, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell no Azure. 
 
@@ -63,7 +63,7 @@ Para testar os recursos do serviço de Tradução, usaremos um aplicativo de lin
 
     ![Aguarde o início do PowerShell.](media/translate-text-and-speech/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora que você tem um modelo personalizado, pode executar um aplicativo cliente simples que usa o serviço de Tradução.
 
@@ -120,6 +120,6 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 1. Examine a saída. Você observou a tradução de texto de inglês para francês, italiano e chinês?  Você observou o áudio em inglês "hello" traduzido para o francês em texto?
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo simples mostra apenas alguns dos recursos do serviço Tradutor. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/translator-overview).

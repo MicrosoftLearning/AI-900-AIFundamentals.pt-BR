@@ -3,13 +3,13 @@ lab:
   title: Explorar o recurso respostas às perguntas
 ---
 
-# <a name="explore-question-answering"></a>Explorar o recurso respostas às perguntas
+# Explorar o recurso respostas às perguntas
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
 Para cenários de suporte ao cliente, é comum criar um bot que possa interpretar e responder a perguntas frequentes por meio de uma janela de chat no site, email ou interface de voz. Sob a interface do bot há uma base de dados de conhecimento de perguntas e respostas apropriadas na qual o bot pode pesquisar em busca de respostas adequadas.
 
-## <a name="create-a-custom-question-answering-knowledge-base"></a>Criar uma base de dados de conhecimento de respostas às perguntas personalizadas
+## Criar uma base de dados de conhecimento de respostas às perguntas personalizadas
 
 O recurso de respostas às perguntas personalizadas do serviço de Linguagem permite a criação rápida de uma base de dados de conhecimento, por meio da inserção de pares de pergunta e resposta ou de um documento ou página da Web existente. Em seguida, ele pode usar alguns recursos de processamento de linguagem natural integrados para interpretar perguntas e encontrar as respostas certas.
 
@@ -68,7 +68,7 @@ O recurso de respostas às perguntas personalizadas do serviço de Linguagem per
     - **URL**: `https://raw.githubusercontent.com/MicrosoftLearning/AI-900-AIFundamentals/main/data/qna/margies_faq.docx`
     - **Classificar estrutura de arquivo**: *Detectar automaticamente* 
 
-## <a name="edit-the-knowledge-base"></a>Editar a base de dados de conhecimento
+## Editar a base de dados de conhecimento
 
 Sua base de dados de conhecimento se baseia nos detalhes contidos no documento de perguntas frequentes e em algumas respostas pré-definidas. Você pode adicionar pares personalizados de perguntas e respostas para complementá-los.
 
@@ -82,7 +82,7 @@ Sua base de dados de conhecimento se baseia nos detalhes contidos no documento d
 
 1. Clique em **Enviar**. Em seguida, na parte superior da página, clique em **Salvar alterações**. Talvez seja necessário alterar o tamanho da janela para ver o botão.
 
-## <a name="train-and-test-the-knowledge-base"></a>Treinar e testar a base de dados de conhecimento
+## Treinar e testar a base de dados de conhecimento
 
 Agora que você tem uma base de dados de conhecimento, pode testá-la.
 
@@ -98,28 +98,50 @@ Agora que você tem uma base de dados de conhecimento, pode testá-la.
 
 1. Quando terminar de testar a base de dados de conhecimento, clique em **Testar** para fechar o painel de teste.
 
-## <a name="create-a-bot-for-the-knowledge-base"></a>Criar um bot para a base de dados de conhecimento
+## Criar um bot para a base de dados de conhecimento
 
 A base de dados de conhecimento fornece um serviço de back-end que os aplicativos cliente podem usar para responder a perguntas por meio de algum tipo de interface do usuário. Normalmente, esses aplicativos cliente são bots. Para disponibilizar a base de dados de conhecimento a um bot, você deve publicá-la como um serviço que possa ser acessado por HTTP. Então, você pode usar o Serviço de Bot do Azure para criar e hospedar um bot que usa a base de dados de conhecimento para responder a perguntas do usuário.
 
 1. À esquerda da página do Language Studio, clique em **Implantar base de dados de conhecimento**.
 
-1. Na parte superior da página, clique em **Implantar** e clique em **Implantar** novamente.
+1. Na parte superior da página, clique em **Implantar**. Uma caixa de diálogo perguntará se você deseja implantar o projeto. Selecione **Implantar**.
 
 1. Após a implantação do serviço, clique em **Criar um bot**. Isso abre o portal do Azure em uma nova guia do navegador para que você possa criar um Bot de Aplicativo Web em sua assinatura do Azure.
 
-1. No portal do Azure, crie um Bot de Aplicativo Web com as seguintes configurações (a maioria delas será preenchida previamente para você):
-    - **Identificador do bot**: *insira um nome exclusivo para o bot*
-    - **Assinatura**: *sua assinatura do Azure*
-    - **Grupo de recursos**: *o grupo de recursos que contém seu recurso de Linguagem*
-    - **Local**: *o mesmo local do serviço de linguagem*.
-    - **Tipo de preço**: gratuito (F0)
-    - **Nome do aplicativo**: *o mesmo que a **Alça do bot** com **.azurewebsites.net** anexado automaticamente*
-    - **Linguagem do SDK**: *escolha C# ou Node.js*
-    - **Chave de Recurso de Linguagem**: *gerada automaticamente, se você não a vir, precisará começar criando um projeto de respostas às perguntas no Language Studio* 
-    - **Plano do serviço de aplicativo/Local**: *selecione a seta para criar um plano. Em seguida, crie um nome de plano de serviço de aplicativo exclusivo e escolha um local adequado*
-    - **Aplicativo Insights**: desligado
-    - **Senha e ID do Aplicativo da Microsoft**: *criar automaticamente ID e senha do aplicativo*
+1. No portal do Azure, crie um bot de aplicativo Web. (Você pode ver uma mensagem de aviso para marcar que a origem do modelo é confiável. Você não precisa tomar nenhuma ação para essa mensagem.) Continue atualizando as seguintes configurações:
+
+    - **Detalhes do projeto**
+        - **Assinatura**: *sua assinatura do Azure*
+        - **Grupo de recursos**: *o grupo de recursos que contém seu recurso de Linguagem*
+    - **Detalhes da instância**
+        - **Localização do grupo de recursos**: *o mesmo local do serviço de linguagem*.
+    - **Bot do Azure**
+        - **Identificador do bot**: *insira um nome exclusivo para o bot*(*preenchido previamente*)
+    - **Escolha o tipo de preço**
+        - **Tipo de preço**: Gratuito (F0) (Talvez seja necessário selecionar *Alterar plano*)
+    - **ID do Aplicativo da Microsoft**
+        - **Tipo de criação**: *selecione Criar nova identidade gerenciada atribuída pelo usuário* 
+
+5. Selecione **Avançar: aplicativo Web >** para continuar atualizando as configurações. 
+    - **Serviço de Aplicativo**
+        - **Nome do aplicativo**: *o mesmo que a **Alça do bot** com **.azurewebsites.net** anexado automaticamente*
+        - **Linguagem do SDK**: *escolha C# ou Node.js*
+    - **Plano do Serviço de Aplicativo**
+        - **Tipo de criação**: *selecione Criar novo plano do serviço de aplicativo*
+    - **Configurações do aplicativo**
+        - **Chave de Recurso de Linguagem**: *você precisará copiar sua chave de recurso de linguagem e colá-la aqui.* 
+        
+        > **Nota** Para navegar até a chave de recurso de idioma, abra [https://portal.azure.com](https://portal.azure.com?azure-portal=true). Na home page, clique em *Grupos de Recursos* e localize o grupo de recursos no qual você criou o recurso idioma. Selecione o recurso Idioma e navegue até o menu à esquerda. Em seguida, selecione *Chaves e Ponto de Extremidade*. Copie uma das chaves. 
+
+    -  
+        - **Nome do projeto de linguagem**: MargiesTravel
+        - **Nome do host do ponto de extremidade do serviço de linguagem**: *preenchido previamente com o ponto de extremidade do serviço de idioma*
+    - **Detalhes do serviço de linguagem**
+        - **ID da assinatura**: *preenchido previamente com sua ID de assinatura*
+        - **Nome do Grupo de Recursos**: *preenchido previamente com o nome do grupo de recursos*
+        - **Nome da conta**: *preenchido previamente com o nome do recurso*
+
+1. Selecione **Examinar + criar**.
 
 1. Aguarde a criação de seu bot (o ícone de notificação no canto superior direito, que se parece com um sino, passará a ser uma animação enquanto você aguarda). Em seguida, na notificação de conclusão da implantação, clique em **Ir para o recurso** (ou, como alternativa, na página inicial, clique em **Grupos de recursos**,abra o grupo de recursos em que você criou o bot do aplicativo Web e clique nele.)
 
@@ -129,7 +151,7 @@ A base de dados de conhecimento fornece um serviço de back-end que os aplicativ
 
 Faça experimentos com o bot. Provavelmente, você verá que ele pode responder a perguntas frequentes com bastante precisão, mas terá capacidade limitada de interpretar perguntas para as quais não foi treinado. Use, a qualquer momento, o Language Studio para editar a base de dados de conhecimento a fim de aprimorá-la e, depois, publique-a novamente.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 - Para saber mais sobre o serviço de Respostas às Perguntas, confira [a documentação](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/overview).
 - Para saber mais sobre o Serviço de Bot da Microsoft, veja [a página do Serviço de Bot do Azure](https://azure.microsoft.com/services/bot-service/).

@@ -4,7 +4,7 @@ permalink: index.html
 layout: home
 ---
 
-# <a name="azure-ai-fundamentals-exercises"></a>Princípios Básicos de IA do Azure - Exercícios
+# Princípios Básicos de IA do Azure - Exercícios
 
 Esses exercícios práticos foram projetados para dar suporte ao conteúdo de treinamento no [Microsoft Learn](https://docs.microsoft.com/training/).
 

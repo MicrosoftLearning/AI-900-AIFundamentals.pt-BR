@@ -3,7 +3,7 @@ lab:
   title: Explorar o reconhecimento de linguagem
 ---
 
-# <a name="explore-language-understanding"></a>Explorar o reconhecimento de linguagem
+# Explorar o reconhecimento de linguagem
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
@@ -11,7 +11,7 @@ Cada vez mais, esperamos que os computadores sejam capazes de usar a IA para ent
 
 Para testar as funcionalidades do serviço de Compreensão da Linguagem Coloquial, usaremos um aplicativo de linha de comando que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## <a name="create-a-language-service-resource"></a>Criar um recurso de *Serviço de linguagem*
+## Criar um recurso de *Serviço de linguagem*
 
 Você pode usar o serviço de Compreensão da Linguagem Coloquial criando um recurso de **Serviço de linguagem**.
 
@@ -30,7 +30,7 @@ Caso ainda não tenha feito isso, crie um recurso de **Serviço de linguagem** e
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação.
 
-### <a name="create-a-conversational-language-understanding-app"></a>Criar um aplicativo de Compreensão da Linguagem Coloquial
+### Criar um aplicativo de Compreensão da Linguagem Coloquial
 
 Para implementar o reconhecimento de linguagem natural com a compreensão da linguagem coloquial, crie um aplicativo e, depois, adicione entidades, intenções e enunciados para definir os comandos que você deseja executar no aplicativo.
 
@@ -61,7 +61,7 @@ Para implementar o reconhecimento de linguagem natural com a compreensão da lin
 
 1. Na página *Examinar e concluir*, clique em **Criar**.
 
-### <a name="create-intents-utterances-and-entities"></a>Criar intenções, enunciados e entidades
+### Criar intenções, enunciados e entidades
 
 Uma *intenção* é uma ação que você deseja executar, por exemplo, talvez você queira acender uma luz ou desligar um ventilador. Nesse caso, você definirá duas intenções: uma para ligar um dispositivo e outra para desligar um dispositivo. Para cada intenção, você especificará exemplos de *enunciados* que indicam o tipo de linguagem usado para indicar a intenção.
 
@@ -127,7 +127,7 @@ Uma *intenção* é uma ação que você deseja executar, por exemplo, talvez vo
     | switch_off   | Desligar o ventilador | Dispositivo – *selecionar ventilador* |
     | switch_off   | Apague as luzes | Dispositivo – *selecionar luzes* |
 
-### <a name="train-the-model"></a>Treinar o modelo
+### Treinar o modelo
 
 Agora está tudo pronto para usar as intenções e entidades definidas para treinar o modelo de linguagem coloquial de seu aplicativo.
 
@@ -139,7 +139,7 @@ Agora está tudo pronto para usar as intenções e entidades definidas para trei
 
 1. Aguarde a conclusão do treinamento. 
 
-### <a name="deploy-and-test-the-model"></a>Implantar e testar o modelo
+### Implantar e testar o modelo
 
 Para usar seu modelo treinado em um aplicativo cliente, você precisa implantá-lo como um ponto de extremidade para o qual os aplicativos cliente podem enviar novos enunciados, a partir dos quais as intenções e entidades serão previstas.
 
@@ -167,7 +167,7 @@ Para usar seu modelo treinado em um aplicativo cliente, você precisa implantá-
     - *ligar a luz*
     - *desligar o ventilador*
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+## Executar o Cloud Shell
 
 Agora, vamos experimentar o modelo implantado. Para fazer isso, vamos usar um aplicativo de linha de comando que é executado no Azure Cloud Shell. 
 
@@ -191,7 +191,7 @@ Agora, vamos experimentar o modelo implantado. Para fazer isso, vamos usar um ap
 
     ![Aguarde o início do PowerShell.](media/conversational-language-understanding/powershell-prompt.png) 
 
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
+## Configurar e executar um aplicativo cliente
 
 Agora, vamos abrir e editar um script pré-escrito que executará o aplicativo cliente.
 
@@ -257,6 +257,6 @@ Agora, vamos abrir e editar um script pré-escrito que executará o aplicativo c
 
 >**Observação** Você sempre precisará começar com **./understand.ps1** seguido da frase. Inclua aspas em torno da frase.
 
-## <a name="learn-more"></a>Saiba mais
+## Saiba mais
 
 Esse aplicativo mostra apenas algumas das funcionalidades do recurso de Compreensão da Linguagem Coloquial do Serviço de linguagem. Saiba mais sobre o que você pode fazer com esse serviço conferindo a [página Compreensão da Linguagem Coloquial](https://docs.microsoft.com/azure/cognitive-services/language-service/conversational-language-understanding/overview). 

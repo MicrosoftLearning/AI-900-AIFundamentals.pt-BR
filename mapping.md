@@ -1,4 +1,4 @@
-# <a name="ai-900-trainer-lab-mapping"></a>Mapas de laboratórios de treinamento AI-900
+# Mapas de laboratórios de treinamento AI-900
 
 Este curso, AI-900: O curso Conceitos básicos de IA tem um subconjunto de laboratórios designados para treinamento com instrutor e adaptados para serem realizados em um curso de um dia.
 
@@ -6,7 +6,7 @@ Os laboratórios do treinador do AI-900 são um subconjunto dos laboratórios do
 
 > Observação: Os instrutores podem adicionar outros laboratórios do conjunto completo de laboratórios do AI-900 aos módulos do curso que ministram.
 
-## <a name="ai-900-module-mapping-to-labs"></a>Mapa do módulo AI-900 para laboratórios
+## Mapa do módulo AI-900 para laboratórios
 
 O subconjunto de laboratórios AI-900 usado neste curso é mapeado por módulo conforme exibido abaixo: 
 

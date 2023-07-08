@@ -3,11 +3,11 @@ lab:
   title: Explorar o clustering com o designer do Azure Machine Learning
 ---
 
-# <a name="explore-clustering-with-azure-machine-learning-designer"></a>Explorar o clustering com o designer do Azure Machine Learning
+# Explorar o clustering com o designer do Azure Machine Learning
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Criar um workspace do Azure Machine Learning  
+## Criar um workspace do Azure Machine Learning  
 
 1. Entre no [portal do Azure](https://portal.azure.com?azure-portal=true) usando suas credenciais da Microsoft.
 
@@ -25,13 +25,13 @@ lab:
 
 1. Selecione **Iniciar o estúdio** (ou abra uma nova guia do navegador, acesse [https://ml.azure.com](https://ml.azure.com?azure-portal=true) e entre no Estúdio do Azure Machine Learning usando a conta Microsoft).
 
-1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, clique em **Microsoft** no menu à esquerda. Depois, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados à assinatura estão listados. Escolha o que você criou para este exercício. 
+1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, selecione o diretório do Azure no menu à esquerda. Em seguida, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados ao diretório estão listados e selecione aquele que você criou para este exercício.
 
 > **Observação** Este módulo é um dos vários que usam um workspace do Azure Machine Learning, incluindo os outros módulos do roteiro de aprendizagem [Conceitos básicos de IA do Microsoft Azure: explore ferramentas visuais para machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se você estiver usando sua assinatura do Azure, considere a possibilidade de criar o workspace uma vez e reutilizá-lo em outros módulos. Será cobrada uma pequena quantidade de armazenamento de dados em sua assinatura do Azure se o workspace do Azure Machine Learning existir na assinatura. Portanto, recomendamos que você exclua o workspace do Azure Machine Learning quando ele não for mais necessário.
 
-## <a name="create-compute"></a>Criar computação
+## Criar computação
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione o ícone **&#8801;** (um ícone de menu que se parece com uma pilha de três linhas) na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
 
 2. Na página **Computação**, selecione a guia **Clusters de cálculo** e adicione um novo cluster de cálculo com as configurações a seguir. Você o usará para treinar um modelo de machine learning:
     - **Localização**: *selecione a mesma que a do workspace. Se essa localização não estiver listada, escolha a mais próxima de você*.
@@ -52,11 +52,11 @@ lab:
 
 O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a próxima etapa enquanto aguarda.
 
-## <a name="create-a-pipeline-in-designer"></a>Criar um pipeline no designer
+## Criar um pipeline no designer
 
 Para começar a usar o designer do Azure Machine Learning, primeiro você precisa criar um pipeline.
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione o ícone de três linhas no canto superior esquerdo da tela para expandir o painel. Veja a página **Designer** (em **Criar**) e selecione o sinal de adição para criar um pipeline.
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Veja a página **Designer** (em **Criar**) e selecione o sinal de adição para criar um pipeline.
 
 1. No canto superior direito da tela, selecione **Configurações**. Se o painel **Configurações** não estiver visível, selecione o ícone de engrenagem ao lado do nome do pipeline na parte superior.
 
@@ -68,11 +68,11 @@ Para começar a usar o designer do Azure Machine Learning, primeiro você precis
 
     ![Captura de tela do painel Configurações do Estúdio do Azure Machine Learning.](media/create-clustering-model/create-pipeline-help.png)
 
-## <a name="create-a-dataset"></a>Criar um conjunto de dados
+## Criar um conjunto de dados
 
 No Azure Machine Learning, os dados para treinamento de modelos e outras operações geralmente são encapsulados em um objeto chamado de *conjunto de dados*. Neste módulo, você usará um conjunto de dados que inclui observações sobre três espécies de pinguins.
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione as três linhas no canto superior esquerdo da tela para expandir o painel. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
 
 1. Na página **Dados**, na guia **Ativos de dados**, selecione **Criar**. Depois, defina um ativo de dados com as seguintes configurações:
     * **Tipo de dados**:
@@ -100,7 +100,7 @@ No Azure Machine Learning, os dados para treinamento de modelos e outras operaç
 
 > **Observação** O conjunto de dados sobre pinguins usado neste exercício é um subconjunto dos dados coletados e disponibilizados pela [Dra. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) e pela [Estação Palmer, LTER Antártida](https://pal.lternet.edu/), membro da [Rede de Pesquisa Ecológica de Longo Prazo](https://lternet.edu/).
 
-### <a name="load-data-to-canvas"></a>Carregar dados na tela
+### Carregar dados na tela
 
 1. Retorne ao pipeline selecionando **Designer** no menu à esquerda. Na página **Designer** selecione **Treinar clustering de pinguins**.
 
@@ -129,7 +129,7 @@ No Azure Machine Learning, os dados para treinamento de modelos e outras operaç
 
 1. Feche a visualização do conjunto de dados para vê-lo na tela do pipeline.
 
-## <a name="apply-transformations"></a>Aplicar transformações
+## Aplicar transformações
 
 1. No painel **Biblioteca de ativos** à esquerda, clique em **Componente**, que contêm uma ampla gama de módulos que você pode usar para transformação de dados e treinamento de modelo. Você também pode usar a barra de pesquisa para localizar os módulos rapidamente.
 
@@ -168,7 +168,7 @@ No Azure Machine Learning, os dados para treinamento de modelos e outras operaç
 
 1. Feche as configurações do módulo **Normalizar Dados** para voltar para a tela do designer.
 
-## <a name="run-the-pipeline"></a>Executar o pipeline
+## Executar o pipeline
 
 Para aplicar suas transformações de dados, você precisa executar o pipeline como um experimento.
 
@@ -180,7 +180,7 @@ Para aplicar suas transformações de dados, você precisa executar o pipeline c
 
     Observe que o painel à esquerda agora está no painel **Trabalhos enviados**. Você saberá quando a execução for concluída porque o status do trabalho será alterado para **Concluído**.
 
-## <a name="view-the-transformed-data"></a>Ver os dados transformados
+## Ver os dados transformados
 
 1. Quando a execução for concluída, o conjunto de dados estará preparado para treinamento de modelo. Clique em **Detalhes do trabalho**. Você será direcionado para outra janela que mostrará os módulos desta forma:
 
@@ -196,7 +196,7 @@ Agora que selecionou e preparou os recursos que deseja usar do conjunto de dados
 
 Depois de usar as transformações de dados para prepará-los, é possível usá-las para treinar um modelo de machine learning.
 
-## <a name="add-training-modules"></a>Adicionar módulos de treinamento
+## Adicionar módulos de treinamento
 
 Siga as etapas abaixo para estender o pipeline de **Treinamento de Clustering de Pinguins**, conforme mostrado aqui:
 
@@ -238,7 +238,7 @@ Siga as etapas abaixo, usando a imagem acima para referência, à medida que voc
 
 1. Na **Biblioteca de ativos**, procure o módulo **Atribuir Dados a Clusters** e coloque-o na tela abaixo do módulo **Treinar Modelo de Clustering**. Em seguida, conecte a saída **Modelo treinado** (esquerda) do módulo **Treinar Modelo de Clustering** à entrada **Modelo treinado** (esquerda) do módulo **Atribuir Dados a Clusters**, e conecte a saída **Conjunto de dados de resultados2** (direita) do módulo **Dividir Dados** à entrada **Conjunto de dados** (direita) do módulo **Atribuir Dados a Clusters**.
 
-## <a name="run-the-training-pipeline"></a>Executar o pipeline de treinamento
+## Executar o pipeline de treinamento
 
 Agora você está pronto para executar o pipeline de treinamento e treinar o modelo.
 
@@ -260,7 +260,7 @@ O modelo está prevendo clusters para as observações sobre pinguins, mas o qu�
 
 A avaliação de um modelo de clustering é dificultada pelo fato de que não há valores *verdadeiros* conhecidos para as atribuições de cluster. Um modelo de clustering bem-sucedido alcança um bom nível de separação entre os itens em cada cluster, portanto, precisamos de métricas para nos ajudar a medir essa separação.
 
-## <a name="add-an-evaluate-model-module"></a>Adicionar um módulo Avaliar Modelo
+## Adicionar um módulo Avaliar Modelo
 
 1. Abra o pipeline de **Treinar Clustering de Pinguins** criado na unidade anterior se ele ainda não estiver aberto.
 
@@ -286,11 +286,11 @@ Agora que tem um modelo de clustering em funcionamento, você pode usá-lo para 
 
 Depois de criar e executar um pipeline para treinar o modelo de clustering, você pode criar um *pipeline de inferência*. O pipeline de inferência usa o modelo para atribuir novas observações de dados a clusters. Esse modelo formará a base para um serviço de previsão que pode ser publicado para uso pelos aplicativos.
 
-## <a name="create-an-inference-pipeline"></a>Criar um pipeline de inferência
+## Criar um pipeline de inferência
 
-1. No Estúdio do Azure Machine Learning, selecione as três linhas no canto superior esquerdo da tela para expandir o painel. Clique em **Trabalhos** (em **Ativos**) para exibir todos os trabalhos executados. Selecione o teste **mslearn-penguin-training** e o pipeline **Treinar clustering de pinguins**. 
+1. No Estúdio do Azure Machine Learning, expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Clique em **Trabalhos** (em **Ativos**) para exibir todos os trabalhos executados. Selecione o teste **mslearn-penguin-training** e o pipeline **Treinar clustering de pinguins**. 
 
-1. Localize o menu acima da tela e clique em **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
+1. Localize o menu acima da tela e clique em **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
 
     ![Captura de tela do local de criação de pipeline de inferência.](media/create-clustering-model/create-inference-pipeline.png) 
 
@@ -303,13 +303,13 @@ Depois de criar e executar um pipeline para treinar o modelo de clustering, voc�
     ![Captura de tela de alterações feitas no pipeline, incluindo quais componentes adicionar e remover marcados em vermelho.](media/create-clustering-model/inference-changes.png)
 
     - Adicione um componente de **entrada de serviço Web** para que novos dados sejam enviados.
-    - Substitua o conjunto de dados **penguin-data** por um módulo **Inserir Dados Manualmente** que não inclua a coluna **Espécie**.
-    - Remova o módulo **Selecionar Colunas no Conjunto de Dados**, que agora é redundante.
-    - Conecte os módulos **Entrada do Serviço Web** e **Inserir Dados Manualmente** (que representam entradas de dados a serem clusterizados) ao primeiro módulo **Aplicar Transformação**.
+    - Substitua o conjunto de dados **penguin-data** por um componente **Inserir Dados Manualmente** que não inclua a coluna **Espécie**.
+    - Remova o componente **Selecionar Colunas no Conjunto de Dados**, que agora é redundante.
+    - Conecte os componentes **Entrada do Serviço Web** e **Inserir Dados Manualmente** (que representam entradas de dados a serem clusterizados) ao primeiro componente **Aplicar Transformação**.
 
     Siga as etapas restantes abaixo, usando a imagem e as informações acima para referência à medida que você modificar o pipeline.
 
-1. O pipeline não inclui automaticamente um componente **Entrada de serviço Web** para modelos criados com base em conjuntos de dados personalizados. Procure um componente **Entrada de serviço Web** na biblioteca de ativos e coloque-o na parte superior do pipeline. Conecte a saída do componente **Entrada de serviço Web** à entrada do lado direito do componente **Aplicar transformação** que já está na tela.  
+1. O pipeline não inclui automaticamente um componente **Entrada de serviço Web** para modelos criados com base em conjuntos de dados personalizados. Procure um componente **Entrada de serviço Web** na biblioteca de ativos e coloque-o na parte superior do pipeline.  Conecte a saída do componente **Entrada de Serviço Web** à entrada do componente **Aplicar Transformação** que já está na tela.  
 
 1. O pipeline de inferência assume que os novos dados corresponderão ao esquema dos dados de treinamento originais, de modo que o conjunto de dados **penguin-data** do pipeline de treinamento é incluído. No entanto, esses dados de entrada incluem uma coluna referente às espécies de pinguins, que o modelo não usa. Exclua o conjunto de dados **penguin-data** e os módulos **Selecionar Colunas no Conjunto de Dados** e substitua-os por um módulo **Inserir Dados Manualmente** da seção **Biblioteca de ativos**. Em seguida, modifique as configurações do módulo **Inserir Dados Manualmente** para usar a seguinte entrada CSV, que contém valores de recursos de três novas observações de pinguins (incluindo os cabeçalhos):
 
@@ -336,7 +336,7 @@ Seu pipeline de inferência atribui observações sobre pinguins aos clusters co
 
 >**Observação**: neste exercício, você implantará o serviço Web em uma ACI (Instância de Contêiner do Azure). Esse tipo de computação é criado dinamicamente e é útil para desenvolvimento e teste. Para produção, você deve criar um *cluster de inferência*, que gera um cluster AKS (Serviço de Kubernetes do Azure), o qual, por sua vez, fornece melhor escalabilidade e segurança.
 
-## <a name="deploy-a-service"></a>Implantar um serviço
+## Implantar um serviço
 
 1. Veja o pipeline de inferência **Prever Clusters de Pinguins** criado na unidade anterior.
 
@@ -355,9 +355,9 @@ Seu pipeline de inferência atribui observações sobre pinguins aos clusters co
 
 1. Aguarde até que o serviço Web seja implantado. Isso pode levar vários minutos. 
 
-1. Para ver o status de implantação, expanda o painel à esquerda selecionando as três linhas no canto superior esquerdo da tela. Veja a página **Pontos de extremidade** (em **Ativos**) e selecione **predict-penguin-clusters**. Quando a implantação for concluída, o **Estado implantação** será alterado para **Íntegro**.
+1. Para ver o status de implantação, expanda o painel à esquerda selecionando o ícone menu no canto superior esquerdo da tela. Veja a página **Pontos de extremidade** (em **Ativos**) e selecione **predict-penguin-clusters**. Quando a implantação for concluída, o **Estado implantação** será alterado para **Íntegro**.
 
-## <a name="test-the-service"></a>Teste o serviço
+## Teste o serviço
 
 1. Na página **Pontos de extremidade**, abra o ponto de extremidade em tempo real **predict-penguin-clusters** e selecione a guia **Testar**.
 
@@ -389,15 +389,15 @@ Seu pipeline de inferência atribui observações sobre pinguins aos clusters co
 
 Você acabou de testar um serviço que está pronto para ser conectado a um aplicativo cliente usando as credenciais na guia **Consumir**. Vamos encerrar o laboratório aqui. Fique à vontade para continuar experimentando o serviço que você acabou de implantar.
 
-## <a name="clean-up"></a>Limpar
+## Limpar
 
-O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Interrompa também a instância de computação até que precise dela novamente.
+O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Você também deve excluir o cluster de cálculo.
 
 1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na guia **Pontos de Extremidade**, selecione o ponto de extremidade **predict-penguin-clusters**. Em seguida, selecione **Excluir** (&#128465;) e confirme que deseja excluir o ponto de extremidade.
 
 1. Na página **Computação**, na guia **Clusters de cálculo**, selecione a instância de computação e escolha **Excluir**.
 
->**Observação** A interrupção da computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
+>**Observação** Excluir sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
 >
 > Para excluir seu workspace:
 >
