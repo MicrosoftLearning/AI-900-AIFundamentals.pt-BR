@@ -3,17 +3,19 @@ lab:
   title: Explorar a classificação de imagem
 ---
 
-# <a name="explore-image-classification"></a>Explorar a classificação de imagem
+# Explorar a classificação de imagem
 
-> **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
-
-O serviço cognitivo de *Pesquisa Visual Computacional* fornece modelos predefinidos úteis para trabalhar com imagens, mas você frequentemente precisará treinar seu próprio modelo para pesquisa visual computacional. Por exemplo, suponha que a empresa de varejo da Northwind Traders queira criar um sistema de check-out automatizado que identifica os itens de mercearia que os clientes desejam comprar com base em uma imagem tirada por uma câmera no final do check-out. Para fazer isso, você precisará treinar um modelo de classificação que possa classificar as imagens para identificar o item que está sendo comprado.
+O serviço cognitivo de *Pesquisa Visual Computacional* fornece modelos predefinidos úteis para trabalhar com imagens, mas você frequentemente precisará treinar seu próprio modelo para pesquisa visual computacional. Por exemplo, suponha que uma organização de conservação da vida selvagem queira rastrear avistamentos de animais usando câmeras sensíveis ao movimento. As imagens capturadas pelas câmeras poderiam então ser usadas para verificar a presença de determinadas espécies em uma determinada área e ajudar nos esforços de conservação para espécies ameaçadas de extinção. Para fazer isso, a organização se beneficiaria de um modelo de *classificação de imagem* treinado para identificar diferentes espécies de animais nas fotografias capturadas.
 
 No Azure, você pode usar o serviço cognitivo de ***Visão Personalizada*** para treinar um modelo de classificação de imagem com base em imagens existentes. A criação de uma solução de classificação de imagem envolve dois elementos. Primeiro, você deve treinar um modelo para reconhecer classes diferentes usando imagens existentes. Depois, após o treinamento do modelo, você deverá publicá-lo como um serviço que pode ser consumido por aplicativos.
 
-Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
+Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos móveis.
 
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos *Serviços Cognitivos*
+## Antes de começar
+
+Para concluir este laboratório, será necessário uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual você tenha acesso administrativo.
+
+## Criar um recurso dos *Serviços Cognitivos*
 
 Você pode usar o serviço Visão Personalizada criando um recurso de **Visão Personalizada** ou um recurso dos **Serviços Cognitivos**.
 
@@ -21,7 +23,7 @@ Você pode usar o serviço Visão Personalizada criando um recurso de **Visão P
 
 Crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
 
-1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
+1. Abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true), entrando com a sua conta Microsoft.
 
 1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
@@ -35,118 +37,110 @@ Crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
-## <a name="create-a-custom-vision-project"></a>Criar um projeto de Visão Personalizada
+## Criar um projeto de Visão Personalizada
 
 Para treinar um modelo de detecção de objetos, você precisa criar um projeto de Visão Personalizada com base em seu recurso de treinamento. Para fazer isso, você usará o portal de Visão Personalizada.
 
-1. Baixe e extraia as imagens de treinamento do https://aka.ms/fruit-images. Essas imagens são fornecidas em uma pasta compactada que, quando extraída, contém subpastas chamadas **maçã**, **banana** e **laranja**.
+1. Baixe e extraia as imagens de treinamento do [https://aka.ms/animal-images](https://aka.ms/animal-images). Essas imagens são fornecidas em uma pasta compactada que, quando extraída, contém subpastas chamadas **elefante**, **girafa** e **leão**.
 
-1. Em outra guia do navegador, abra o portal de Visão Personalizada em [https://customvision.ai](https://customvision.ai?azure-portal=true). Caso solicitado, entre usando a conta Microsoft associada à sua assinatura do Azure e concorde com os termos de serviço.
+1. Abra uma nova guia do navegador e navegue até o portal de Visão Personalizada em [https://customvision.ai](https://customvision.ai?azure-portal=true). Caso solicitado, entre usando a conta Microsoft associada à sua assinatura do Azure e concorde com os termos de serviço.
 
 1. No portal de Visão Personalizada, crie um projeto com as seguintes configurações:
 
-    - **Nome**: Check-out na Mercearia
-    - **Descrição**: classificação de imagem para mercearia
-    - **Recurso**: *o recurso de Visão Personalizada criado anteriormente*
+    - **Nome**: identificação animal
+    - **Descrição**: classificação de imagem de animais
+    - **Recurso**: *o recurso de Serviços Cognitivos ou Visão Personalizada criado anteriormente*
     - **Tipos de Projeto**: Classificação
     - **Tipos de classificação**: multiclasse (tag única por imagem)
-    - **Domínios**: comida
+    - **Domínios**: Geral \[A2]
 
-1. Clique em **Adicionar imagens** e selecione todos os arquivos da pasta **maçã** que você já havia extraído. Em seguida, carregue os arquivos de imagem, especificando a tag *maçã*, desta forma:
+1. Clique em **Adicionar imagens** e selecione todos os arquivos da pasta **elefante** que você já havia extraído. Em seguida, carregue os arquivos de imagem, especificando a marca *elefante*, desta forma:
 
-    ![Carregar maçã com tag maçã](media/create-image-classification-system/upload-apples.jpg)
+    ![Captura de tela da interface de carregamento de imagem.](media/create-image-classification-system/upload-elephants.png)
 
-1. Repita a etapa anterior para carregar as imagens na pasta **banana** com a tag *banana* e as imagens na pasta **laranja** com a tag *laranja*.
+1. Use o botão **Adicionar imagens** ([+]) para carregar as imagens na pasta **girafa** com a marca *girafa* e as imagens na pasta **leão** com a marca *leão*.
 
-1. Explore as imagens que você carregou no projeto de Visão Personalizada – deve haver 15 imagens de cada classe, desta forma:
+1. Explore as imagens que você carregou no projeto de Visão Personalizada – deve haver 17 imagens de cada classe, desta forma:
 
-    ![Imagens de frutas com tags – 15 maçãs, 15 bananas e 15 laranjas](media/create-image-classification-system/fruit.jpg)
+    ![Captura de tela das imagens de treinamento marcadas no portal de Visão Personalizada.](media/create-image-classification-system/animal-training-images.png)
 
-1. No projeto de Visão Personalizada, acima das imagens, clique em **Treinar** para treinar um modelo de classificação usando as imagens com tag. Selecione a opção de **Treinamento Rápido** e aguarde a conclusão da iteração de treinamento (isso pode levar mais ou menos um minuto).
+1. No projeto de Visão Personalizada, acima das imagens, clique em **Treinar** para treinar um modelo de classificação usando as imagens com tag. Selecione a opção **Treinamento Rápido** e aguarde a conclusão da iteração de treinamento.
+
+    > **Dica**: o treinamento pode demorar alguns minutos. Enquanto você está esperando, confira [Como selfies de leopardo-da-neve e IA podem ajudar a salvar a espécie da extinção](https://news.microsoft.com/transform/snow-leopard-selfies-ai-save-species/), que descreve um projeto real que usa a pesquisa visual computacional para rastrear animais em extinção na natureza.
 
 1. Quando a iteração do modelo tiver sido treinada, revise as métricas de desempenho de *Precisão*, *Recall* e *PA* – elas medem a precisão de predição do modelo de classificação e devem ser todas altas.
 
-## <a name="test-the-model"></a>Testar o modelo
+## Testar o modelo
 
 Antes de publicar essa iteração do modelo para uso dos aplicativos, você deve testá-la.
 
 1. Acima das métricas de desempenho, clique em **Início Rápido**.
 
-1. Na caixa **URL da imagem**, digite `https://aka.ms/apple-image` e clique em &#10132;
+1. Na caixa **URL da Imagem**, digite `https://aka.ms/giraffe` e clique no botão **imagem de teste rápido (&#10132;)** .
 
-1. Exiba as previsões retornadas por seu modelo – a pontuação de probabilidade para *maçã* deve ser a mais alta, assim:
+1. Exiba as previsões retornadas por seu modelo – a pontuação de probabilidade para *girafa* deve ser a mais alta, assim:
 
-    ![Uma imagem com uma previsão de classe de maçã](media/create-image-classification-system/test-apple.jpg)
+    ![Captura de tela da interface de Teste Rápido.](media/create-image-classification-system/quick-test.png)
 
 1. Feche a janela **Teste Rápido**.
 
-## <a name="publish-the-image-classification-model"></a>Publicar o modelo de classificação de imagem
+## Publicar o modelo de classificação de imagem
 
 Agora está tudo pronto para publicar seu modelo treinado e usá-lo em um aplicativo cliente.
 
 1. Clique em **&#128504; Publicar** para publicar o modelo treinado com as seguintes configurações:
-    - **Nome do modelo**: itens de mercearia
-    - **Recurso de Previsão**: *o recurso de previsão criado anteriormente*.
+    - **Nome do modelo**: animais
+    - **Recurso de Previsão**: *o recurso de previsão de Serviços Cognitivos ou Visão Personalizada criado anteriormente*.
 
-1. Após a publicação, clique no ícone *URL de Previsão* (&#127760;) para ver as informações necessárias para usar o modelo publicado. Posteriormente, você precisará da URL e dos valores de Prediction-Key apropriados para obter uma previsão de uma URL de imagem. Portanto, mantenha essa caixa de diálogo aberta e vá para a próxima tarefa. 
+1. Após a publicação, clique no ícone *URL de Previsão* (&#127760;) para ver as informações necessárias para usar o modelo publicado.
 
-## <a name="run-cloud-shell"></a>Executar o Cloud Shell
+    ![Captura de tela da URL de previsão.](media/create-image-classification-system/prediction-url.png)
+
+Posteriormente, você precisará da URL e dos valores de Prediction-Key apropriados para obter uma previsão de uma URL de imagem. Portanto, mantenha essa caixa de diálogo aberta e vá para a próxima tarefa.
+
+## Preparar um aplicativo cliente
 
 Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell no Azure.
 
-1. No portal do Azure, selecione o botão **[>_]** (*Cloud Shell*) na parte superior da página à direita da caixa de pesquisa. Isso abre um painel do Cloud Shell na parte inferior do Portal. 
+1. Volte para a guia do navegador que contém o portal do Azure e selecione o botão **Cloud Shell** ( **[>_]** ) na parte superior da página à direita da caixa de pesquisa. Isso abre um painel do Cloud Shell na parte inferior do portal.
 
-    ![Inicie o Cloud Shell clicando no ícone à direita da caixa de pesquisa superior](media/create-image-classification-system/powershell-portal-guide-1.png)
+    Na primeira vez que você abrir o Cloud Shell, talvez precise escolher o tipo de shell que deseja usar (*Bash* ou *PowerShell).* Nesse caso, selecione **PowerShell**.
 
-1. Na primeira vez que você abrir o Cloud Shell, talvez precise escolher o tipo de shell que deseja usar (*Bash* ou *PowerShell).* Selecione **PowerShell**. Se não vir essa opção, ignore a etapa.  
+    Se você precisar criar o armazenamento para o Cloud Shell, verifique se sua assinatura está selecionada e selecione **Criar armazenamento**. Aguarde um minuto para a criação do armazenamento.
 
-1. Se precisar criar o armazenamento para o Cloud Shell, verifique se sua assinatura está especificada e selecione **Criar armazenamento**. Aguarde um minuto para a criação do armazenamento.
+    Quando o Cloud Shell estiver pronto, ele deverá ser semelhante a isto:
+    
+    ![Captura de tela do Cloud Shell no portal do Azure.](media/create-image-classification-system/cloud-shell.png)
 
-    [![Crie o armazenamento clicando em confirmar.](media/create-image-classification-system/powershell-portal-guide-2.png)](media/create-image-classification-system/powershell-portal-guide-2.png#lightbox)
+    > **Dica**: verifique se o tipo de shell indicado na parte superior esquerda do painel do Cloud Shell é *PowerShell*. Se for *Bash*, alterne para o *PowerShell* usando o menu suspenso.
 
-1. Verifique se o tipo de shell indicado na parte superior esquerda do painel do Cloud Shell está marcado como *PowerShell*. Se for *Bash*, alterne para o *PowerShell* usando o menu suspenso.
+    Observe que você pode redimensionar o Cloud Shell arrastando a barra do separador na parte superior do painel ou usando os ícones **&#8212;** , **&#9723;** e **X** no canto superior direito do painel para minimizar, maximizar e fechar o painel. Para obter mais informações de como usar o Azure Cloud Shell, confira a [documentação do Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-    ![Como localizar o menu suspenso à esquerda para alternar para o PowerShell](media/create-image-classification-system/powershell-portal-guide-3.png)
-
-1. Aguarde o início do PowerShell. Você deverá ver a seguinte tela no portal do Azure:  
-
-    ![Aguarde o início do PowerShell.](media/create-image-classification-system/powershell-prompt.png)
-
-## <a name="configure-and-run-a-client-application"></a>Configurar e executar um aplicativo cliente
-
-Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simples que usa o serviço de Visão Personalizada para analisar uma imagem.
-
-1. No shell de comando, digite o comando a seguir para baixar o aplicativo de exemplo e salvá-lo em uma pasta chamada ai-900. 
+2. No shell de comando, insira os comandos a seguir para baixar os arquivos deste exercício e salvá-los em uma pasta chamada **ai-900** (depois de remover essa pasta, se ela já existir)
 
     ```PowerShell
+    rm -r ai-900 -f
     git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
     ```
 
-    >**Dica** Se você já usou esse comando em outro laboratório para clonar o repositório *ai-900*, ignore esta etapa.
-
-1. Os arquivos são baixados em uma pasta chamada **ai-900**. Agora queremos ver todos os arquivos em seu armazenamento do Cloud Shell e trabalhar com eles. Digite o seguinte comando no shell:
+3. Depois que os arquivos forem baixados, insira os seguintes comandos para alterar para o diretório **ai-900** e edite o arquivo de código para este exercício:
 
     ```PowerShell
-    code .
+    cd ai-900
+    code classify-image.ps1
     ```
 
-    Observe como isso abre um editor como o da imagem abaixo: 
+    Observe como isso abre um editor igual ao da imagem abaixo:
 
-    ![O editor de código.](media/create-image-classification-system/powershell-portal-guide-4.png)
+     ![Captura de tela do editor de código no Cloud Shell.](media/create-image-classification-system/code-editor.png)
 
-1. No painel **Arquivos** à esquerda, expanda **ai-900** e selecione **classify-image.ps1**. Esse arquivo contém um código que usa o modelo de Visão Personalizada para analisar uma imagem, conforme mostrado aqui:
+     > **Dica**: você pode usar a barra separadora entre a linha de comando do Cloud Shell e o editor de código para redimensionar os painéis.
 
-     ![O editor que contém o código para classificar uma imagem](media/create-image-classification-system/classify-image-code.png)
+4. Não se preocupe muito com os detalhes do código. O importante é que ele começa com algum código para especificar a URL de previsão e a chave para seu modelo de Visão Personalizada. Você precisará atualizá-los para que o restante do código use seu modelo.
 
-1. Não se preocupe tanto com os detalhes do código, o importante é que ele precisa da URL de previsão e da chave de seu modelo de Visão Personalizada ao usar uma URL de imagem. 
+    Obtenha a *URL de previsão* e a *chave de previsão* da caixa de diálogo que você deixou aberta na guia do navegador do projeto Visão Personalizada. **Você precisará que as versões sejam usadas *se tiver uma URL de imagem*.**
 
-   Obtenha a *URL de previsão* na caixa de diálogo no projeto de Visão Personalizada. 
-
-   >**Observação** Lembre-se de que você examinou a *URL de previsão* depois de publicar o modelo de classificação de imagem. Para encontrar a *URL de previsão*, navegue até a guia **Desempenho** no projeto e clique em **URL de Previsão** (se a tela estiver compactada, você poderá ver um ícone de globo). Uma caixa de diálogo será exibida. Copie a URL de **Se você tiver uma URL de imagem**. Cole-a no editor de códigos, substituindo **URL_DE_PREVISÃO**.
-
-    Usando a mesma caixa de diálogo, obtenha a *chave de previsão*. Copie a chave de previsão exibida depois de *Definir o Cabeçalho Prediction-Key como*. Cole-a no editor de códigos, substituindo o valor de espaço reservado **YOUR_PREDICTION_KEY**.
-
-    ![Captura de tela da URL de previsão.](media/create-image-classification-system/find-prediction-url.png)
+    Use esses valores para substituir os espaços reservados **YOUR_PREDICTION_URL** e **YOUR_PREDICTION_KEY** no arquivo de código.
 
     Depois de colar os valores de URL de Previsão e Chave de Previsão, as duas primeiras linhas de código devem ser semelhantes a esta:
 
@@ -155,47 +149,50 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
     $predictionKey ="1a2b3c4d5e6f7g8h9i0j...."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
+5. Depois de fazer as alterações nas variáveis no código, pressione **CTRL+S** para salvar o arquivo. Em seguida, pressione **CTRL+Q** para fechar o editor de códigos.
 
-    Você usará o aplicativo cliente de amostra para classificar várias imagens na categoria maçã, banana ou laranja.
+## Testar o aplicativo cliente
 
-1. Classificaremos esta imagem:
+Agora você pode usar o aplicativo cliente de exemplo para classificar imagens com base no animal que elas contêm.
 
-    ![Imagem de uma maçã](media/create-image-classification-system/fruit-1.jpg)
-
-    No painel do PowerShell, insira os seguintes comandos para executar o código:
+1. No painel do PowerShell, insira o seguinte comando para executar o código:
 
     ```PowerShell
-    cd ai-900
     ./classify-image.ps1 1
     ```
 
-1. Revise a previsão, que deve ser **maçã**.
+    Esse código usa seu modelo para classificar a seguinte imagem:
 
-1. Vamos experimentar agora com outra imagem:
+    ![Fotografia de uma girafa.](media/create-image-classification-system/animal-1.jpg)
 
-    ![Imagem de uma banana](media/create-image-classification-system/fruit-2.jpg)
+1. Examine a previsão, que deve ser **girafa**.
 
-    Execute este comando:
+1. Vamos experimentar agora com outra imagem. Execute este comando:
 
     ```PowerShell
     ./classify-image.ps1 2
     ```
 
-1. Verifique se o modelo classifica essa imagem como **banana**.
+    Desta vez, a seguinte imagem é classificada:
 
-1. Por fim, vamos tentar a terceira imagem de teste:
+    ![Fotografia de um elefante.](media/create-image-classification-system/animal-2.jpg)
 
-    ![Imagem de uma laranja](media/create-image-classification-system/fruit-3.jpg)
+1. Verifique se o modelo classifica essa imagem como **elefante**.
 
-    Execute este comando:
+1. Vamos tentar mais uma. Execute este comando:
 
     ```PowerShell
     ./classify-image.ps1 3
     ```
 
-1. Verifique se o modelo classifica essa imagem como **laranja**.
+    A imagem final tem esta aparência:
 
-## <a name="learn-more"></a>Saiba mais
+    ![Fotografia de um leão.](media/create-image-classification-system/animal-3.jpg)
 
-Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Visão Personalizada. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Visão Personalizada](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).
+1. Verifique se o modelo classifica essa imagem como **leão**.
+
+Espero que seu modelo de classificação de imagem classificou corretamente todas as três imagens.
+
+## Saiba mais
+
+Esse exercício mostra apenas alguns dos recursos do serviço de Visão Personalizada. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Visão Personalizada](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).
