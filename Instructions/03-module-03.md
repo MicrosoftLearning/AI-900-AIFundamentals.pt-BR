@@ -136,4 +136,4 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
 
 ## Saiba mais
 
-Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Pesquisa Visual Computacional. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Pesquisa Visual Computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
+Esse aplicativo simples mostra apenas alguns dos recursos do serviço de Pesquisa Visual Computacional. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Pesquisa Visual Computacional](https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab).
