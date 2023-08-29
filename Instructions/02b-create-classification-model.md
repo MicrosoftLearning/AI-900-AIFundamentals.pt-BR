@@ -52,61 +52,50 @@ lab:
 
 O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a próxima etapa enquanto aguarda.
 
-## Criar um pipeline no Designer
-
-Para começar a usar o designer do Azure Machine Learning, primeiro você precisa criar um pipeline e adicionar o conjunto de dados com o qual deseja trabalhar.
-
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Veja a página **Designer** (em **Criar**) e selecione **+** para criar um pipeline.
-
-1. No canto superior direito da tela, selecione **Configurações**. Se o painel **Configurações** não estiver visível, selecione o ícone de engrenagem ao lado do nome do pipeline na parte superior.
-
-1. Em **Configurações**, você precisa especificar um destino de computação no qual executar o pipeline. Em **Selecionar tipo de computação**, selecione **Cluster de computação**. Depois, em **Selecionar cluster de cálculo do Azure ML**, escolha o cluster de cálculo que já foi criado.
-
-1. Em **Configurações**, em **Detalhes do Rascunho**, altere o nome do rascunho (**Pipeline-Created-on-* date***) para **Treinamento de diabetes**.
-
-1. Selecione o ícone de fechamento no canto superior direito do painel **Configurações** e clique em **Salvar**.
-
-    ![Captura de tela do painel Configurações do Estúdio do Azure Machine Learning.](media/create-classification-model/create-pipeline-help.png)
 
 ## Criar um conjunto de dados
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Selecione a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
 
-1. Na página **Dados**, na guia **Ativos de dados**, selecione **Criar**. Depois, defina um ativo de dados com as seguintes configurações:
-    * **Tipo de dados**:
-        * **Nome**: dados-de-diabetes
-        * **Descrição**: dados de diabetes
-        * **Tipo de conjunto de dados**: tabular
-    * **Fonte de dados**: de arquivos da Web
-    * **URL da Web**: 
-        * **URL da Web**: https://aka.ms/diabetes-data
-        * **Ignorar validação de dados**: *não selecionar*
-    * **Configurações**:
-        * **Formato de arquivo**: delimitado
-        * **Delimitador**: vírgula
-        * **Codificação**: UTF-8
-        * **Cabeçalhos de coluna**: somente o primeiro arquivo tem cabeçalhos
-        * **Ignorar linhas**: Nenhum
-        * **O conjunto de dados contém dados multilinhas**: *não selecione*
-    * **Esquema**:
-        * incluir todas as colunas que não sejam **Caminho**
-        * Examinar os tipos detectados automaticamente
-    * **Revisão**
-        * Escolha **Criar**
+1. Na página **Dados**, na guia **Ativos de dados**, selecione **+ Criar**. Depois, defina um ativo de dados com as seguintes configurações:
+    - **Tipo de dados**:
+        - **Nome**: dados-de-diabetes
+        - **Descrição**: dados de diabetes
+        - **Tipo de conjunto de dados**: tabular
+    - **Fonte de dados**: de arquivos da Web
+    - **URL da Web**: 
+        - **URL da Web**: https://aka.ms/diabetes-data
+        - **Ignorar validação de dados**: *não selecionar*
+    - **Configurações**:
+        - **Formato de arquivo**: delimitado
+        - **Delimitador**: vírgula
+        - **Codificação**: UTF-8
+        - **Cabeçalhos de coluna**: somente o primeiro arquivo tem cabeçalhos
+        - **Ignorar linhas**: Nenhum
+        - **O conjunto de dados contém dados multilinhas**: *não selecione*
+    - **Esquema**:
+        - incluir todas as colunas que não sejam **Caminho**
+        - Examinar os tipos detectados automaticamente
+    - **Revisão**
+        - Escolha **Criar**
 
 1. Depois que o conjunto de dados tiver sido criado, abra-o e exiba a página **Explorar** para ver uma amostra dos dados. Esses dados representam detalhes de pacientes que foram testados para diabetes.
 
-### Carregar dados na tela
+## Criar um pipeline em Designer e carregar dados na tela
 
-1. Retorne ao pipeline selecionando **Designer** no menu à esquerda. Na página **Designer**, selecione o pipeline **Treinamento de diabetes**.
+Para começar a usar o designer do Azure Machine Learning, primeiro você precisa criar um pipeline e adicionar o conjunto de dados com o qual deseja trabalhar.
+
+1. Em [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), no painel esquerdo, selecione o item **Designer** (em **Criação**) e, em seguida, selecione **+** para criar um pipeline.
+
+1. Altere o nome do rascunho de **Pipeline-Created-on-*date*** para **Treinamento em Diabetes**.
 
 1. Então, no projeto, ao lado do nome do pipeline à esquerda, selecione o ícone de setas para expandir o painel se ele ainda não estiver expandido. O painel é aberto por padrão no painel **Biblioteca de ativos**, indicado pelo ícone de livros na parte superior do painel. Observe que há uma barra de pesquisa para localizar os ativos. Observe dois botões, **Dados** e **Componente**.
 
     ![Captura de tela do local da biblioteca de ativos do designer, da barra de pesquisa e do ícone de dados.](media/create-classification-model/designer-asset-library-data.png)
 
-1. Clique em **Dados**. Pesquise pelo conjunto de dados **diabetes-data** e coloque-o na tela.
+1. Selecione **Dados**. Pesquise pelo conjunto de dados **diabetes-data** e coloque-o na tela.
 
-1. Clique com o botão direito do mouse (CTRL + clique no Mac) no conjunto de dados **diabetes-data** na tela e clique em **Visualizar dados**.
+1. Clique com o botão direito do mouse (CTRL + clique no Mac) no conjunto de dados **diabetes-data** na tela e selecione **Visualizar dados**.
 
 1. Examine o esquema dos dados na tabela *Perfil*, observando que é possível ver as distribuições das várias colunas como histogramas.
 
@@ -114,7 +103,7 @@ Para começar a usar o designer do Azure Machine Learning, primeiro você precis
 
 1. Role de volta para cima e examine as outras colunas, que representam as *características* que serão usadas para prever o rótulo. Observe que a maioria dessas colunas é numérica, mas cada recurso está na própria escala. Por exemplo, os valores de **Idade** variam de 21 a 77, enquanto os valores de **DiabetesPedigree** variam de 0,078 a 2,3016. Ao treinar um modelo de machine learning, às vezes é possível que os valores maiores dominem a função preditiva resultante, reduzindo a influência das características em uma escala menor. Normalmente, os cientistas de dados reduzem esse possível desvio *normalizando* colunas numéricas para que elas fiquem em escalas semelhantes.
 
-1. Feche a guia **Visualização de resultados de diabetes-data** para ver o conjunto de dados na tela desta maneira:
+1. Feche a guia **DataOutput** para que você possa ver o conjunto de dados na tela desta maneira:
 
     ![Captura de tela do conjunto de dados diabetes-data na tela do designer.](media/create-classification-model/diabetes-data.png)
 
@@ -122,19 +111,19 @@ Para começar a usar o designer do Azure Machine Learning, primeiro você precis
 
 Para treinar um modelo, você precisa aplicar algumas transformações de pré-processamento aos dados.
 
-1. No painel **Biblioteca de ativos** à esquerda, clique em **Componente**, que contêm uma ampla gama de módulos que você pode usar para transformação de dados e treinamento de modelo. Você também pode usar a barra de pesquisa para localizar os módulos rapidamente.
+1. No painel **Biblioteca de ativos**, à esquerda, selecione **Componente**, que contém uma ampla gama de módulos que você pode usar para transformação de dados e treinamento de modelos. Você também pode usar a barra de pesquisa para localizar os módulos rapidamente.
 
     ![Captura de tela do local da biblioteca de ativos do designer, da barra de pesquisa e do ícone de componentes.](media/create-classification-model/designer-asset-library-components.png)
 
 1. Localize o módulo **Selecionar Colunas no Conjunto de Dados** e coloque-o na tela, abaixo do conjunto de dados **diabetes-data**. Em seguida, conecte a saída da parte inferior do conjunto de dados **diabetes-data** à entrada na parte superior do módulo **Selecionar Colunas no Conjunto de Dados**.
 
-1. Clique duas vezes no módulo **Selecionar Colunas no Conjunto de Dados** para acessar um painel de configurações à direita. Selecione **Editar coluna**. Na janela **Selecionar colunas**, selecione **Por nome** e **Adicionar todas** as colunas. Em seguida, remova **PatientID** e clique em **Salvar**. 
+1. Clique duas vezes no módulo **Selecionar Colunas no Conjunto de Dados** para acessar um painel de configurações à direita. Selecione **Editar coluna**. Na janela **Selecionar colunas**, selecione **Por nome** e **Adicionar todas** as colunas. Em seguida, remova **PatientID** e clique em **Salvar**.
 
 1. Localize o módulo **Normalizar Dados** e coloque-o na tela, abaixo do módulo **Selecionar Colunas no Conjunto de Dados**. Em seguida, conecte a saída da parte inferior do módulo **Selecionar Colunas no Conjunto de Dados** à entrada na parte superior do módulo **Normalizar Dados**, desta forma:
 
     ![Captura de tela de um pipeline com o conjunto de dados conectado para selecionar colunas e o módulo Normalizar Dados.](media/create-classification-model/dataset-normalize.png)
 
-1. Clique duas vezes no módulo **Normalizar Dados** para ver as respectivas configurações, observando que é necessário especificar o método de transformação e as colunas a serem transformadas. 
+1. Clique duas vezes no módulo **Normalizar Dados** para ver as respectivas configurações, observando que é necessário especificar o método de transformação e as colunas a serem transformadas.
 
 1. Defina o *Método de transformação* como **MinMax** e o *Usar 0 para colunas constantes quando marcadas* como **True**. Edite as colunas a serem transformadas com **Editar colunas**. Selecione colunas **Com Regras** e copie e cole a seguinte lista em incluir nomes de coluna:  
 
@@ -143,7 +132,7 @@ Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsul
 ```
 ![Captura de tela das colunas selecionadas para a normalização.](media/create-classification-model/normalize-data.png)
 
-Clique em **Salvar** e feche a caixa de seleção. 
+Clique em **Salvar** e feche a caixa de seleção.
 
 A transformação de dados está normalizando as colunas numéricas para colocá-las na mesma escala, o que deve ajudar a evitar que colunas com valores grandes dominem o treinamento do modelo. Normalmente, você aplicaria um número grande de transformações de pré-processamento como essa para preparar seus dados para treinamento, mas vamos manter as coisas simples neste exercício.
 
@@ -151,19 +140,23 @@ A transformação de dados está normalizando as colunas numéricas para colocá
 
 Para aplicar suas transformações de dados, você precisa executar o pipeline como um experimento.
 
-1. Selecione **Enviar** e execute o pipeline como um novo experimento denominado **treinamento de diabetes mslearn** em seu cluster de cálculo.
+1. Selecione **Configurar e Enviar** na parte superior da página para abrir a caixa de diálogo **Configurar trabalho de pipeline**.
 
-1. Aguarde alguns minutos para que a execução seja concluída.
+1. Na página **Noções Básicas**, selecione **Criar novo** e defina o nome do experimento como **mslearn-diabetes-training** e selecione **Avançar** .
 
-    ![Captura de tela da biblioteca de ativos do designer com o botão de detalhes do trabalho e do trabalho concluído abaixo.](media/create-classification-model/completed-job.png)
+1. Na página **Entradas e saídas**, selecione **Avançar** sem fazer alterações.
 
-    Observe que o painel esquerdo agora está no painel **Trabalhos Enviados**. Você saberá quando a execução for concluída porque o status do trabalho será alterado para **Concluído**.
+1. Na página **Configurações de runtime**, aparece um erro porque você não tem uma computação padrão para executar o pipeline. Na lista suspensa **Selecionar tipo de computação**, selecione *Cluster de cálculo* e, na lista suspensa **Selecionar cluster de cálculo do Azure ML**, selecione o cluster de cálculo criado recentemente.
+
+1. Selecione **Examinar + Enviar** para examinar o trabalho do pipeline e, em seguida, selecione **Enviar** para executar o pipeline de treinamento.
+
+1. Aguarde alguns minutos para que a execução seja concluída. Você pode verificar o status do trabalho selecionando **Trabalhos** em **Ativos**. A partir daí, selecione o experimento **mslearn-diabetes-training** e, em seguida, o trabalho **Treinamento em Diabetes**.
 
 ## Ver os dados transformados
 
-1. Quando a execução for concluída, o conjunto de dados estará preparado para treinamento de modelo. Clique em **Detalhes do trabalho**. Você será direcionado a uma nova guia.
+Quando a execução for concluída, o conjunto de dados estará preparado para treinamento de modelo.
 
-1. Clique com o botão direito do mouse (Ctrl + clique no Mac) no módulo **Normalizar dados** na tela e clique em **Visualizar dados**. Selecione **Conjunto de dados transformados**.
+1. Clique com o botão direito do mouse (Ctrl + clique no Mac) no módulo **Normalizar Dados** na tela e selecione **Visualizar dados**. Selecione **Conjunto de dados transformados**.
 
 1. Veja os dados, observando que as colunas numéricas selecionadas foram normalizadas para uma escala comum.
 
@@ -181,18 +174,18 @@ Neste exercício, você percorrerá algumas etapas para estender o pipeline de *
 
 Siga as etapas abaixo, usando a imagem acima para referência, à medida que você adicionar e configurar os módulos necessários.
 
-1. Abra o pipeline de **Treinamento de Diabetes** que você criou na unidade anterior se ele ainda não estiver aberto.
+1. Retorne à página **Designer** e selecione o pipeline **Treinamento em Diabetes**.
 
 1. No painel **Biblioteca de ativos** à esquerda, em **Componentes**, procure o módulo **Dividir dados** e coloque-o na tela sob o módulo **Normalizar dados**. Em seguida, conecte a saída *Conjunto de dados transformado* (à esquerda) do módulo **Normalizar dados** para a entrada do módulo **Dividir dados**.
 
     >**Dica** Use a barra de pesquisa para localizar os módulos rapidamente.
 
 1. Selecione o módulo **Dividir dados** e defina as configurações dele da seguinte maneira:
-    * **Modo de divisão**: dividir linhas
-    * **Fração das linhas no primeiro conjunto de dados de saída**: 0,7
-    * **Divisão aleatória**: True
-    * **Semente aleatória**: 123
-    * **Divisão estratificada**: Falso
+    - **Modo de divisão**: dividir linhas
+    - **Fração das linhas no primeiro conjunto de dados de saída**: 0,7
+    - **Divisão aleatória**: True
+    - **Semente aleatória**: 123
+    - **Divisão estratificada**: Falso
 
 1. Na **Biblioteca de ativos**, procure o módulo **Treinar modelo** e coloque-o na tela, sob o módulo **Dividir dados**. Depois, conecte o *Conjunto de dados de resultado1* (à esquerda) do módulo **Dividir dados** à entrada *Conjunto de dados* (à direita) do módulo **Treinar modelo**.
 
@@ -200,27 +193,27 @@ Siga as etapas abaixo, usando a imagem acima para referência, à medida que voc
 
     O rótulo **Diabético** que o modelo vai prever é uma classe (0 ou 1), portanto, precisamos treinar o modelo usando um algoritmo de *classificação*. Especificamente, há duas classes possíveis, portanto, precisamos de um algoritmo de *classificação binária*.
 
-1. Na **Biblioteca de ativos**, procure o módulo **Regressão logística de duas classes** e coloque-o na tela, à esquerda do módulo **Dividir dados** e acima do módulo **Treinar modelo**. Em seguida, conecte a saída dele à entrada do **Modelo não treinado** (à esquerda) do módulo **Treinar Modelo**.
+1. Na **Biblioteca de ativos**, procure o módulo **Regressão logística de duas classes** e coloque-o na tela, à esquerda do módulo **Dividir dados** e acima do módulo **Treinar modelo**. Em seguida, conecte a saída dele à entrada do *Modelo não treinado* (à esquerda) do módulo **Treinar Modelo**.
 
    Para testar o modelo treinado, precisamos usá-lo para *pontuar* o conjunto de dados de validação que retivemos quando dividimos os dados originais: em outras palavras, preveem rótulos para as características no conjunto de dados de validação.
 
-1. Na **Biblioteca de ativos**, procure o módulo **Pontuar modelo** e coloque-o na tela, sob o módulo **Treinar modelo**. Em seguida, conecte a saída do módulo **Treinar Modelo** à entrada **Modelo treinado** (à esquerda) do módulo **Pontuar Modelo** e conecte a saída do **Conjunto de dados de resultado2** (à direita) do módulo **Dividir dados** à entrada **Conjunto de dados** (à direita) do módulo **Pontuar Modelo**.
+1. Na **Biblioteca de ativos**, procure o módulo **Pontuar modelo** e coloque-o na tela, sob o módulo **Treinar modelo**. Em seguida, conecte a saída do módulo **Treinar Modelo** à entrada *Modelo treinado* (à esquerda) do módulo **Pontuar Modelo** e conecte a saída do *Conjunto de dados de resultado2* (à direita) do módulo **Dividir dados** à entrada *Conjunto de dados* (à direita) do módulo **Pontuar Modelo**.
 
 ## Executar o pipeline de treinamento
 
 Agora você está pronto para executar o pipeline de treinamento e treinar o modelo.
 
-1. Selecione **Enviar** e execute o pipeline usando o experimento existente denominado **treinamento de diabetes mslearn**.
+1. Selecione **Configurar e Enviar** e execute o pipeline usando o experimento existente denominado **mslearn-diabetes-training**.
 
 1. Aguarde a conclusão da execução do experimento. Isso pode levar cinco minutos ou mais.
 
-1. Quando a execução do teste for concluída, selecione **Detalhes do trabalho**. Você será direcionado a uma nova guia.
+1. Verifique o status do trabalho selecionando **Trabalhos** em **Ativos**. A partir daí, selecione o experimento **mslearn-diabetes-training** e, em seguida, selecione o trabalho mais recente de **Treinamento em Diabetes**.
 
-1. Na nova guia, clique com o botão direito do mouse (Ctrl + clique no Mac) no módulo **Modelo de pontuação** na tela e clique em **Visualizar dados**. Selecione **Conjunto de dados pontuado** para exibir os resultados.
+1. Na nova guia, clique com o botão direito do mouse (Ctrl+clique em um Mac) no módulo **Modelo de Pontuação** na tela, selecione **Visualizar dados** e, em seguida, selecione **Conjunto de dados pontuado** para exibir os resultados.
 
 1. Role para a direita e observe que ao lado da coluna **Diabético** (que contém os valores verdadeiros conhecidos do rótulo), há uma nova coluna denominada **Rótulos Pontuados**, que contém os valores de rótulo previstos, além de uma coluna chamada **Probabilidades Pontuadas**, que contém um valor de probabilidade entre 0 e 1. Isso indica a probabilidade de uma previsão *positiva*, portanto, as probabilidades maiores que 0,5 resultam em um rótulo previsto de ***1*** (diabético), enquanto as probabilidades entre 0 e 0,5 resultam em um rótulo previsto de ***0*** (não diabético).
 
-1. Feche a guia **Visualização de resultados de Pontuar modelo**.
+1. Feche a guia **Scored_dataset**.
 
 O modelo está prevendo valores para o rótulo **Diabético**, mas o quão confiáveis são as previsões dele? Para avaliar isso, você precisa avaliar o modelo.
 
@@ -228,21 +221,21 @@ Os dados de validação que você reteve e usou para pontuar o modelo incluem os
 
 ## Adicionar um módulo Avaliar Modelo
 
-1. Abra o pipeline de **Treinamento de Diabetes** que você criou.
+1. Retorne ao **Designer** e abra o pipeline **Treinamento em Diabetes** criado.
 
-1. Na **Biblioteca de Ativos**, procure o módulo **Avaliar modelo**, coloque-o na tela, sob o módulo **Pontuar modelo** e conecte a saída do módulo **Pontuar modelo** à entrada do **Conjunto de dados pontuado** (à esquerda) do módulo **Avaliar modelo**.
+1. Na **Biblioteca de Ativos**, procure o módulo **Avaliar modelo**, coloque-o na tela, sob o módulo **Pontuar modelo** e conecte a saída do módulo **Pontuar modelo** à entrada do *Conjunto de dados pontuado* (à esquerda) do módulo **Avaliar modelo**.
 
 1. Assegure-se de que o pipeline é semelhante a este:
 
     ![Captura de tela do módulo Avaliar Modelo adicionado ao módulo Modelo de Pontuação.](media/create-classification-model/evaluate-pipeline.png)
 
-1. Selecione **Enviar** e execute o pipeline usando o experimento existente denominado **treinamento de diabetes mslearn**.
+1. Selecione **Configurar e Enviar** e execute o pipeline usando o experimento existente denominado **mslearn-diabetes-training**.
 
 1. Aguarde a conclusão da execução do experimento.
 
-1. Quando a execução do teste for concluída, selecione **Detalhes do trabalho**. Você será direcionado a uma nova guia.
+1. Verifique o status do trabalho selecionando **Trabalhos** em **Ativos**. A partir daí, selecione o experimento **mslearn-diabetes-training** e, em seguida, selecione o trabalho mais recente de **Treinamento em Diabetes**.
 
-1. Na nova janela, clique com o botão direito do mouse (Ctrl + clique no Mac) no módulo **Avaliar modelo** na tela e clique em **Visualizar dados**. Selecione **Resultados da avaliação** para exibir as métricas de desempenho. Essas métricas podem ajudar os cientistas de dados a avaliar o quão bem o modelo prevê com base nos dados de validação.
+1. Na nova guia, clique com o botão direito do mouse (Ctrl+clique em um Mac) no módulo **Avaliar Modelo** na tela, selecione **Visualizar dados** e, em seguida, selecione **Resultados da avaliação** para exibir as métricas de desempenho. Essas métricas podem ajudar os cientistas de dados a avaliar o quão bem o modelo prevê com base nos dados de validação.
 
 1. Role para baixo para exibir a *matriz de confusão* do modelo. Observe as contagens de valor previstas e reais para cada classe possível. 
 
@@ -256,26 +249,24 @@ Os dados de validação que você reteve e usou para pontuar o modelo incluem os
 
 1. Veja acima do controle deslizante Threshold na **curva ROC** e na métrica **AUC** listadas com as outras métricas abaixo. Para ter uma ideia de como essa área representa o desempenho do modelo, imagine uma linha diagonal reta da parte inferior esquerda para a parte superior direita do gráfico ROC. Isso representa o desempenho esperado se você acabou de adivinhar ou lançar uma moeda para cada paciente: você poderia esperar acertar metade das vezes e errar a outra metade, portanto, a área sob a linha diagonal representa um AUC de 0,5. Se o AUC de seu modelo for maior que esse para um modelo de classificação binária, o modelo terá um desempenho melhor do que uma estimativa aleatória.
 
-1. Feche a guia **Visualização de resultados de Avaliar Modelo**.
+1. Feche a guia **Evaluation_results**.
 
 O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um mínimo de engenharia de recursos e pré-processamento. É possível tentar um algoritmo de classificação diferente, como a **floresta de decisão de duas classes**, e comparar os resultados. É possível conectar as saídas do módulo **Dividir Dados** a vários módulos **Treinar Modelo** e **Pontuar Modelo** e conectar um segundo módulo **Pontuar Modelo** ao módulo **Avaliar Modelo** para ver uma comparação lado a lado. O objetivo do exercício é simplesmente apresentar a você a classificação e a interface do designer do Azure Machine Learning, não treinar um modelo perfeito!
 
 ## Criar um pipeline de inferência
 
-1. No Estúdio do Azure Machine Learning, expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Clique em **Trabalhos** (em **Ativos**) para exibir todos os trabalhos executados. Selecione o teste **mslearn-diabetes-training** e o pipeline **Treinamento de diabetes**.
-
-1. Localize o menu acima da tela e clique em **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
+1. Localize o menu acima da tela e selecione **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
 
     ![Captura de tela do local de criação de pipeline de inferência.](media/create-classification-model/create-inference-pipeline.png)
 
 1. Na lista suspensa **Criar um pipeline de inferência**, clique em **Pipeline de inferência em tempo real**. Depois de alguns segundos, uma nova versão do seu pipeline denominada **Treinamento de Diabetes – inferência em tempo real** será aberta.
 
-1. Navegue até **Configurações** no menu superior direito. Em **Detalhes do rascunho**, renomeie o novo pipeline como **Prever Diabetes** e examine-o. Algumas das transformações e etapas de treinamento fazem parte desse pipeline. O modelo treinado será usado para pontuar os novos dados. O pipeline também contém uma saída de serviço Web para retornar resultados. 
+1. Renomeie o novo pipeline para **Prever Diabetes** e examine o novo pipeline. Algumas das transformações e etapas de treinamento fazem parte desse pipeline. O modelo treinado será usado para pontuar os novos dados. O pipeline também contém uma saída de serviço Web para retornar resultados.
 
     Você fará as seguintes alterações no pipeline de inferência:
 
     ![Captura de tela de um pipeline de inferência com as alterações indicadas.](media/create-classification-model/inference-changes.png)
-    
+
     - Adicione um componente de **entrada de serviço Web** para que novos dados sejam enviados.
     - Substitua o conjunto de dados **diabetes-data** por um módulo **Inserir Dados Manualmente** que não inclui a coluna de rótulo (**Diabético**).
     - Edite as colunas selecionadas no módulo **Selecionar Colunas no Conjunto de Dados**.
@@ -295,7 +286,7 @@ O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um
 
 1. Conecte o novo módulo **Inserir Dados Manualmente** à mesma entrada de **Conjunto de dados** do módulo **Selecionar Colunas no Conjunto de Dados** como a **Entrada do Serviço Web**.
 
-1. Edite o módulo **Selecionar Colunas no Conjunto de Dados**. Remova **Diabetic** das *Colunas Selecionadas*. 
+1. Edite o módulo **Selecionar Colunas no Conjunto de Dados**. Remova **Diabetic** das *Colunas Selecionadas*.
 
 1. O pipeline de inferência inclui o módulo **Avaliar Modelo**, que não é útil para prever dados novos, portanto, exclua esse módulo.
 
@@ -303,19 +294,19 @@ O desempenho desse modelo não é tão bom, em parte porque realizamos apenas um
     - Exclua a conexão entre o módulo **Pontuar modelo** e a **Saída do serviço Web**.
     - Adicione um módulo **Executar Script Python**, substituindo todo o script Python padrão pelo seguinte código (que seleciona apenas as colunas **PatientID**, **Rótulos Pontuados** e **Probabilidades Pontuadas** e as renomeia corretamente):
 
-```Python
-import pandas as pd
+    ```Python
+    import pandas as pd
+    
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+    
+        scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
+        scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
+                                    'Scored Probabilities':'Probability'},
+                            inplace=True)
+        return scored_results
+    ```
 
-def azureml_main(dataframe1 = None, dataframe2 = None):
-
-    scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
-    scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
-                                'Scored Probabilities':'Probability'},
-                        inplace=True)
-    return scored_results
-```
-
-1. Conecte a saída módulo **Pontuar modelo** à entrada **Dataset1** (mais à esquerda) de **Executar script Python** e conecte a saída do módulo **Executar script Python** à **Saída do serviço Web**.
+1. Conecte a saída do módulo **Modelo de Pontuação** à entrada *Dataset1* (mais à esquerda) do **Executar Script Python** e conecte a saída do *Conjunto de dados de resultados* (esquerda) do módulo **Executar Script Python** à **Saída do Serviço Web**.
 
 1. Verifique se o pipeline se assemelha à seguinte imagem:
 
@@ -323,7 +314,9 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. Execute o pipeline como um novo experimento denominado **inferência de diabetes mslearn** no cluster de cálculo. O experimento pode demorar um pouco para ser executado.
 
-1. Quando o pipeline for concluído, selecione **Detalhes do trabalho**. Na nova guia, clique com o botão direito do mouse no módulo **Executar script Python**. Selecione **Visualizar dados** e o **Conjunto de dados de resultado** para ver os rótulos e as probabilidades previstos para as três observações de pacientes nos dados de entrada.
+1. Retorne à guia  **Trabalhos**. A partir daí, selecione o experimento **mslearn-diabetes-inference** e, em seguida, selecione o trabalho **Prever Diabetes**.
+
+1. Quando o pipeline for concluído, selecione o módulo **Executar Script Python**. Selecione **Visualizar dados** e o **Conjunto de dados de resultado** para ver os rótulos e as probabilidades previstos para as três observações de pacientes nos dados de entrada.
 
 Seu pipeline de inferência prevê se os pacientes correm ou não risco de ter diabetes com base nas características dele. Agora você está pronto para publicar o pipeline para que os aplicativos cliente possam usá-lo.
 
@@ -333,22 +326,16 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
 
 ## Implantar um serviço
 
-1. Veja o pipeline de inferência **Prever Diabetes** criado na unidade anterior.
-
-1. Selecione **Detalhes do trabalho** no painel esquerdo. Isso abrirá outra janela.
-
-    ![Captura de tela dos detalhes do trabalho ao lado do trabalho concluído. ](media/create-classification-model/completed-job-inference.png)
-
-1. Na nova janela, selecione **Implantar**.
+1. Na parte superior da janela do trabalho **Prever Diabetes**, selecione **Implantar**.
 
     ![Captura de tela do botão de implantação para o pipeline de inferência Prever Preço Automático.](media/create-classification-model/deploy-screenshot.png)
 
-1. No canto superior direito, selecione **Implantar** e implante um **novo ponto de extremidade em tempo real** usando as seguintes configurações: 
-    -  **Nome**: prever diabetes
-    -  **Descrição**: Classificar diabetes
+1. Na seção **Configurar ponto de extremidade em tempo real**, selecione **Implantar novo ponto de extremidade em tempo real** e use as seguintes configurações:
+    - **Nome**: prever diabetes
+    - **Descrição**: Classificar diabetes
     - **Tipo de computação**: instância de Contêiner do Azure
 
-1. Aguarde até que o serviço Web seja implantado. Isso pode levar vários minutos. O status da implantação é mostrado na parte superior esquerda da interface do designer.
+1. Selecione **Implantar** e aguarde a implantação do serviço Web, o que pode levar vários minutos.
 
 ## Teste o serviço
 
