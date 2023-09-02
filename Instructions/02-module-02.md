@@ -62,7 +62,7 @@ O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a pr�
 
 1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
 
-1. Na página **Dados**, na guia **Ativos de dados**, selecione **Criar**. Depois, defina um ativo de dados com as seguintes configurações:
+1. Na página **Dados**, na guia **Ativos de dados**, selecione **+ Criar**. Depois, defina um ativo de dados com as seguintes configurações:
     * **Tipo de dados**:
         * **Nome**: bike-rentals
         * **Descrição**: dados de aluguel de bicicleta
@@ -128,9 +128,7 @@ Siga as próximas etapas para executar um trabalho que usa o machine learning au
         - **Tipo de validação**: Automático
         - **Ativo de dados de teste (versão prévia)** : nenhum ativo de dados de teste é necessário
 
-1. Quando você terminar de enviar os detalhes do trabalho de machine learning automatizado, ele será iniciado automaticamente. Aguarde até que o status seja alterado de *Em preparação* para *Em execução*.
-
-1. Quando o status for alterado para *Em execução*, veja a guia **Modelos** e observe como cada combinação possível de algoritmo de treinamento e etapas de pré-processamento é tentada e como o desempenho do modelo resultante é avaliado. A página é atualizada automaticamente em intervalos, mas você também pode selecionar **Atualizar**. Pode levar dez minutos em média para os modelos começarem a aparecer, pois os nós de cluster precisam ser inicializados para que o treinamento seja iniciado.
+1. Quando você terminar de enviar os detalhes do trabalho de machine learning automatizado, ele será iniciado automaticamente.
 
 1. Aguarde a conclusão do trabalho. Isso pode demorar um pouco, então agora é um bom momento para um café.
 
@@ -163,26 +161,24 @@ Siga as próximas etapas para executar um trabalho que usa o machine learning au
 
     ![Captura de tela do resumo do melhor modelo com uma caixa em torno do nome do algoritmo na guia Detalhes.](media/use-automated-machine-learning/deploy-detail-tab.png)
 
-1. Na guia **Modelo**, clique no botão **Implantar** e use a opção **Implantar no serviço Web** para implantar o modelo com as seguintes configurações:
+1. Na guia **Modelos**, clique no botão **Implantar** e use a opção **Serviço Web** para implantar o modelo com as seguintes configurações:
     - **Nome**: predict-rentals
     - **Descrição**: prever aluguéis de bicicleta
     - **Tipo de computação**: instância de Contêiner do Azure
     - **Habilitar autenticação**: Selecionado
 
-1. Aguarde até o início da implantação – isso pode levar alguns segundos. Em seguida, na seção **Resumo do modelo**, observe o **Status da implantação** para o serviço **predict-rentals**, que seria **Em execução**. Aguarde até que esse status mude para **Bem-sucedido**, o que pode demorar um pouco. Talvez seja necessário selecionar **Atualizar** periodicamente.
+1. Aguarde até o início da implantação – isso pode levar alguns segundos.
 
-1. No Estúdio do Azure Machine Learning, no menu à esquerda, selecione **Pontos de Extremidade**.
-    ![Captura de tela da localização dos pontos de extremidade no menu à esquerda.](media/use-automated-machine-learning/find-endpoints.png)
+1. Em Estúdio do Azure Machine Learning, no menu à esquerda, selecione **Pontos de Extremidade** e abra o ponto de extremidade em tempo real **predict-rentals**.
+1. Aguarde até que o **Estado de implantação** seja alterado para **Íntegro**. Isso pode levar alguns minutos.
 
 ## Testar o serviço implantado
 
 Agora você pode testar o serviço implantado.
 
-1. Na página **Pontos de extremidade**, abra o ponto de extremidade em tempo real **predict-rentals**.
+1. Na página do ponto de extremidade em tempo real **predict-rentals**, confira a guia **Teste**.
 
-1. Quando o ponto de extremidade **predict-rentals** for aberto, exiba a guia **Teste**.
-
-1. No painel **Dados de entrada para testar o ponto de extremidade em tempo real**, substitua o modelo JSON pelos seguintes dados de entrada:
+1. No painel **Dados de entrada para testar o ponto de extremidade**, substitua o modelo JSON pelos seguintes dados de entrada:
 
     ```JSON
     {
