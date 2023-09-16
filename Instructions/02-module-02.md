@@ -33,29 +33,6 @@ Nesse caso, você usará um conjunto de dados de detalhes históricos de aluguel
 
 > **Observação** Este módulo é um dos vários que usam um workspace do Azure Machine Learning, incluindo os outros módulos do roteiro de aprendizagem [Conceitos básicos de IA do Microsoft Azure: explore ferramentas visuais para machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se você estiver usando sua assinatura do Azure, considere a possibilidade de criar o workspace uma vez e reutilizá-lo em outros módulos. Será cobrada uma pequena quantidade de armazenamento de dados em sua assinatura do Azure se o workspace do Azure Machine Learning existir na assinatura. Portanto, recomendamos que você exclua o workspace do Azure Machine Learning quando ele não for mais necessário.
 
-## Criar computação
-
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), selecione o ícone **&#8801;** (um ícone de menu que se parece com uma pilha de três linhas) na parte superior esquerda para ver as várias páginas na interface (talvez seja necessário maximizar o tamanho da tela). Use essas páginas no painel esquerdo para gerenciar os recursos no workspace. Selecione a página **Computação** (em **Gerenciar**).
-
-1. Na página **Computação**, selecione a guia **Clusters de cálculo** e adicione um novo cluster de cálculo com as configurações a seguir. Você o usará para treinar um modelo de machine learning:
-    - **Localização**: *selecione a mesma que a do workspace. Se essa localização não estiver listada, escolha a mais próxima de você*.
-    - **Camada da máquina virtual**: dedicada
-    - **Tipo de máquina virtual**: CPU
-    - **Tamanho da máquina virtual**:
-        - Escolha **Selecionar entre todas as opções**
-        - Pesquise e selecione **Standard_DS11_v2**
-    - Selecione **Avançar**
-    - **Nome da computação**: *insira um nome exclusivo*.
-    - **Número mínimo de nós**: 0
-    - **Número máximo de nós**: 2
-    - **Segundos de espera antes de reduzir verticalmente**: 120
-    - **Habilitar o acesso SSH**: não habilitar
-    - Escolha **Criar**
-
-> **Observação** As instâncias de computação e os clusters de cálculo se baseiam em imagens de máquina virtual do Azure Standard. Para este módulo, a imagem *Standard_DS11_v2* é recomendada para atingir o equilíbrio ideal entre custo e desempenho. Se a sua assinatura tiver uma cota que não inclua essa imagem, escolha uma imagem alternativa. Mas tenha em mente que uma imagem maior pode gerar um custo maior e uma imagem menor pode não ser suficiente para concluir as tarefas. Como alternativa, peça ao administrador do Azure para estender sua cota.
-
-O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a próxima etapa enquanto aguarda.
-
 ## Criar um ativo de dados
 
 1. Exiba os dados separados por vírgula em [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true) no seu navegador da Web.
@@ -88,6 +65,16 @@ O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a pr�
 
 > **Citação**: *esses dados são derivados de [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) e são usados de acordo com [contrato de licença](https://www.capitalbikeshare.com/data-license-agreement) dos dados publicados*.
 
+## Habilitar Computação sem servidor
+
+1. No Azure Machine Learning Studio, clique em **gerenciar versões prévias do recursos** (o ícone de alto-falante).
+
+![Uma captura de tela do botão gerenciar versões prévias dos recursos no menu.](../instructions/media/use-automated-machine-learning/severless-compute-1.png)
+
+1. Habilite o recurso "Experiência guiada para enviar trabalhos de treinamento com computação sem servidor".
+
+![Uma captura de tela do recurso habilitar computação sem servidor.](../instructions/media/use-automated-machine-learning/enable-serverless-compute.png)
+
 ## Executar um trabalho de machine learning automatizado
 
 Siga as próximas etapas para executar um trabalho que usa o machine learning automatizado para treinar um modelo de regressão que prevê aluguéis de bicicletas.
@@ -115,19 +102,12 @@ Siga as próximas etapas para executar um trabalho que usa o machine learning au
         - **Modelos permitidos**: *selecione apenas **RandomForest** e **LightGBM**. O ideal seria tentar usar o máximo possível, mas cada modelo adicionado aumenta o tempo necessário para executar o trabalho.*
 
         ![Captura de tela de configurações adicionais com uma caixa em torno dos modelos permitidos.](media/use-automated-machine-learning/allowed-models.png)
-        - **Critério de saída**:
-            - **Tempo do trabalho de treinamento (horas)** : 0,5 – *Encerra o trabalho após no máximo 30 minutos.*
-            - **Limite de pontuação da métrica**: 0,085 – *Se um modelo atingir uma pontuação de métrica de raiz do erro quadrático médio normalizada de até 0,085, o trabalho será encerrado.*
-        - **Simultaneidade**: *não alterar*
-    - **Configurações de definição de recursos:**
-        - **Habilitar definição de recursos**: selecionado – *pré-processar automaticamente os recursos antes do treinamento.*
-
-    Clique em **Avançar** para ir ao próximo painel de seleção.
-
-    - **Selecionar a validação e o tipo de teste**
-        - **Tipo de validação**: Automático
-        - **Ativo de dados de teste (versão prévia)** : nenhum ativo de dados de teste é necessário
-
+Observe que, em *Exibir definições de configuração adicionais*, há uma seção *Limites*. Expanda a seção para definir as configurações:
+        - **Tempo limite (minutos)** : 30 — *encerra o trabalho após no máximo 30 minutos.*
+        - **Limite de pontuação da métrica**: 0,085 – *Se um modelo atingir uma pontuação de métrica de raiz do erro quadrático médio normalizada de até 0,085, o trabalho será encerrado.*
+        - Clique em **Avançar**.
+        - **Computação**: nenhuma alteração necessária aqui
+        - Clique em **Avançar**.
 1. Quando você terminar de enviar os detalhes do trabalho de machine learning automatizado, ele será iniciado automaticamente.
 
 1. Aguarde a conclusão do trabalho. Isso pode demorar um pouco, então agora é um bom momento para um café.
@@ -219,7 +199,6 @@ Você acabou de testar um serviço que está pronto para ser conectado a um apli
 O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Você também deve excluir o cluster de cálculo.
 
 1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na guia **Pontos de extremidade**, selecione o ponto de extremidade **predict-rentals**. Depois, selecione **Excluir** e confirme que você deseja excluir o ponto de extremidade.
-2. Na página **Computação**, na guia **Clusters de cálculo**, selecione o cluster de cálculo e escolha **Excluir**.
 
 > **Observação** Excluir sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
 >
