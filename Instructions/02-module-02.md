@@ -5,18 +5,24 @@ lab:
 
 # Explorar o machine learning automatizado no Azure ML
 
-> **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
+Neste exercício, você usará o recurso de machine learning automatizado no Azure Machine Learning para treinar e avaliar um modelo de machine learning. Em seguida, você implantará e testará o modelo treinado.
 
-Nesse caso, você usará um conjunto de dados de detalhes históricos de aluguel de bicicleta para treinar um modelo que prevê o número de aluguéis de bicicletas que deve ser esperado em um determinado dia, com base em características sazonais e meteorológicas.
+Este exercício deve levar aproximadamente **30** minutos para ser concluído.
 
-## Criar um workspace do Azure Machine Learning  
+> **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free) na qual tenha acesso administrativo.
 
-1. Entre no [portal do Azure](https://portal.azure.com?azure-portal=true) usando suas credenciais da Microsoft.
+## Criar um workspace do Azure Machine Learning
 
-1. Selecione **+ Criar um recurso**, procure *Machine Learning* e crie um recurso do **Azure Machine Learning** com um plano do *Azure Machine Learning*. Use as configurações a seguir:
+Para usar o Azure Machine Learning, você precisa provisionar um workspace do Azure Machine Learning em sua assinatura do Azure. Em seguida, você poderá usar o Estúdio do Azure Machine Learning para trabalhar com os recursos em seu workspace.
+
+> **Dica**: se você já tiver um workspace do Azure Machine Learning, poderá usá-lo e pular para a próxima tarefa.
+
+1. Entre no [portal do Azure](https://portal.azure.com) em `https://portal.azure.com` usando suas credenciais da Microsoft.
+
+1. Selecione **+ Criar um recurso**, pesquise *Machine Learning* e crie um recurso do **Azure Machine Learning** com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *crie ou selecione um grupo de recursos*.
-    - **Nome do workspace**: *insira um nome exclusivo para o workspace*.
+    - **Nome**: *insira um nome exclusivo para o seu workspace*.
     - **Região**: *selecione a região geográfica mais próxima*.
     - **Conta de armazenamento**: *anote a nova conta de armazenamento padrão que será criada para o workspace*.
     - **Cofre de chaves**: *anote o novo cofre de chaves padrão que será criado para o workspace*.
@@ -25,138 +31,134 @@ Nesse caso, você usará um conjunto de dados de detalhes históricos de aluguel
 
 1. Selecione **Examinar + criar**e **Criar**. Aguarde até que o workspace seja criado (isso pode demorar alguns minutos) e acesse o recurso implantado.
 
-1. Selecione **Iniciar o estúdio** (ou abra uma nova guia do navegador, acesse [https://ml.azure.com](https://ml.azure.com?azure-portal=true) e entre no Estúdio do Azure Machine Learning usando a conta Microsoft).
+1. Selecione **Iniciar o estúdio** (ou abra uma nova guia do navegador, acesse [https://ml.azure.com](https://ml.azure.com?azure-portal=true) e entre no Estúdio do Azure Machine Learning usando a conta Microsoft). Feche todas as mensagens exibidas.
 
-1. Feche todas as mensagens exibidas.
+1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Caso contrário, selecione **Todos os workspaces** no menu à esquerda e selecione o workspace que você acabou de criar.
 
-1. No Estúdio do Azure Machine Learning, você verá o workspace recém-criado. Se esse não for o caso, selecione o diretório do Azure no menu à esquerda. Em seguida, no novo menu à esquerda, selecione **Workspaces**, em que todos os workspaces associados ao diretório estão listados e selecione aquele que você criou para este exercício.
+## Habilitar versão prévia de recursos
 
-> **Observação** Este módulo é um dos vários que usam um workspace do Azure Machine Learning, incluindo os outros módulos do roteiro de aprendizagem [Conceitos básicos de IA do Microsoft Azure: explore ferramentas visuais para machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se você estiver usando sua assinatura do Azure, considere a possibilidade de criar o workspace uma vez e reutilizá-lo em outros módulos. Será cobrada uma pequena quantidade de armazenamento de dados em sua assinatura do Azure se o workspace do Azure Machine Learning existir na assinatura. Portanto, recomendamos que você exclua o workspace do Azure Machine Learning quando ele não for mais necessário.
+Alguns recursos do Azure Machine Learning estão em versão prévia e precisam ser habilitados explicitamente em seu workspace.
 
-## Criar um ativo de dados
+1. No Estúdio do Azure Machine Learning, clique em **gerenciar versões prévias do recursos** (o ícone de alto-falante - &#128363;).
 
-1. Exiba os dados separados por vírgula em [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true) no seu navegador da Web.
+    ![Uma captura de tela do botão gerenciar versões prévias dos recursos no menu.](../instructions/media/use-automated-machine-learning/severless-compute-1.png)
 
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Exiba a página **Dados** (em **Ativos**). A página de Dados contém arquivos ou tabelas de dados específicos com os quais você trabalhará no Azure ML. Você também pode criar conjuntos de dados nessa página.
+1. Habilite a seguinte versão prévia do recurso:
 
-1. Na página **Dados**, na guia **Ativos de dados**, selecione **+ Criar**. Depois, defina um ativo de dados com as seguintes configurações:
-    * **Tipo de dados**:
-        * **Nome**: bike-rentals
-        * **Descrição**: dados de aluguel de bicicleta
-        * **Tipo de conjunto de dados**: tabular
-    * **Fonte de dados**: de arquivos da Web
-    * **URL da Web**: 
-        * **URL da Web**: [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true)
-        * **Ignorar validação de dados**: *não selecionar*
-    * **Configurações**:
-        * **Formato de arquivo**: delimitado
-        * **Delimitador**: vírgula
-        * **Codificação**: UTF-8
-        * **Cabeçalhos de coluna**: somente o primeiro arquivo tem cabeçalhos
-        * **Ignorar linhas**: Nenhum
-        * **O conjunto de dados contém dados multilinhas**: *não selecione*
-    * **Esquema**:
-        * incluir todas as colunas que não sejam **Caminho**
-        * Examinar os tipos detectados automaticamente
-    * **Revisão**
-        * Escolha **Criar**
+    - *Experiência guiada para enviar trabalhos de treinamento com computação sem servidor*
 
-1. Depois que o conjunto de dados tiver sido criado, abra-o e exiba a página **Explorar** para ver uma amostra dos dados. Esses dados contêm as características e os rótulos históricos para aluguéis de bicicletas.
+## Usar aprendizado de máquina automatizado para treinar um modelo
 
-> **Citação**: *esses dados são derivados de [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) e são usados de acordo com [contrato de licença](https://www.capitalbikeshare.com/data-license-agreement) dos dados publicados*.
+O aprendizado de máquina automatizado permite que você experimente vários algoritmos e parâmetros para treinar vários modelos e identificar o melhor para seus dados. Nesse caso, você usa um conjunto de dados de detalhes históricos de aluguel de bicicletas para treinar um modelo que prevê o número de aluguéis de bicicletas que deve ser esperado em um determinado dia, com base em características sazonais e meteorológicas.
 
-## Habilitar Computação sem servidor
+> **Citação**: *os dados usados neste exercício são derivados do [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) e são usados de acordo com o [contrato de licença](https://www.capitalbikeshare.com/data-license-agreement)* de dados publicado.
 
-1. No Azure Machine Learning Studio, clique em **gerenciar versões prévias do recursos** (o ícone de alto-falante).
-
-![Uma captura de tela do botão gerenciar versões prévias dos recursos no menu.](../instructions/media/use-automated-machine-learning/severless-compute-1.png)
-
-1. Habilite o recurso "Experiência guiada para enviar trabalhos de treinamento com computação sem servidor".
-
-![Uma captura de tela do recurso habilitar computação sem servidor.](../instructions/media/use-automated-machine-learning/enable-serverless-compute.png)
-
-## Executar um trabalho de machine learning automatizado
-
-Siga as próximas etapas para executar um trabalho que usa o machine learning automatizado para treinar um modelo de regressão que prevê aluguéis de bicicletas.
 
 1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), veja a página **ML Automatizado** (em **Criação**).
 
-1. Crie um trabalho de ML automatizado com as seguintes configurações:
-    - **Selecione o ativo de dados**:
-        - **Conjunto de dados**: bike-rentals
-    - **Configure o trabalho**:
-        - **Nome do novo experimento**: mslearn-bike-rental
-        - **Coluna de destino**: rentals (*esse é o rótulo que o modelo será treinado para prever)*
-        - **Selecione o cluster de cálculo do Azure ML**: *o cluster de cálculo que você já criou*.
-    - **Selecione a tarefa e as configurações:** 
-        - **Tipo de tarefa**: regressão *(o modelo prevê um valor numérico)* 
+1. Crie um novo trabalho de ML automatizado com as seguintes configurações, usando **Avançar** conforme necessário para avançar dentro da interface do usuário:
 
-    ![Captura de tela de um painel de seleção com caixas ao redor do tipo de tarefa Regressão e definições de configuração adicionais.](media/use-automated-machine-learning/new-automated-ml-run-4.png)
+    **Configurações básicas**:
 
-    Observe que, sob o tipo de tarefa, há as configurações *Exibir definições de configuração adicionais* e *Exibir configurações de definição de recursos*. Agora, defina essas configurações.
+    - **Nome do trabalho**: mslearn-bike-automl
+    - **Nome do novo experimento**: mslearn-bike-rental
+    - **Descrição**: machine learning automatizado para previsão de aluguel de bicicletas
+    - **Marcas**: *nenhuma*
 
-    - **Definições de configuração adicionais:**
-        - **Métrica primária**: selecione **Raiz do erro quadrático médio normalizada**
-        - **Explicar o melhor modelo**: selecionado – *essa opção faz com que o machine learning automatizado calcule a importância do recurso para o melhor modelo, o que possibilita determinar a influência de cada recurso no rótulo previsto.*
+   **Tipo de tarefa e dados**:
+
+    - **Selecionar tipo de tarefa**: regressão
+    - **Selecionar conjunto de dados**: crie um novo conjunto de dados com as seguintes configurações:
+        - **Tipo de dados**:
+            - **Nome**: bike-rentals
+            - **Descrição**: dados históricos de aluguel de bicicletas
+            - **Tipo**: tabular
+        - **Fonte de dados**:
+            - Selecione **De arquivos da Web**
+        - **URL da Web**: 
+            - **URL da Web**: `https://aka.ms/bike-rentals`
+            - **Ignorar validação de dados**: *não selecionar*
+        - **Configurações**:
+            - **Formato de arquivo**: delimitado
+            - **Delimitador**: vírgula
+            - **Codificação**: UTF-8
+            - **Cabeçalhos de coluna**: somente o primeiro arquivo tem cabeçalhos
+            - **Ignorar linhas**: Nenhum
+            - **O conjunto de dados contém dados multilinhas**: *não selecione*
+        - **Esquema**:
+            - incluir todas as colunas que não sejam **Caminho**
+            - Examinar os tipos detectados automaticamente
+
+        Selecione o conjunto de dados de **aluguel de bicicletas** depois de criá-lo.
+
+    **Configurações da tarefa**:
+
+    - **Tipo de tarefa**: regressão
+    - **Conjunto de dados**: bike-rentals
+    - **Coluna de destino**: aluguéis (inteiro)
+    - **Definições de configuração adicionais**:
+        - **Métrica primária**: erro quadrático médio da raiz normalizada
+        - **Explicar o melhor modelo**: *não selecionado*
         - **Usar todos os modelos com suporte**: <u>Não</u>selecionado. *Você restringirá o trabalho para experimentar apenas alguns algoritmos específicos.*
         - **Modelos permitidos**: *selecione apenas **RandomForest** e **LightGBM**. O ideal seria tentar usar o máximo possível, mas cada modelo adicionado aumenta o tempo necessário para executar o trabalho.*
+    - **Limites**: *expanda esta seção*
+        - **Avaliações máximas**: 3
+        - **Máximo de avaliações simultâneas**: 3
+        - **Máximo de nós**: 3
+        - **Limite de pontuação da métrica**: 0,85 (*de modo que se um modelo atingir uma pontuação de métrica de raiz do erro quadrático médio normalizada de até 0,085, o trabalho será encerrado.* )
+        - **Tempo limite**: 15
+        - **Tempo limite de iteração**: 5
+        - **Habilitar encerramento antecipado**: *selecionado*
+    - **Validação e teste**:
+        - **Tipo de validação**: divisão de validação de treinamento
+        - **Percentual de dados de validação**: 10
+        - **Conjunto de dados de teste**: nenhum
 
-        ![Captura de tela de configurações adicionais com uma caixa em torno dos modelos permitidos.](media/use-automated-machine-learning/allowed-models.png)
-Observe que, em *Exibir definições de configuração adicionais*, há uma seção *Limites*. Expanda a seção para definir as configurações:
-        - **Tempo limite (minutos)** : 30 — *encerra o trabalho após no máximo 30 minutos.*
-        - **Limite de pontuação da métrica**: 0,085 – *Se um modelo atingir uma pontuação de métrica de raiz do erro quadrático médio normalizada de até 0,085, o trabalho será encerrado.*
-        - Clique em **Avançar**.
-        - **Computação**: nenhuma alteração necessária aqui
-        - Clique em **Avançar**.
-1. Quando você terminar de enviar os detalhes do trabalho de machine learning automatizado, ele será iniciado automaticamente.
+    **Computação**:
+
+    - **Selecionar tipo de computação**: sem servidor
+    - **Tipo de máquina virtual**: CPU
+    - **Camada de máquina virtual**: baixa prioridade
+    - **Tamanho da máquina virtual**: Standard_DS3_V2
+    - **Número de instâncias**: 1
+
+1. Envie o trabalho de treinamento. Ele é iniciado automaticamente.
 
 1. Aguarde a conclusão do trabalho. Isso pode demorar um pouco, então agora é um bom momento para um café.
 
 ## Examinar o melhor modelo
 
+Quando o trabalho de machine learning automatizado for concluído, você poderá examinar o melhor modelo treinado.
+
 1. Na guia **Visão geral** do trabalho de machine learning automatizado, observe o resumo do melhor modelo.
     ![Captura de tela do resumo do melhor modelo do trabalho de machine learning automatizado com uma caixa em torno do nome do algoritmo.](media/use-automated-machine-learning/complete-run.png)
 
-    > **Note**: você pode ver uma mensagem sob o status "Aviso: pontuação de saída especificada pelo usuário atingida...". Essa é uma mensagem esperada. Continue na próxima etapa.  
+    > **Note**: você pode ver uma mensagem sob o status "Aviso: pontuação de saída especificada pelo usuário atingida...". Essa é uma mensagem esperada. Continue na próxima etapa.
+  
 1. Selecione o texto em **Nome do algoritmo** do melhor modelo para exibir os respectivos detalhes.
 
-1. Ao lado do valor de *Raiz do erro quadrático médio normalizada*, selecione **Exibir todas as outras métricas** para ver os valores das outras métricas de avaliação possíveis para um modelo de regressão.
-
-    ![Captura de tela de como localizar a exibição de todas as outras métricas na guia Modelo.](media/use-automated-machine-learning/review-run-1.png)
-
 1. Selecione a guia **Métricas** e selecione os gráficos **residuais** e **predicted_true** se eles ainda não estiverem selecionados. 
-    ![Captura de tela da guia Métricas com os resíduos e os gráficos predicted_true selecionados.](media/use-automated-machine-learning/review-run-3.png)
 
-    Examine os gráficos que mostram o desempenho do modelo. O primeiro gráfico mostra os *resíduos*, as diferenças entre valores previstos e reais, como um histograma; o segundo gráfico compara os valores previstos com os valores verdadeiros.
+    Examine os gráficos que mostram o desempenho do modelo. O gráfico de **resíduos** mostra os *resíduos* (as diferenças entre valores previstos e reais) como um histograma. O gráfico **predicted_true** compara os valores previstos com os valores verdadeiros. 
 
-1. Selecione a guia **Explicações**. Selecione uma ID de explicação e escolha **Importância agregada do recurso**. O gráfico mostra a quantidade de cada recurso no conjunto de dados que influencia a previsão de rótulo, da seguinte forma:
+## Implantar e testar o modelo
 
-    ![Captura de tela do gráfico de importância do recurso na guia Explicações.](media/use-automated-machine-learning/feature-importance.png)
-
-## Implantar um serviço de previsão
-
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na página **ML Automatizado**, selecione o trabalho de machine learning automatizado.
-
-1. Na guia **Detalhes**, selecione o nome do algoritmo do melhor modelo.
-
-    ![Captura de tela do resumo do melhor modelo com uma caixa em torno do nome do algoritmo na guia Detalhes.](media/use-automated-machine-learning/deploy-detail-tab.png)
-
-1. Na guia **Modelos**, clique no botão **Implantar** e use a opção **Serviço Web** para implantar o modelo com as seguintes configurações:
+1. Na guia **Modelo** para obter o melhor modelo treinado pelo trabalho de machine learning automatizado, selecione **Implantar** e use a opção **serviço Web** para implantar o modelo com as seguintes configurações:
     - **Nome**: predict-rentals
     - **Descrição**: prever aluguéis de bicicleta
     - **Tipo de computação**: instância de Contêiner do Azure
-    - **Habilitar autenticação**: Selecionado
+    - **Habilitar autenticação**: *Selecionado*
 
-1. Aguarde até o início da implantação – isso pode levar alguns segundos.
-
-1. Em Estúdio do Azure Machine Learning, no menu à esquerda, selecione **Pontos de Extremidade** e abra o ponto de extremidade em tempo real **predict-rentals**.
-1. Aguarde até que o **Estado de implantação** seja alterado para **Íntegro**. Isso pode levar alguns minutos.
+1. Aguarde até o início da implantação – isso pode levar alguns segundos. O **Status de implantação** para o ponto de extremidade **predict-rentals** será indicado na parte principal da página como *Em execução*.
+1. Aguarde até que o **Status de implantação** mude para *Bem-sucedida*. Isso pode levar de 5 a 10 minutos.
 
 ## Testar o serviço implantado
 
 Agora você pode testar o serviço implantado.
 
-1. Na página do ponto de extremidade em tempo real **predict-rentals**, confira a guia **Teste**.
+1. Em Estúdio do Azure Machine Learning, no menu à esquerda, selecione **Pontos de Extremidade** e abra o ponto de extremidade em tempo real **predict-rentals**.
+
+1. Na página do ponto de extremidade em tempo real de **previsão de aluguel**, exiba a guia **Teste**.
 
 1. No painel **Dados de entrada para testar o ponto de extremidade**, substitua o modelo JSON pelos seguintes dados de entrada:
 
@@ -184,15 +186,22 @@ Agora você pode testar o serviço implantado.
     }
     ```
 
-1. Clique no botão **Testar**.
+1. Clique no botão**Testar**.
 
-1. Examine os resultados do teste, que incluem um número previsto de locações com base nos recursos de entrada. O painel de teste pegou os dados de entrada e usou o modelo que você treinou para retornar o número previsto de locações.
+1. Revise os resultados do teste, que incluem um número previsto de aluguéis com base nos recursos de entrada – semelhante ao seguinte:
 
-    ![Captura de tela de um exemplo de teste do modelo com os dados de exemplo na guia de teste.](media/use-automated-machine-learning/workaround-test.png)
+    ```JSON
+    {
+      "Results": [
+        444.27799000000000
+      ]
+    }
+    ```
 
-Vamos revisar o que você fez. Você usou um conjunto de dados históricos de locação de bicicletas para treinar um modelo. O modelo prevê o número de locações de bicicletas esperadas em um determinado dia, com base em *recursos *sazonais e meteorológicos. Nesse caso, os *rótulos* são o número de locações de bicicletas.
+    O painel de teste pegou os dados de entrada e usou o modelo que você treinou para retornar o número previsto de locações.
 
-Você acabou de testar um serviço que está pronto para ser conectado a um aplicativo cliente usando as credenciais na guia **Consumir**. Vamos encerrar o laboratório aqui. Fique à vontade para continuar experimentando o serviço que você acabou de implantar.
+
+Vamos revisar o que você fez. Você usou um conjunto de dados históricos de locação de bicicletas para treinar um modelo. O modelo prevê o número de locações de bicicletas esperadas em um determinado dia, com base em *recursos *sazonais e meteorológicos.
 
 ## Limpar
 
@@ -200,8 +209,9 @@ O serviço Web que você criou está hospedado em uma *Instância de Contêiner 
 
 1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na guia **Pontos de extremidade**, selecione o ponto de extremidade **predict-rentals**. Depois, selecione **Excluir** e confirme que você deseja excluir o ponto de extremidade.
 
-> **Observação** Excluir sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados. No entanto, se você planeja concluir qualquer outro laboratório desta série, será necessário recriá-lo.
->
-> Para excluir seu workspace:
-> 1. No [portal do Azure](https://portal.azure.com?azure-portal=true), na página **Grupos de recursos**, abra o grupo de recursos que você especificou ao criar seu Workspace do Azure Machine Learning.
-> 2. Clique em **Excluir grupo de recursos**, digite o nome do grupo de recursos para confirmar que deseja excluí-lo e selecione **Excluir**.
+    Excluir sua computação garante que a assinatura não seja cobrada pelos recursos de computação. No entanto, você receberá a cobrança de uma pequena quantidade de armazenamento de dados, desde que o workspace do Azure Machine Learning exista em sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, exclua o workspace do Azure Machine Learning e os recursos associados.
+
+Para excluir seu workspace:
+
+1. No [portal do Azure](https://portal.azure.com?azure-portal=true), na página **Grupos de recursos**, abra o grupo de recursos que você especificou ao criar seu Workspace do Azure Machine Learning.
+2. Clique em **Excluir grupo de recursos**, digite o nome do grupo de recursos para confirmar que deseja excluí-lo e selecione **Excluir**.

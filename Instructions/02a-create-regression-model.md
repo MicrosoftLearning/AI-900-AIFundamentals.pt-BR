@@ -54,29 +54,19 @@ Neste exercício, você treinará um modelo de regressão que vai prever o preç
 
 O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a próxima etapa enquanto aguarda.
 
-## Criar um pipeline no Designer 
-
-1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Veja a página **Designer** (em **Criar**) e selecione **+** para criar um pipeline.
-
-1. No canto superior direito da tela, selecione **Configurações**. Se o painel **Configurações** não estiver visível, selecione o ícone de engrenagem ao lado do nome do pipeline na parte superior.
-
-1. Em **Configurações**, você precisa especificar um destino de computação no qual executar o pipeline. Em **Selecionar tipo de computação**, selecione **Cluster de computação**. Depois, em **Selecionar cluster de cálculo do Azure ML**, escolha o cluster de cálculo que já foi criado.
-
-1. Em **Configurações**, em **Detalhes do rascunho**, altere o nome do rascunho (**Pipeline-Created-on-* date***) para **Treinamento de preço automático**.
-
-1. Selecione o ícone *fechar* no canto superior direito do painel **Configurações** para fechar o painel. 
-
-![Captura de tela do painel Configurações do Estúdio do Azure Machine Learning.](media/create-regression-model/create-pipeline-help.png)
-
-## Adicionar e explorar um conjunto de dados
+## Criar um pipeline no Designer e adicionar um conjunto de dados
 
 O Azure Machine Learning inclui um conjunto de dados de exemplo que você pode usar para o modelo de regressão.
+
+1. No [Estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Veja a página **Designer** (em **Criação**) e selecione **+** para criar um novo pipeline.
+
+1. Altere o nome de rascunho (**Pipeline-Created-on-* date***) a **Treinamento de preço automático**.
 
 1. Ao lado do nome do pipeline à esquerda, selecione o ícone de setas para expandir o painel se ele ainda não estiver expandido. O painel é aberto por padrão no painel **Biblioteca de ativos**, indicado pelo ícone de livros na parte superior do painel. Há uma barra de pesquisa para localizar ativos no painel e dois botões, **Dados** e **Componente**.
 
     ![Captura de tela do local da biblioteca de ativos do designer, da barra de pesquisa e do ícone de componente.](media/create-regression-model/designer-asset-library-components.png)
 
-1. Clique em **Componente**. Pesquise e coloque o conjunto de dados **Dados de preços de automóvel (Brutos)** na tela.
+1. Selecione **Componente**. Pesquise e coloque o conjunto de dados **Dados de preços de automóvel (Brutos)** na tela.
 
 1. Clique com o botão direito do mouse (Ctrl + clique em um Mac) no conjunto de dados **Dados de preços de automóvel (Brutos)** na tela e clique em **Visualizar dados**.
 
@@ -86,7 +76,7 @@ O Azure Machine Learning inclui um conjunto de dados de exemplo que você pode u
 
 1. Role de volta para a esquerda e selecione o cabeçalho de coluna **perdas normalizadas**. Em seguida, examine as estatísticas dessa coluna. Observe que há alguns valores ausentes nela. Os valores ausentes limitam a utilidade da coluna para prever o rótulo **price**, de modo que você talvez queira excluí-lo do treinamento.
 
-1. Feche a janela de **Visualização de resultados de dados de preços de automóvel (Brutos)** para que você possa ver o conjunto de dados na tela desta maneira:
+1. Feche a janela de **Saída de dados** para que você possa ver o conjunto de dados na tela desta maneira:
 
     ![Captura de tela do conjunto de dados de preços de Automóveis na tela do designer.](media/create-regression-model/dataset.png)
 
@@ -104,7 +94,7 @@ Normalmente, você aplica transformações de dados para preparar os dados para 
 
     ![Captura de tela de todas as colunas, exceto normalized_losses.](media/create-regression-model/select-columns.png)
 
-1. Clique no botão **Salvar**.
+1. Selecione **Salvar** e feche a janela propriedades.
 
 No restante deste exercício, você criará um pipeline semelhante a este:
 
@@ -155,36 +145,36 @@ Para aplicar as transformações de dados, você precisa executar o pipeline.
 
     ![Captura de tela do conjunto de dados com módulos de transformação de dados.](media/create-regression-model/data-transforms.png)
 
-1. Selecione **Enviar** e crie um teste chamado **mslearn-auto-training** no cluster de cálculo.
+1. Selecione **Configurar & Enviar** na parte superior da página para abrir a caixa de diálogo **Configurar trabalho de pipeline**.
 
-1. Aguarde a conclusão da execução, que pode levar cinco minutos ou mais.
+1. Na página **Básico**, selecione **Criar novo** e defina o nome do experimento como **mslearn-auto-training** e selecione **Avançar** .
 
-    ![Captura de tela da biblioteca de ativos do designer com o botão de detalhes do trabalho e do trabalho concluído abaixo.](media/create-regression-model/completed-job.png)
+1. Na página **Entradas & saídas**, selecione **Avançar** sem fazer alterações.
 
-    Observe que o painel esquerdo agora está no painel **Trabalhos Enviados**. Você saberá quando a execução for concluída porque o status do trabalho será alterado para **Concluído**. 
+1. Na página **Configurações de runtime**, aparece um erro porque você não tem uma computação padrão para executar o pipeline. Na lista suspensa **Selecionar tipo de computação**, selecione *Cluster de computação* e, na lista suspensa **Selecionar cluster de computação do Azure ML**, selecione o cluster de computação criado recentemente.
 
-1. Quando a execução for concluída, clique em **Detalhes do trabalho**. Uma nova guia será aberta e você verá os componentes que foram concluídos com marcas de seleção como esta:
+1. Selecione **Avançar** para examinar o trabalho de pipeline e, em seguida, selecione **Enviar** para executar o pipeline de treinamento.
 
-    ![Captura de tela do conjunto de dados com módulos no estado de trabalho concluído.](media/create-regression-model/normalize-complete.png)
+1. Aguarde alguns minutos para que a execução seja concluída. Você pode marcar o status do trabalho selecionando **Trabalhos** em **Ativos**. A partir daí, selecione o trabalho **Treinamento de Preço Automático**. A partir daqui, você pode ver quando o trabalho está concluído. Depois que o trabalho for concluído, o conjunto de dados agora estará preparado para treinamento de modelo.
 
-Agora, o conjunto de dados está preparado para treinamento de modelo. Feche a guia Detalhes do trabalho para retornar ao pipeline.
+1. Vá para o menu à esquerda. Em **Criação**, selecione **Designer**. Em seguida, selecione o pipeline de *Treinamento de preço automático* na lista de **Pipelines**.
 
 ## Criar o pipeline de treinamento
 
 Depois de usar as transformações de dados para prepará-los, é possível usá-las para treinar um modelo de machine learning. Execute as etapas a seguir para estender o pipeline de **Treinamento de Preço Automático**.
 
-1. Retorne ao pipeline de **Treinamento de Preço de Automóvel** que você criou na unidade anterior se ele ainda não estiver aberto.
+1. Verifique se o menu à esquerda possui **Designer** selecionado e se você retornou ao pipeline de **Treinamento de preço automático**.
 
 1. No painel **Biblioteca de ativos** à esquerda, procure o módulo **Dividir dados** e coloque-o na tela sob o módulo **Normalizar dados**. Em seguida, conecte a saída *Conjunto de dados transformado* (à esquerda) do módulo **Normalizar dados** para a entrada do módulo **Dividir dados**.
 
     >**Dica** Use a barra de pesquisa para localizar os módulos rapidamente. 
 
 1. Clique duas vezes no módulo **Dividir dados** e defina as configurações da seguinte maneira:
-    * **Modo de divisão**: dividir linhas
-    * **Fração das linhas no primeiro conjunto de dados de saída**: 0,7
-    * **Divisão aleatória**: True
-    * **Semente aleatória**: 123
-    * **Divisão estratificada**: Falso
+    - **Modo de divisão**: dividir linhas
+    - **Fração das linhas no primeiro conjunto de dados de saída**: 0,7
+    - **Divisão aleatória**: True
+    - **Semente aleatória**: 123
+    - **Divisão estratificada**: Falso
 
 1. Na **Biblioteca de ativos**, procure o módulo **Treinar modelo** e coloque-o na tela, sob o módulo **Dividir dados**. Depois, conecte o *Conjunto de dados de resultado1* (à esquerda) do módulo **Dividir dados** à entrada *Conjunto de dados* (à direita) do módulo **Treinar modelo**.
 
@@ -208,15 +198,15 @@ Depois de usar as transformações de dados para prepará-los, é possível usá
 
 Agora você está pronto para executar o pipeline de treinamento e treinar o modelo.
 
-1. Selecione **Enviar** e execute o pipeline usando o experimento existente denominado **treinamento automático de mslearn**.
+1. Selecione **Configurar & Enviar** e execute o pipeline usando o experimento existente denominado **mslearn-auto-training**.
 
-1. A execução do experimento levará 5 minutos ou mais para ser concluída. Quando a execução do experimento for concluída, clique em **Detalhes do trabalho**. Você será direcionado a uma nova guia.
+1. A execução do experimento levará 5 minutos ou mais para ser concluída. Retorne à página **Trabalhos** e selecione a execução mais recente do trabalho **Treinamento de Preço Automático**.
 
-1. Na nova janela, clique com o botão direito do mouse no módulo **Modelo de Pontuação**, selecione **Dados de visualização** e, em seguida, **Conjunto de dados pontuado** para exibir os resultados.
+1. Quando a execução do experimento for concluída, clique com o botão direito do mouse no módulo **Modelo de Pontuação**, selecione **Visualizar dados** e, em seguida, **Conjunto de dados pontuado** para exibir os resultados.
 
 1. Role para a direita e observe que ao lado da coluna **preço** (que contém os valores verdadeiros conhecidos do rótulo), há uma nova coluna chamada **Rótulos pontuados**, que contém os valores de rótulo previstos.
 
-1. Feche a guia **Visualização de resultados de Pontuar modelo**.
+1. Feche a guia **scored_dataset**.
 
 O modelo está prevendo valores para o rótulo **preço**, mas o quão confiáveis são as previsões dele? Para avaliar isso, você precisa avaliar o modelo.
 
@@ -232,11 +222,9 @@ Uma maneira de avaliar um modelo de regressão é comparar os rótulos previstos
 
     ![Captura de tela de como adicionar o módulo Avaliar Modelo ao módulo Pontuação de Modelo.](media/create-regression-model/evaluate.png)
 
-1. Selecione **Enviar** e execute o pipeline usando o experimento existente denominado **treinamento automático de mslearn**.
+1. Selecione **Configurar & Enviar** e execute o pipeline usando o experimento existente denominado **mslearn-auto-training**.
 
-1. Aguarde a conclusão da execução do experimento.
-
-    ![Captura de tela de uma execução completa do experimento.](media/create-regression-model/completed-job.png)
+1. A execução do experimento levará alguns minutos para ser concluída. Retorne à página **Trabalhos** e selecione a execução mais recente do trabalho **Treinamento de Preço Automático**.
 
 1. Quando a execução do teste for concluída, selecione **Detalhes do trabalho**, que abrirá outra guia. Localize o módulo **Avaliar modelo** e clique nele com o botão direito do mouse. Selecione **Dados de visualização** e, em seguida, **Resultados da avaliação**.
 
@@ -254,27 +242,22 @@ Após você ter identificado um modelo com métricas de avaliação que atendam 
 
 ## Criar e executar um pipeline de inferência
 
-1. No Estúdio do Azure Machine Learning, expanda o painel esquerdo selecionando o ícone menu na parte superior esquerda da tela. Clique em **Trabalhos** (em **Ativos**) para exibir todos os trabalhos executados. Selecione o experimento **mslearn-auto-training** e o pipeline **mslearn-auto-training**. 
-
-    ![Captura de tela dos trabalhos no menu à esquerda. Selecione os trabalhos e depois selecione o nome do teste.](media/create-regression-model/jobs-tab.png)
-
 1. Localize o menu acima da tela e clique em **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
 
     ![Captura de tela do local de criação de pipeline de inferência.](media/create-regression-model/create-inference-pipeline.png)
 
 1. Na lista suspensa **Criar um pipeline de inferência**, clique em **Pipeline de inferência em tempo real**. Depois de alguns segundos, uma nova versão do seu pipeline denominada **Treinamento de Preço de Automóvel – inferência em tempo real** será aberta.
 
-    *Se o pipeline não incluir os módulos **Entrada do Serviço Web** e **Saída do Serviço Web**, volte para a página **Designer** e abra novamente o pipeline **Treinamento de Preço de Automóvel – inferência em tempo real**.*
-
 1. Renomeie o novo pipeline para **Prever Preço de Automóvel** e examine o novo pipeline. Ele contém uma entrada de serviço Web para que novos dados sejam enviados e uma saída de serviço Web para o retorno de resultados. Algumas das transformações e etapas de treinamento fazem parte desse pipeline. O modelo treinado será usado para pontuar os novos dados.
 
-    Você fará as seguintes alterações no pipeline de inferência nas próximas etapas de 5 a 9:
+    Você fará as seguintes alterações no pipeline de inferência nas próximas etapas:
 
     ![Captura de tela de um pipeline de inferência com as alterações indicadas.](media/create-regression-model/inference-changes.png)
 
    Use a imagem para referência ao modificar o pipeline nas próximas etapas.
 
-1. O pipeline de inferência assume que os novos dados corresponderão ao esquema dos dados de treinamento originais, de modo que o conjunto de dados **Dados de preços de automóvel (Brutos)** do pipeline de treinamento é incluído. No entanto, esses dados de entrada incluem o rótulo **preço** que o modelo prevê, o que não é intuitivo para inclusão em novos dados de carros para os quais uma previsão de preço ainda não foi feita. Exclua esse módulo e substitua-o por um módulo **Inserir Dados Manualmente** da seção **Entrada e Saída de Dados**, contendo os seguintes dados CSV, o que inclui valores de recursos sem rótulos para três carros (copie e cole o bloco de texto inteiro):
+1. O pipeline de inferência assume que os novos dados corresponderão ao esquema dos dados de treinamento originais, de modo que o conjunto de dados **Dados de preços de automóvel (Brutos)** do pipeline de treinamento é incluído. No entanto, esses dados de entrada incluem o rótulo **preço** que o modelo prevê, o que não é intuitivo para inclusão em novos dados de carros para os quais uma previsão de preço ainda não foi feita. Exclua este módulo e o substitua com um módulo **Inserir Dados Manualmente** da seção **Dados de Entrada e Saída**.
+1. Edite o módulo **Inserir Dados Manualmente** e insira os seguintes dados CSV, o que inclui valores de recursos sem rótulos para três carros (copie e cole o bloco de texto inteiro):
 
     ```CSV
     symboling,normalized-losses,make,fuel-type,aspiration,num-of-doors,body-style,drive-wheels,engine-location,wheel-base,length,width,height,curb-weight,engine-type,num-of-cylinders,engine-size,fuel-system,bore,stroke,compression-ratio,horsepower,peak-rpm,city-mpg,highway-mpg
@@ -283,7 +266,7 @@ Após você ter identificado um modelo com métricas de avaliação que atendam 
     1,NaN,alfa-romero,gas,std,two,hatchback,rwd,front,94.5,171.2,65.5,52.4,2823,ohcv,six,152,mpfi,2.68,3.47,9,154,5000,19,26
     ```
 
-1. Conecte o novo módulo **Inserir Dados Manualmente** à mesma entrada de **conjunto de dados** do módulo **Selecionar Colunas no Conjunto de Dados** como a **Entrada do Serviço Web**.
+1. Conecte o novo módulo **Inserir Dados Manualmente** à mesma entrada de **Conjunto de dados** do módulo **Selecionar Colunas no Conjunto de Dados** como a **Entrada do Serviço Web**.
 
 1. Agora que você alterou o esquema dos dados de entrada para excluir o campo **preço**, é necessário remover os usos explícitos desse campo, se houver, nos módulos restantes. Selecione o módulo **Selecionar colunas no conjunto de dados** e, no painel de configurações, edite as colunas para remover o campo **preço**.
 
@@ -293,18 +276,21 @@ Após você ter identificado um modelo com métricas de avaliação que atendam 
     - Exclua a conexão entre o módulo **Pontuar modelo** e a **Saída do serviço Web**.
     - Adicione um módulo **Executar script Python** da seção **Linguagem Python**, substituindo todo o script Python padrão pelo seguinte código (que seleciona apenas a coluna **Rótulos Pontuados** e renomeia-a para **predicted_price**):
 
-```Python
-import pandas as pd
+    ```Python
+    import pandas as pd
 
-def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1 = None, dataframe2 = None):
 
-    scored_results = dataframe1[['Scored Labels']]
-    scored_results.rename(columns={'Scored Labels':'predicted_price'},
+        scored_results = dataframe1[['Scored Labels']]
+        scored_results.rename(columns={'Scored Labels':'predicted_price'},
                         inplace=True)
-    return scored_results
-```
+     return scored_results
+    ```
+>**Observação**: copiar e colar pode introduzir espaços indevidos no script Python. Certifique-se de que não haja um espaço antes de *importar*, *def* ou *retornar*. Certifique-se de que haja um recuo de guia antes de *scored_results* e *scored_results.rename()* .
 
-1. Conecte a saída módulo **Pontuar modelo** à entrada **Dataset1** (mais à esquerda) de **Executar script Python** e conecte a saída do módulo **Executar script Python** à **Saída do serviço Web**.
+1. Conecte a saída do módulo **Modelo de pontuação** à entrada do **Conjunto de dados 1** (o mais à esquerda) do módulo **Executar Script Python**.
+
+1. Conecte a saída (à esquerda) **Conjunto de dados de resultado** do módulo **Executar Script Python** ao módulo **Saída de Serviço Web**.
 
 1. Verifique se o pipeline se assemelha à seguinte imagem:
 
@@ -312,9 +298,11 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. Envie o pipeline como um novo experimento denominado **inferência automática de mslearn** no cluster de cálculo. O experimento pode demorar um pouco para ser executado.
 
-1. Quando o pipeline for concluído, selecione **Detalhes do trabalho**. Na nova guia, clique com o botão direito do mouse no módulo **Executar script Python**. Selecione **Dados de Visualização** e **Conjunto de dados de resultado** para ver os preços previstos para os três carros nos dados de entrada.
+1. Retorne à página **Trabalhos** e selecione a execução mais recente do trabalho **Treinamento de Preço Automático** (aquela relacionada ao *experimento mslearn-auto-inference*).
 
-1. Feche a guia de visualização.
+1. Quando o pipeline for concluído, clique com o botão direito do mouse no módulo **Executar Script Python**. Selecione **Dados de Visualização** e **Conjunto de dados de resultado** para ver os preços previstos para os três carros nos dados de entrada.
+
+1. Feche a guia **Result_Dataset**.
 
 Seu pipeline de inferência prevê preços para carros com base nas características deles. Agora você está pronto para publicar o pipeline para que os aplicativos cliente possam usá-lo.
 
@@ -326,22 +314,16 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
 
 ## Implantar um serviço
 
-1. Veja o pipeline de inferência **Prever Preço de Automóvel** criado na unidade anterior.
-
-1. Selecione **Detalhes do trabalho** no painel à esquerda, o que abrirá uma segunda guia.
-
-    ![Captura de tela dos detalhes do trabalho ao lado do trabalho concluído.  ](media/create-regression-model/completed-job-inference.png)
-
-1. Na nova guia, selecione **Implantar**.
+1. Na página de execução do trabalho **Prever Preço Automático**, selecione **Implantar** na barra de menus superior.
 
     ![Captura de tela do botão de implantação para o pipeline de inferência Prever Preço Automático.](media/create-regression-model/deploy-screenshot.png)
 
-1. Na tela de configuração, selecione **Implantar** um novo ponto de extremidade em tempo real usando as seguintes configurações:
-    -  **Nome**: prever preço de automóvel
-    -  **Descrição**: regressão automática de preços
+1. Na tela de configuração, selecione **Implantar um novo ponto de extremidade em tempo real** usando as seguintes configurações:
+    - **Nome**: prever preço de automóvel
+    - **Descrição**: regressão automática de preços
     - **Tipo de computação**: instância de Contêiner do Azure
 
-1. Aguarde alguns minutos para que o serviço Web seja implantado. O status da implantação é mostrado na parte superior esquerda da interface do designer.
+1. Selecione **Implantar** e aguarde alguns minutos para que o serviço Web seja implantado.
 
 ## Teste o serviço
 
@@ -349,7 +331,7 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
 
     ![Captura de tela do local da opção Pontos de Extremidade no painel esquerdo.](media/create-regression-model/endpoints-lab.png)
 
-1. Quando o ponto de extremidade de **previsão automática de preços** abrir, selecione **Testar**. Vamos usá-lo para testar nosso modelo com novos dados. Exclua os dados atuais em **Inserir os dados para testar o ponto de extremidade em tempo real**. Copie e cole os dados abaixo na seção de dados:  
+1. Quando o ponto de extremidade de **previsão automática de preços** abrir, selecione **Testar**. Vamos usá-lo para testar nosso modelo com novos dados. Exclua os dados atuais em **Inserir dados para testar o ponto de extremidade**. Copie e cole os dados abaixo na seção de dados:  
 
     ```json
     {
@@ -389,7 +371,7 @@ Depois de criar e testar um pipeline de inferência para inferência em tempo re
     }
     ```
 
-1. Selecione **Testar**. No lado direito da tela, você deverá ver a saída **"predicted_price"**. A saída é o preço previsto para um veículo com os recursos de entrada específicos definidos nos dados. 
+1. Selecione **Testar**. No lado direito da tela, você deverá ver a saída **"predicted_price"**. A saída é o preço previsto para um veículo com os recursos de entrada específicos definidos nos dados.
 
     ![Captura de tela do painel Teste.](media/create-regression-model/test-interface.png)
 

@@ -75,9 +75,12 @@ Você precisará provisionar um recurso de **Serviços Cognitivos** que está na
 
 1. Clique em **Examinar e criar** e depois clique em **Criar**. Aguarde a conclusão da implantação e acesse o recurso implantado.
 
+1. Na conta de Armazenamento do Microsoft Azure que você criou, no painel de menu à esquerda, selecione **Configuração** (em **Configurações**).
+1. Altere a configuração de *Permitir acesso anônimo ao Blob* para **Habilitado** e, em seguida, selecione **Salvar**.
+
 ## Carregar documentos no Armazenamento do Azure
 
-1. Na conta de Armazenamento do Azure que você criou, no painel do menu à esquerda, selecione **Contêineres**.
+1. No painel de menu à esquerda, selecione **Contêineres**.
 
     ![Captura de tela que mostra a página de visão geral do blob de armazenamento.](media/create-cognitive-search-solution/storage-blob-1.png)
 
@@ -154,14 +157,12 @@ Quando os documentos estiverem no armazenamento, você poderá usar o Azure Cogn
     > **Observação** Se um aviso solicitando uma **Cadeia de conexão da conta de armazenamento** aparecer.
     >
     > ![Captura de tela que mostra o aviso da tela de conexão da conta de armazenamento com "Escolher uma conexão existente" selecionado.](media/create-cognitive-search-solution/6a-azure-cognitive-search-enrichments-warning.png)
-
+    >
     > 1. Selecione **Escolher uma conexão existente**. Selecione a conta de armazenamento criada anteriormente.
-
-    > 1. Clique em **+ Contêiner** para criar um contêiner chamado **knowledge-store** com o nível de privacidade definido como privado e selecione **Criar**.
-
+    > 1. Clique em **+ Contêiner** para criar um contêiner chamado **knowledge-store** com o nível de privacidade definido como **Privado** e selecione **Criar**.
     > 1. Selecione o contêiner **knowledge-store** e clique em **Selecionar** na parte inferior da tela.
 
-1. Escolha **Projetos de blob do Azure: Documento**. Será exibida uma configuração do *Nome do contêiner* com o contêiner *knowledge-store* preenchido automaticamente. Não altere o nome do contêiner.
+1. Selecione **projeções de blob do Azure: Documento**. Será exibida uma configuração do *Nome do contêiner* com o contêiner *knowledge-store* preenchido automaticamente. Não altere o nome do contêiner.
 
 1. Selecione **Avançar: Personalizar índice de destino**. Altere o **Nome do índice** para **coffee-index**.
 
