@@ -1,19 +1,19 @@
 ---
 lab:
-  title: Explorar os Serviços Cognitivos
+  title: Explorar os serviços de IA do Azure
 ---
 
-# Explorar os Serviços Cognitivos
+# Explorar os serviços de IA do Azure
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
-Os Serviços Cognitivos do Azure encapsulam a funcionalidade de IA comum que pode ser categorizada em quatro pilares principais: visão, fala, linguagem e serviços de decisão. Neste exercício, você examinará um dos serviços de decisão para ter uma noção geral de como provisionar e usar um recurso de Serviços Cognitivos em um aplicativo de software.
+Os serviços de IA do Azure encapsulam a funcionalidade de IA comum que pode ser categorizada em quatro pilares principais: visão, fala, linguagem e serviços de decisão. Neste exercício, você examinará um dos serviços de decisão para ter uma noção geral de como provisionar e usar um recurso de serviços de IA do Azure em um aplicativo de software.
 
-O serviço cognitivo específico que você vai explorar neste exercício é o *Detector de Anomalias*. O Detector de Anomalias é usado para analisar valores de dados ao longo do tempo e para detectar valores incomuns que possam indicar um problema, permitindo uma investigação mais aprofundada. Por exemplo, um sensor em uma instalação de armazenamento controlada por temperatura pode monitorar a temperatura a cada minuto e registrar os valores medidos. Você pode usar o serviço Detector de Anomalias para analisar os valores de temperatura registrados e sinalizar qualquer um que fique significativamente fora da faixa normal de temperaturas esperadas.
+O serviço de IA do Azure específico que você vai explorar neste exercício é o *Detector de Anomalias*. O Detector de Anomalias é usado para analisar valores de dados ao longo do tempo e para detectar valores incomuns que possam indicar um problema, permitindo uma investigação mais aprofundada. Por exemplo, um sensor em uma instalação de armazenamento controlada por temperatura pode monitorar a temperatura a cada minuto e registrar os valores medidos. Você pode usar o serviço Detector de Anomalias para analisar os valores de temperatura registrados e sinalizar qualquer um que fique significativamente fora da faixa normal de temperaturas esperadas.
 
 Para testar os recursos do serviço de Detecção de Anomalias, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
 
-> **Observação** A meta deste exercício é obter uma noção geral de como os Serviços Cognitivos são provisionados e usados. O Detector de Anomalias é usado como exemplo, mas não se espera obter um conhecimento abrangente da detecção de anomalias neste exercício.
+> **Observação** A meta deste exercício é obter uma noção geral de como os serviços de IA do Azure são provisionados e usados. O Detector de Anomalias é usado como exemplo, mas não se espera obter um conhecimento abrangente da detecção de anomalias neste exercício.
 
 ## Criar um recurso do *Detector de Anomalias*
 
@@ -91,7 +91,7 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
+1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
 
     A detecção de anomalias é uma técnica de inteligência artificial usada para determinar se os valores de uma série estão dentro dos parâmetros esperados. O aplicativo cliente de exemplo usará seu serviço do Detector de Anomalias para analisar um arquivo que contém uma série de datas/horas e valores numéricos. O aplicativo deve retornar resultados que indicam em cada ponto de tempo se o valor numérico está dentro dos parâmetros esperados.
 
@@ -103,10 +103,6 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
     ```
 
 1. Revise os resultados, notando que a coluna final nos resultados é **True** ou **False** para indicar se o valor registrado em cada data/hora é considerado uma anomalia ou não. Considere como podemos usar essas informações em uma situação da vida real. Que ação o aplicativo poderia acionar se os valores fossem de temperatura da geladeira ou pressão arterial e anomalias fossem detectadas?  
-
-## Saiba mais
-
-Esse aplicativo simples mostra apenas alguns dos recursos do serviço do Detector de Anomalias. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Detector de Anomalias](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
 
 ## Limpar
 
