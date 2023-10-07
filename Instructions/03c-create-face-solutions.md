@@ -13,7 +13,7 @@ Para testar os recursos do serviço de Detecção Facial, usaremos um aplicativo
 
 ## Criar um recurso da *API de Detecção Facial*
 
-Você pode usar o serviço Detecção Facial criando um recurso **Detecção Facial**. (A API de Detecção Facial não está mais disponível nos Serviços Cognitivos)
+Você pode usar o serviço Detecção Facial criando um recurso **Detecção Facial**.
 
 Caso ainda não tenha feito isso, crie um recurso de **API de Detecção Facial** em sua assinatura do Azure.
 
@@ -89,7 +89,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
+1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
 
     O aplicativo cliente de exemplo usará seu serviço de Detecção Facial para analisar a imagem abaixo, feita por uma câmera na loja Northwind Traders:
 

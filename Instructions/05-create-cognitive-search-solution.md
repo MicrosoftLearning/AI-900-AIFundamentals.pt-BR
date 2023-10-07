@@ -23,9 +23,9 @@ Neste laboratório, você vai:
 A solução que você criará para a Fourth Coffee exige os seguintes recursos na sua assinatura do Azure:
 
 - Um recurso do **Azure Cognitive Search**, que gerenciará a indexação e a consulta.
-- Um recurso dos **Serviços Cognitivos**, que fornece serviços de IA para habilidades que a sua solução de pesquisa pode usar para enriquecer os dados na fonte de dados com insights gerados pela IA.
+- Um recurso dos **serviços de IA do Azure**, que fornece serviços de IA para habilidades que a sua solução de pesquisa pode usar para enriquecer os dados na fonte de dados com insights gerados pela IA.
 
-    > **Observação** Os recursos do Azure Cognitive Search e dos Serviços Cognitivos precisam estar na mesma localização.
+    > **Observação**: os recursos do Azure Cognitive Search e dos serviços de IA do Azure precisam estar na mesma localização.
 
 - Uma **Conta de armazenamento** com contêineres de blob, que armazena documentos brutos e outras coleções de tabelas, objetos ou arquivos.
 
@@ -45,11 +45,11 @@ A solução que você criará para a Fourth Coffee exige os seguintes recursos n
 
 1. Após a implantação ser concluída, selecione **Ir para o recurso**. Na página de visão geral do Azure Cognitive Search, você pode adicionar índices, importar dados e pesquisar índices criados.
 
-### Criar um recurso dos Serviços Cognitivos
+### Criar um recurso de serviços de IA do Azure
 
-Você precisará provisionar um recurso de **Serviços Cognitivos** que está na mesma localização que o recurso Azure Cognitive Search. Sua solução de pesquisa usará esse recurso para enriquecer os dados no armazenamento de dados com insights gerados pela IA.
+Precisará provisionar um recurso de **serviços de IA do Azure** que está na mesma localização que o recurso Azure Cognitive Search. Sua solução de pesquisa usará esse recurso para enriquecer os dados no armazenamento de dados com insights gerados pela IA.
 
-1. Volte à página inicial do portal do Azure e selecione o botão **+ Criar um recurso**, procure *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações: 
+1. Retorne à página inicial do portal do Azure. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano de **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *o mesmo grupo de recursos que o do recurso do Azure Cognitive Search*.
     - **Região**: *a mesma localização que a do recurso do Azure Cognitive Search*.
@@ -67,7 +67,7 @@ Você precisará provisionar um recurso de **Serviços Cognitivos** que está na
 
 1. Pesquise *conta de armazenamento* e crie um **Armazenamento de conta** com as seguintes configurações: 
     - **Assinatura**: *sua assinatura do Azure*.
-    - **Grupo de recursos**: *o mesmo grupo de recursos que o dos recursos do Azure Cognitive Search e dos Serviços Cognitivos*.
+    - **Grupo de recursos**: *o mesmo grupo de recursos que o dos recursos do Azure Cognitive Search e dos serviços de IA do Azure*.
     - **Nome da conta de armazenamento**: *um nome exclusivo*.
     - **Localização**: *escolha uma localização disponível*.
     - **Desempenho**: padrão
@@ -126,7 +126,7 @@ Quando os documentos estiverem no armazenamento, você poderá usar o Azure Cogn
 
 1. Selecione **Avançar: adicionar habilidades cognitivas (opcional)**.
 
-1. Na seção **Anexar Serviços Cognitivos**, selecione o recurso de Serviços Cognitivos.  
+1. Na seção **Anexar Serviços Cognitivos**, selecione o recurso de serviços de IA do Azure.  
 
 1. Na seção **Adicionar enriquecimentos**:
     - Altere o **Nome do conjunto de habilidades** para **coffee-skillset**.

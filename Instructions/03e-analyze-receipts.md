@@ -13,17 +13,17 @@ Um cenário de OCR mais avançado é a extração de informações de formulári
 
 O Reconhecimento de Formulários usa modelos de machine learning treinados para extrair texto de imagens de faturas, recibos e muito mais. Embora outros modelos de pesquisa visual computacional possam capturar texto, o Reconhecimento de Formulários também captura a estrutura do texto, como pares chave/valor e informações em tabelas. Assim, em vez de ter que digitar manualmente entradas de um formulário em um banco de dados, você pode capturar automaticamente as relações entre o texto do arquivo original. 
 
-Para testar os recursos do serviço de Reconhecimento de Formulários, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
+Para testar os recursos do serviço de Reconhecimento de Formulários, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-Você pode usar o serviço de Reconhecimento de Formulários com a criação de um recurso do **Reconhecimento de Formulários** ou de um recurso dos **Serviços Cognitivos.**
+Você pode usar o serviço de Reconhecimento de Formulários com a criação de um recurso do **Reconhecimento de Formulários** ou de um recurso dos **serviços de IA do Azure**.
 
-Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Caso ainda não tenha feito isso, crie um recurso dos **serviços de IA do Azure** em sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
@@ -33,7 +33,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação. Em seguida, vá para o recurso implantado.
 
-1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
+1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos serviços de IA do Azure. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
 ## Executar o Cloud Shell
 
@@ -83,7 +83,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para analisar campos em um recibo.](media/analyze-receipts/recognize-receipt-code.png)
 
-1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do seu recurso dos Serviços Cognitivos. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e os copie no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
+1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do recurso dos serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e cole no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 
@@ -94,7 +94,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que configurou a chave e o ponto de extremidade, você pode usar seu recurso para analisar campos de um recibo. Nesse caso, você usará o modelo interno do Reconhecimento de Formulários para analisar um recibo da loja fictícia Northwind Traders.
+1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que configurou a chave e o ponto de extremidade, você pode usar seu recurso para analisar campos de um recibo. Nesse caso, você usará o modelo interno do Reconhecimento de Formulários para analisar um recibo da loja fictícia Northwind Traders.
 
     O aplicativo cliente de exemplo analisará a seguinte imagem:
 

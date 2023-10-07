@@ -30,7 +30,7 @@ O recurso de respostas às perguntas personalizadas do serviço de Linguagem per
     - **Tipo de preço do Azure Search:** gratuito F (3 índices) – (*Se esse tipo não estiver disponível, selecione Standard S (50 índices)* )
     - **Ao marcar esta caixa, declaro que analisei e confirmo os termos do Aviso de IA responsável**: *selecionada*.
 
-    > **Observação** Se você já tiver provisionado um recurso do **Azure Cognitive Search** de camada gratuita, talvez a cota não permita a criação de outro. Nesse caso, selecione uma camada diferente de **Free F**.
+    > **Observação**: caso já tenha provisionado um recurso do **Azure Cognitive Search** de camada gratuita, talvez a cota não permita a criação de outro. Nesse caso, selecione uma camada diferente de **Free F**.
 
 1. Clique em **Revisar e criar** e depois clique em **Criar**. Aguarde a implantação do serviço de Linguagem que dará suporte à sua base de dados de conhecimento de respostas às perguntas personalizadas.
 

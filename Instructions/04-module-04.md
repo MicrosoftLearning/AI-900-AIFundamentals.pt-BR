@@ -9,21 +9,21 @@ lab:
 
 O NLP (Processamento de Linguagem Natural) é um branch de IA (inteligência artificial) que lida com linguagem escrita e falada. Você pode usar o NLP para criar soluções que extraem o significado semântico de um texto ou uma fala ou que formulam respostas significativas em linguagem natural.
 
-Os *Serviços Cognitivos* do Microsoft Azure incluem as funcionalidades de análise de texto no serviço *Linguagem*, que fornece alguns recursos de NLP prontos para uso, incluindo a identificação de frases-chave no texto e a classificação de texto com base no sentimento.
+Os *serviços de IA do Microsoft Azure* incluem as funcionalidades de análise de texto no serviço de *Linguagem*, que fornece alguns recursos de NLP prontos para uso, incluindo a identificação de frases-chave no texto e a classificação de texto com base no sentimento.
 
 Por exemplo, suponha que a organização fictícia *Margie's Travel* incentive os clientes a enviarem avaliações para o hotel. Você pode usar o serviço de linguagem para resumir as avaliações por meio da extração de frases-chave e depois determinar quais são positivas e quais são negativas ou analisar o texto da avaliação em busca de menções de entidades conhecidas, como locais ou pessoas.
 
 Para testar os recursos do serviço de linguagem, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-O serviço de linguagem pode ser usado por meio da criação de um recurso de **Linguagem** ou dos **Serviços Cognitivos**.
+O serviço de linguagem pode ser usado por meio da criação de um recurso de **Linguagem** ou de um recurso dos **serviços de IA do Azure**.
 
-Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Caso ainda não tenha feito isso, crie um recurso dos **serviços de IA do Azure** em sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Selecione o botão **&#65291;Criar um recurso**, procure *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
@@ -33,9 +33,9 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Revise e crie o recurso.
 
-### Obtenha a chave e o ponto de extremidade para seu recurso de Serviços Cognitivos
+### Obtenha a chave e o ponto de extremidade para o seu recurso dos serviços de IA do Azure
 
-1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos Serviços Cognitivos e, na página de **Visão geral**, selecione o link para gerenciar as chaves do serviço. Você precisará do ponto de extremidade e das chaves para se conectar ao recurso dos Serviços Cognitivos de aplicativos cliente.
+1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos serviços de IA do Azure e, na página de **Visão geral**, selecione o link para gerenciar as chaves do serviço. Você precisará do ponto de extremidade e das chaves para se conectar ao recurso de serviços de IA do Azure de aplicativos cliente.
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do seu recurso. Você precisará da **chave** e do **ponto de extremidade** para se conectar em aplicativos clientes.
 
@@ -87,11 +87,11 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para usar o serviço de linguagem](media/analyze-text-language-service/analyze-text-code.png)
 
-1. Não se preocupe muito com os detalhes do código. No portal do Azure, navegue até o recurso Serviços Cognitivos. Em seguida, selecione a página **Chaves e Pontos de Extremidade** no painel esquerdo. Copie a chave e o ponto de extremidade da página e cole-os no editor de código, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
+1. Não se preocupe muito com os detalhes do código. No portal do Azure, navegue até o recurso dos serviços de IA do Azure. Em seguida, selecione a página **Chaves e Pontos de Extremidade** no painel esquerdo. Copie a chave e o ponto de extremidade da página e cole-os no editor de código, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 
-    ![Localize a guia Chave e ponto de extremidade no painel à esquerda do recurso dos Serviços Cognitivos.](media/analyze-text-language-service/key-endpoint-support.png)
+    ![Localize a guia Chave e ponto de extremidade no painel à esquerda do recurso dos serviços de IA do Azure.](media/analyze-text-language-service/key-endpoint-support.png)
 
     Depois de substituir os valores de chave e ponto de extremidade, as primeiras linhas de código devem ser semelhantes a esta:
 
@@ -102,7 +102,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
 1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
 
-    O aplicativo cliente de exemplo usará o serviço de linguagem dos Serviços Cognitivos para detectar o idioma, extrair frases-chave, determinar o sentimento e extrair entidades conhecidas de avaliações.
+    O aplicativo cliente de exemplo usará o serviço de linguagem dos serviços de IA do Azure para detectar o idioma, extrair frases-chave, determinar o sentimento e extrair entidades conhecidas de avaliações.
 
 1. No Cloud Shell, insira o seguinte comando para executar o código:
 

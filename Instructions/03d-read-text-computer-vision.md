@@ -11,21 +11,21 @@ Um desafio comum da Pesquisa Visual Computacional é detectar e interpretar text
 
 Para testar as funcionalidades da API de Leitura, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## Usar o serviço de Pesquisa Visual Computacional para ler texto em uma imagem
+## Usar o serviço de Visão de IA do Azure para ler texto em uma imagem
 
-O serviço cognitivo **Pesquisa Visual Computacional** fornece suporte para tarefas de OCR, incluindo:
+O serviço **Visão de IA do Azure** fornece suporte para tarefas de OCR, incluindo:
 
 - Uma API de **Leitura**, otimizada para documentos maiores. Essa API é usada de forma assíncrona e pode ser usada para textos impressos e manuscritos.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-Você pode usar o serviço Pesquisa Visual Computacional criando um recurso **Pesquisa Visual Computacional** ou um recurso dos **Serviços Cognitivos**.
+Use o serviço de Visão de IA do Azure criando um recurso de **Pesquisa Visual Computacional** ou um recurso dos **serviços de IA do Azure**.
 
-Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Caso ainda não tenha feito isso, crie um recurso dos **serviços de IA do Azure** em sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano de **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
@@ -35,7 +35,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação. Em seguida, vá para o recurso implantado.
 
-1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
+1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos serviços de IA do Azure. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
 ## Executar o Cloud Shell
 
@@ -85,7 +85,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para analisar texto em imagens.](media/read-text-computer-vision/ocr-code.png)
 
-1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do seu recurso dos Serviços Cognitivos. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e os copie no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
+1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa do URL do ponto de extremidade e de uma das chaves do recurso dos serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e cole no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 
@@ -96,7 +96,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que você já definiu a chave e o ponto de extremidade, pode usar o recurso dos Serviços Cognitivos para extrair texto de uma imagem.
+1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que você já definiu a chave e o ponto de extremidade, use o recurso dos serviços de IA do Azure para extrair texto de uma imagem.
 
     Vamos usar a API de **Leitura**. Nesse caso, você tem uma imagem de anúncio da empresa fictícia de varejo Northwind Traders que inclui texto.
 

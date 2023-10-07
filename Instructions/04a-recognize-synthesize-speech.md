@@ -7,21 +7,21 @@ lab:
 
 > **Observação** Para concluir este laboratório, você precisará de uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual tenha acesso administrativo.
 
-Para criar software que possa interpretar a fala audível e responder adequadamente, você poderá usar o serviço cognitivo de **Fala**, que fornece uma maneira simples de transcrever o idioma falado em texto e vice-versa.
+Para criar software que possa interpretar a fala audível e responder adequadamente, você poderá usar o serviço de **Fala de IA do Azure**, que fornece uma maneira simples de transcrever o idioma falado em texto e vice-versa.
 
 Por exemplo, suponha que você queira criar um dispositivo inteligente que possa responder verbalmente a perguntas faladas, como "Que horas são?". A resposta deve ser a hora local.
 
-Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
+Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## Criar um recurso de *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-O serviço de Fala pode ser usado por meio da criação de um recurso de **Fala** ou de **Serviços Cognitivos**.
+O serviço de Fala pode ser usado por meio da criação de um recurso de **Fala** ou dos **serviços de IA do Azure**.
 
-Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Caso ainda não tenha feito isso, crie um recurso dos **serviços de IA do Azure** em sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
@@ -31,9 +31,9 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Revise e crie o recurso.
 
-### Obter a chave e o local do recurso dos Serviços Cognitivos
+### Obter a chave e o local do recurso dos serviços de IA do Azure
 
-1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos Serviços Cognitivos e, na página de **visão geral**, clique no link para gerenciar as chaves do serviço. Você precisará do ponto de extremidade e das chaves para se conectar ao recurso dos Serviços Cognitivos de aplicativos cliente.
+1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos serviços de IA do Azure e, na página de **Visão geral**, clique no link para gerenciar as chaves do serviço. Você precisará do ponto de extremidade e das chaves para se conectar ao recurso de serviços de IA do Azure de aplicativos cliente.
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do seu recurso. Você precisará do **local/região** e da **chave** para se conectar de aplicativos cliente.
 
@@ -85,7 +85,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para usar o serviço Fala](media/recognize-synthesize-speech/speaking-clock-code.png)
 
-1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da região/local e de uma das chaves do seu recurso dos Serviços Cognitivos. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e cole no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_LOCATION**, respectivamente.
+1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da região/local e de uma das chaves do recurso dos serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e cole no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_LOCATION**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 

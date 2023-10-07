@@ -13,15 +13,15 @@ A IA (Inteligência Artificial) pode ajudar a simplificar a comunicação traduz
 
 Para testar os recursos do serviço de Tradução, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-O serviço de Tradução pode ser usado por meio da criação de um recurso **Tradutor** ou de um recurso dos **Serviços Cognitivos**.
+O serviço de Tradução pode ser usado por meio da criação de um recurso **Tradutor** ou de um recurso dos **serviços de IA do Azure**.
 
-Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Caso ainda não tenha feito isso, crie um recurso dos **serviços de IA do Azure** em sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Selecione o botão **&#65291;Criar um recurso**, procure *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano de **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
@@ -31,15 +31,15 @@ Caso ainda não tenha feito isso, crie um recurso dos **Serviços Cognitivos** e
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação. Em seguida, vá para o recurso implantado.
 
-1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará das chaves e do local para se conectar de aplicativos cliente.
+1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos serviços de IA do Azure. Você precisará das chaves e do local para se conectar de aplicativos cliente.
 
-### Obter a chave e o local do recurso dos Serviços Cognitivos
+### Obter a chave e o local do recurso dos serviços de IA do Azure
 
-1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos Serviços Cognitivos e, na página de **Visão geral**, selecione o link para gerenciar as chaves do serviço. Você precisará das chaves e do local para se conectar ao recurso dos Serviços Cognitivos de aplicativos cliente.
+1. Aguarde o fim da implantação. Em seguida, acesse o recurso dos serviços de IA do Azure e na página de **Visão geral**, selecione o link para gerenciar as chaves do serviço. Você precisará das chaves e do local para se conectar ao recurso dos serviços de IA do Azure por meio de aplicativos cliente.
 
 1. Exiba a página **Chaves e Ponto de Extremidade** do seu recurso. Você precisará do **local/região** e da **chave** para se conectar de aplicativos cliente.
 
-> **Observação** Para usar o serviço Tradução, não é preciso usar o ponto de extremidade do Serviço Cognitivo. Um ponto de extremidade global apenas para o serviço Tradutor é fornecido. 
+> **Observação** Para usar o serviço Tradução, não é preciso usar o ponto de extremidade dos serviços de IA do Azure. Um ponto de extremidade global apenas para o serviço Tradutor é fornecido. 
 
 ## Executar o Cloud Shell
 
@@ -89,7 +89,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para usar o serviço Tradutor](media/translate-text-and-speech/translate-code.png)
 
-1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da região/local e de uma das chaves do seu recurso dos Serviços Cognitivos. Copie esses dados da página **Chaves e pontos de extremidade** do recurso do portal do Azure e cole-os no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_LOCATION**, respectivamente.
+1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da região/local e de uma das chaves do recurso dos serviços de IA do Azure. Copie esses dados da página **Chaves e pontos de extremidade** do recurso do portal do Azure e cole-os no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_LOCATION**, respectivamente.
 
     Depois de colar os valores de chave e local, as primeiras linhas de código devem ser semelhantes a esta:
 
