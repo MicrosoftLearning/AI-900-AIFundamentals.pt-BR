@@ -5,9 +5,9 @@ lab:
 
 # Explorar a classificação de imagem
 
-O serviço cognitivo de *Pesquisa Visual Computacional* fornece modelos predefinidos úteis para trabalhar com imagens, mas você frequentemente precisará treinar seu próprio modelo para pesquisa visual computacional. Por exemplo, suponha que uma organização de conservação da vida selvagem queira rastrear avistamentos de animais usando câmeras sensíveis ao movimento. As imagens capturadas pelas câmeras poderiam então ser usadas para verificar a presença de determinadas espécies em uma determinada área e ajudar nos esforços de conservação para espécies ameaçadas de extinção. Para fazer isso, a organização se beneficiaria de um modelo de *classificação de imagem* treinado para identificar diferentes espécies de animais nas fotografias capturadas.
+O serviço da *Visão de IA do Azure* fornece modelos predefinidos úteis para trabalhar com imagens, mas você frequentemente precisará treinar seu próprio modelo para pesquisa visual computacional. Por exemplo, suponha que uma organização de conservação da vida selvagem queira rastrear avistamentos de animais usando câmeras sensíveis ao movimento. As imagens capturadas pelas câmeras poderiam então ser usadas para verificar a presença de determinadas espécies em uma determinada área e ajudar nos esforços de conservação para espécies ameaçadas de extinção. Para fazer isso, a organização se beneficiaria de um modelo de *classificação de imagem* treinado para identificar diferentes espécies de animais nas fotografias capturadas.
 
-No Azure, você pode usar o serviço cognitivo de ***Visão Personalizada*** para treinar um modelo de classificação de imagem com base em imagens existentes. A criação de uma solução de classificação de imagem envolve dois elementos. Primeiro, você deve treinar um modelo para reconhecer classes diferentes usando imagens existentes. Depois, após o treinamento do modelo, você deverá publicá-lo como um serviço que pode ser consumido por aplicativos.
+No Azure, você pode usar o serviço ***Visão Personalizada*** para treinar um modelo de classificação de imagem com base em imagens existentes. A criação de uma solução de classificação de imagem envolve dois elementos. Primeiro, você deve treinar um modelo para reconhecer classes diferentes usando imagens existentes. Depois, após o treinamento do modelo, você deverá publicá-lo como um serviço que pode ser consumido por aplicativos.
 
 Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos móveis.
 
@@ -15,17 +15,17 @@ Para testar os recursos do serviço de Visão Personalizada, usaremos um aplicat
 
 Para concluir este laboratório, será necessário uma [assinatura do Azure](https://azure.microsoft.com/free?azure-portal=true) na qual você tenha acesso administrativo.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-Você pode usar o serviço Visão Personalizada criando um recurso de **Visão Personalizada** ou um recurso dos **Serviços Cognitivos**.
+Você pode utilizar o serviço Visão Personalizada criando um recurso de **Visão Personalizada** ou um recurso de **Serviços de IA do Azure**.
 
->**Observação** Nem todos recursos estão disponíveis em todas as regiões. Se você criar um recurso de Visão Personalizada ou de Serviços Cognitivos, somente recursos criados em [determinadas regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) podem ser usados para acessar serviços de Visão Personalizada. Para simplificar, uma região é pré-selecionada para você nas instruções de configuração abaixo.
+>**Observação** Nem todos recursos estão disponíveis em todas as regiões. Se você criar um recurso de Visão Personalizada ou de serviços de IA do Azure, somente os recursos criados em [certas regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) poderão ser utilizados para acessar os serviços de Visão Personalizada. Para simplificar, uma região é pré-selecionada para você nas instruções de configuração abaixo.
 
-Crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Crie um recurso de **serviços de IA do Azure** na sua assinatura do Azure.
 
 1. Abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true), entrando com a sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise *Serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região:** Leste dos EUA
@@ -35,7 +35,7 @@ Crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação. Em seguida, vá para o recurso implantado.
 
-1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
+1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos serviços de IA do Azure. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
 ## Criar um projeto de Visão Personalizada
 
@@ -49,7 +49,7 @@ Para treinar um modelo de detecção de objetos, você precisa criar um projeto 
 
     - **Nome**: identificação animal
     - **Descrição**: classificação de imagem de animais
-    - **Recurso**: *o recurso de Serviços Cognitivos ou Visão Personalizada criado anteriormente*
+    - **Recurso**: *O recurso de serviços de IA do Azure ou de Visão Personalizada criado anteriormente*
     - **Tipos de Projeto**: Classificação
     - **Tipos de classificação**: multiclasse (tag única por imagem)
     - **Domínios**: Geral \[A2]
@@ -90,7 +90,7 @@ Agora está tudo pronto para publicar seu modelo treinado e usá-lo em um aplica
 
 1. Clique em **&#128504; Publicar** para publicar o modelo treinado com as seguintes configurações:
     - **Nome do modelo**: animais
-    - **Recurso de Previsão**: *o recurso de previsão de Serviços Cognitivos ou Visão Personalizada criado anteriormente*.
+    - **Recurso de Previsão**: *O recurso de previsão de serviços de IA do Azure ou de Visão Personalizada criado anteriormente*.
 
 1. Após a publicação, clique no ícone *URL de Previsão* (&#127760;) para ver as informações necessárias para usar o modelo publicado.
 
@@ -193,6 +193,4 @@ Agora você pode usar o aplicativo cliente de exemplo para classificar imagens c
 
 Espero que seu modelo de classificação de imagem classificou corretamente todas as três imagens.
 
-## Saiba mais
 
-Esse exercício mostra apenas alguns dos recursos do serviço de Visão Personalizada. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Visão Personalizada](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).
