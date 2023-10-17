@@ -49,7 +49,7 @@ Para treinar um modelo de detecção de objetos, você precisa criar um projeto 
 
     - **Nome**: identificação animal
     - **Descrição**: classificação de imagem de animais
-    - **Recurso**: *O recurso de serviços de IA do Azure ou de Visão Personalizada criado anteriormente*
+    - **Recurso**: *o recurso de serviços de IA do Azure ou de Visão Personalizada criado anteriormente*
     - **Tipos de Projeto**: Classificação
     - **Tipos de classificação**: multiclasse (tag única por imagem)
     - **Domínios**: Geral \[A2]
@@ -90,7 +90,7 @@ Agora está tudo pronto para publicar seu modelo treinado e usá-lo em um aplica
 
 1. Clique em **&#128504; Publicar** para publicar o modelo treinado com as seguintes configurações:
     - **Nome do modelo**: animais
-    - **Recurso de Previsão**: *O recurso de previsão de serviços de IA do Azure ou de Visão Personalizada criado anteriormente*.
+    - **Recurso de Previsão**: *o recurso de previsão de serviços de IA do Azure ou de Visão Personalizada criado anteriormente*.
 
 1. Após a publicação, clique no ícone *URL de Previsão* (&#127760;) para ver as informações necessárias para usar o modelo publicado.
 
