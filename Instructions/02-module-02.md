@@ -118,7 +118,7 @@ O aprendizado de máquina automatizado permite que você experimente vários alg
 
     - **Selecionar tipo de computação**: sem servidor
     - **Tipo de máquina virtual**: CPU
-    - **Camada de máquina virtual**: baixa prioridade
+    - **Camada da máquina virtual**: dedicada
     - **Tamanho da máquina virtual**: Standard_DS3_V2
     - **Número de instâncias**: 1
 
@@ -200,12 +200,11 @@ Agora você pode testar o serviço implantado.
 
     O painel de teste pegou os dados de entrada e usou o modelo que você treinou para retornar o número previsto de locações.
 
-
 Vamos revisar o que você fez. Você usou um conjunto de dados históricos de locação de bicicletas para treinar um modelo. O modelo prevê o número de locações de bicicletas esperadas em um determinado dia, com base em *recursos *sazonais e meteorológicos.
 
 ## Limpar
 
-O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure. Você também deve excluir o cluster de cálculo.
+O serviço Web que você criou está hospedado em uma *Instância de Contêiner do Azure*. Se você não pretender experimentá-lo ainda mais, exclua o ponto de extremidade para evitar o acúmulo de uso desnecessário do Azure.
 
 1. No [estúdio do Azure Machine Learning](https://ml.azure.com?azure-portal=true), na guia **Pontos de extremidade**, selecione o ponto de extremidade **predict-rentals**. Depois, selecione **Excluir** e confirme que você deseja excluir o ponto de extremidade.
 
