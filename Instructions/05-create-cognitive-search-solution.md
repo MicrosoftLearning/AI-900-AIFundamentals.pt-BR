@@ -49,7 +49,7 @@ A solução que você criará para a Fourth Coffee exige os seguintes recursos n
 
 Precisará provisionar um recurso de **serviços de IA do Azure** que está na mesma localização que o recurso Azure Cognitive Search. Sua solução de pesquisa usará esse recurso para enriquecer os dados no armazenamento de dados com insights gerados pela IA.
 
-1. Retorne à página inicial do portal do Azure. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano de **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
+1. Retorne à página inicial do portal do Azure. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *o mesmo grupo de recursos que o do recurso do Azure Cognitive Search*.
     - **Região**: *a mesma localização que a do recurso do Azure Cognitive Search*.
