@@ -52,7 +52,7 @@ Você precisa de uma conta pessoal da Microsoft. Se não tiver uma, acesse [sign
 
 1. Digite no prompt: `Translate that into C#`. Observe como você não precisou especificar o que era "isso", já que o Bing Copilot sabe conferir o histórico da conversa. 
 
-## Bonus 
+## Bônus 
 
 1. Digite um prompt: `What are 3 examples of generative AI helping people?`. Você pode usar isso como uma forma de se inspirar para pensar nas suas próprias ideias para usar o copiloto!  
 

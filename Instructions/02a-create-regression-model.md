@@ -242,7 +242,7 @@ Após você ter identificado um modelo com métricas de avaliação que atendam 
 
 ## Criar e executar um pipeline de inferência
 
-1. Localize o menu acima da tela e clique em **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
+1. Localize o menu acima da tela e selecione **Criar pipeline de inferência**. Talvez você precise expandir para tela cheia e clicar no ícone de três pontos **...** no canto superior direito para encontrar **Criar pipeline de inferência** no menu.  
 
     ![Captura de tela do local de criação de pipeline de inferência.](media/create-regression-model/create-inference-pipeline.png)
 
@@ -286,7 +286,7 @@ Após você ter identificado um modelo com métricas de avaliação que atendam 
                         inplace=True)
      return scored_results
     ```
->**Observação**: copiar e colar pode introduzir espaços indevidos no script Python. Certifique-se de que não haja um espaço antes de *importar*, *def* ou *retornar*. Certifique-se de que haja um recuo de guia antes de *scored_results* e *scored_results.rename()* .
+>**Observação**: copiar e colar pode introduzir espaços indevidos no script Python. Certifique-se de que não haja um espaço antes de *importar*, *def* ou *retornar*. Certifique-se de que haja um recuo de guia antes de *scored_results* e *scored_results.rename()*.
 
 1. Conecte a saída do módulo **Modelo de pontuação** à entrada do **Conjunto de dados 1** (o mais à esquerda) do módulo **Executar Script Python**.
 

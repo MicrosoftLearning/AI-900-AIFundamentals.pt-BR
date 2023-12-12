@@ -25,7 +25,7 @@ Caso ainda não tenha feito isso, crie um recurso dos **serviços de IA do Azure
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano de **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região**: *escolha uma região disponível*.
@@ -85,7 +85,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
 
     ![O editor que contém o código para analisar texto em imagens.](media/read-text-computer-vision/ocr-code.png)
 
-1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa do URL do ponto de extremidade e de uma das chaves do recurso dos serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e cole no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
+1. Não se preocupe muito com os detalhes do código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do recurso dos serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e os copie no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 
@@ -96,7 +96,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que você já definiu a chave e o ponto de extremidade, use o recurso dos serviços de IA do Azure para extrair texto de uma imagem.
+1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**. Agora que você já definiu a chave e o ponto de extremidade, use o recurso dos serviços de IA do Azure para extrair texto de uma imagem.
 
     Vamos usar a API de **Leitura**. Nesse caso, você tem uma imagem de anúncio da empresa fictícia de varejo Northwind Traders que inclui texto.
 

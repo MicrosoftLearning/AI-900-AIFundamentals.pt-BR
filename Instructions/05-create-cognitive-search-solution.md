@@ -45,7 +45,7 @@ A solução que você criará para a Fourth Coffee exige os seguintes recursos n
 
 1. Após a implantação ser concluída, selecione **Ir para o recurso**. Na página de visão geral do Azure Cognitive Search, você pode adicionar índices, importar dados e pesquisar índices criados.
 
-### Criar um recurso de serviços de IA do Azure
+### Criar um recurso dos serviços de IA do Azure
 
 Precisará provisionar um recurso de **serviços de IA do Azure** que está na mesma localização que o recurso Azure Cognitive Search. Sua solução de pesquisa usará esse recurso para enriquecer os dados no armazenamento de dados com insights gerados pela IA.
 
@@ -65,7 +65,7 @@ Precisará provisionar um recurso de **serviços de IA do Azure** que está na m
 
 1. Retorne à página inicial do portal do Azure e selecione o botão **+ Criar um recurso**.
 
-1. Pesquise *conta de armazenamento* e crie um **Armazenamento de conta** com as seguintes configurações: 
+1. Pesquise *conta de armazenamento* e crie um **Armazenamento de conta** com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *o mesmo grupo de recursos que o dos recursos do Azure Cognitive Search e dos serviços de IA do Azure*.
     - **Nome da conta de armazenamento**: *um nome exclusivo*.

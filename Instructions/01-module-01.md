@@ -1,6 +1,6 @@
 ---
 lab:
-  title: Explorar os serviços de IA do Azure
+  title: Explorar serviços da IA do Azure
 ---
 
 > **Importante**
