@@ -11,7 +11,7 @@ Para criar software que possa interpretar a fala audível e responder adequadame
 
 Por exemplo, suponha que você queira criar um dispositivo inteligente que possa responder verbalmente a perguntas faladas, como "Que horas são?". A resposta deve ser a hora local.
 
-Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam em soluções do mundo real, como sites ou aplicativos de telefone.
+Para testar os recursos do serviço de Fala, usaremos um aplicativo de linha de comando simples executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos de telefone.
 
 ## Criar um recurso dos *serviços de IA do Azure*
 

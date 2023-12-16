@@ -89,7 +89,7 @@ Agora que você tem um modelo personalizado, pode executar um aplicativo cliente
     $endpoint="https..."
     ```
 
-1. No canto superior direito do painel do editor, use o botão **…** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
+1. No canto superior direito do painel do editor, use o botão **...** para abrir o menu e selecione **Salvar** para salvar as alterações. Em seguida, abra o menu novamente e selecione **Fechar Editor**.
 
     O aplicativo cliente de exemplo usará seu serviço de Detecção Facial para analisar a imagem abaixo, feita por uma câmera na loja Northwind Traders:
 

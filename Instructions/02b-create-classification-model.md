@@ -63,7 +63,7 @@ O cluster de cálculo leva algum tempo para ser criado. Você pode ir para a pr�
         - **Descrição**: dados de diabetes
         - **Tipo de conjunto de dados**: tabular
     - **Fonte de dados**: de arquivos da Web
-    - **URL da Web**: 
+    - **URL da Web**:
         - **URL da Web**: https://aka.ms/diabetes-data
         - **Ignorar validação de dados**: *não selecionar*
     - **Configurações**:

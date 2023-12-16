@@ -75,7 +75,7 @@ O aprendizado de máquina automatizado permite que você experimente vários alg
             - **Tipo**: tabular
         - **Fonte de dados**:
             - Selecione **De arquivos da Web**
-        - **URL da Web**: 
+        - **URL da Web**:
             - **URL da Web**: `https://aka.ms/bike-rentals`
             - **Ignorar validação de dados**: *não selecionar*
         - **Configurações**:
@@ -96,7 +96,7 @@ O aprendizado de máquina automatizado permite que você experimente vários alg
     - **Tipo de tarefa**: regressão
     - **Conjunto de dados**: bike-rentals
     - **Coluna de destino**: aluguéis (inteiro)
-    - **Definições de configuração adicionais**:
+    - **Definições de configuração adicionais:**
         - **Métrica primária**: erro quadrático médio da raiz normalizada
         - **Explicar o melhor modelo**: *não selecionado*
         - **Usar todos os modelos com suporte**: <u>Não</u>selecionado. *Você restringirá o trabalho para experimentar apenas alguns algoritmos específicos.*
@@ -105,7 +105,7 @@ O aprendizado de máquina automatizado permite que você experimente vários alg
         - **Avaliações máximas**: 3
         - **Máximo de avaliações simultâneas**: 3
         - **Máximo de nós**: 3
-        - **Limite de pontuação da métrica**: 0,85 (*de modo que se um modelo atingir uma pontuação de métrica de raiz do erro quadrático médio normalizada de até 0,085, o trabalho será encerrado.* )
+        - **Limite de pontuação da métrica**: 0,85 (*de modo que se um modelo atingir uma pontuação de métrica de raiz do erro quadrático médio normalizada de até 0,085, o trabalho será encerrado.*)
         - **Tempo limite**: 15
         - **Tempo limite de iteração**: 5
         - **Habilitar encerramento antecipado**: *selecionado*
@@ -114,7 +114,7 @@ O aprendizado de máquina automatizado permite que você experimente vários alg
         - **Percentual de dados de validação**: 10
         - **Conjunto de dados de teste**: nenhum
 
-    **Computação**:
+    **Computação:**
 
     - **Selecionar tipo de computação**: sem servidor
     - **Tipo de máquina virtual**: CPU

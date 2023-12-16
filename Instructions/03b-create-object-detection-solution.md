@@ -11,21 +11,21 @@ lab:
 
 Por exemplo, uma iniciativa de segurança viária pode identificar pedestres e ciclistas como sendo os usuários mais vulneráveis nos cruzamentos de trânsito. Usando câmeras para monitorar cruzamentos, imagens de usuários nas ruas podem ser analisadas para detectar pedestres e ciclistas a fim de monitorar seus números ou até mesmo alterar o comportamento dos sinais de trânsito.
 
-O serviço cognitivo **Visão Personalizada** no Microsoft Azure fornece uma solução baseada em nuvem para criação e publicação de modelos de detecção de objetos personalizados. No Azure, você pode usar o serviço Visão Personalizada para treinar um modelo de detecção de objetos com base em imagens existentes. A criação de uma solução de detecção de objetos envolve dois elementos. Primeiro, você deve treinar um modelo para detectar a localização e a classe de objetos usando imagens rotuladas. Depois, após o treinamento do modelo, você deverá publicá-lo como um serviço que pode ser consumido por aplicativos.
+O serviço **Visão Personalizada** no Microsoft Azure fornece uma solução baseada em nuvem para a criação e publicação de modelos personalizados de detecção de objetos. No Azure, você pode usar o serviço Visão Personalizada para treinar um modelo de detecção de objetos com base em imagens existentes. A criação de uma solução de detecção de objetos envolve dois elementos. Primeiro, você deve treinar um modelo para detectar a localização e a classe de objetos usando imagens rotuladas. Depois, após o treinamento do modelo, você deverá publicá-lo como um serviço que pode ser consumido por aplicativos.
 
 Para testar os recursos do serviço de Visão Personalizada a fim de detectar objetos em imagens, usaremos um aplicativo de linha de comando simples que é executado no Cloud Shell. Os mesmos princípios e funcionalidades se aplicam a soluções do mundo real, como sites ou aplicativos móveis.
 
-## Criar um recurso dos *Serviços Cognitivos*
+## Criar um recurso dos *serviços de IA do Azure*
 
-Você pode usar o serviço Visão Personalizada criando um recurso de **Visão Personalizada** ou um recurso dos **Serviços Cognitivos**.
+Você pode utilizar o serviço Visão Personalizada criando um recurso de **Visão Personalizada** ou um recurso de **Serviços de IA do Azure**.
 
-> **Observação** Nem todos recursos estão disponíveis em todas as regiões. Se você criar um recurso de Visão Personalizada ou de Serviços Cognitivos, somente recursos criados em [determinadas regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) podem ser usados para acessar serviços de Visão Personalizada. Para simplificar, uma região é pré-selecionada para você nas instruções de configuração abaixo.
+> **Observação** Nem todos recursos estão disponíveis em todas as regiões. Se você criar um recurso de Visão Personalizada ou de serviços de IA do Azure, somente os recursos criados em [certas regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) poderão ser utilizados para acessar os serviços de Visão Personalizada. Para simplificar, uma região é pré-selecionada para você nas instruções de configuração abaixo.
 
-Crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
+Crie um recurso de **serviços de IA do Azure** na sua assinatura do Azure.
 
 1. Em outra guia do navegador, abra o portal do Azure em [https://portal.azure.com](https://portal.azure.com?azure-portal=true) e entre com sua conta Microsoft.
 
-1. Clique no botão **&#65291;Criar um recurso**, pesquise *Serviços Cognitivos* e crie um recurso dos **Serviços Cognitivos** com as seguintes configurações:
+1. Clique no botão **&#65291;Criar um recurso** e pesquise por *serviços de IA do Azure*. Selecione **criar** um plano dos **serviços de IA do Azure**. Você será levado para uma página para criar um recurso dos serviços de IA do Azure. Defina-o com as seguintes configurações:
     - **Assinatura**: *sua assinatura do Azure*.
     - **Grupo de recursos**: *selecione ou crie um grupo de recursos com um nome exclusivo*.
     - **Região:** Leste dos EUA
@@ -35,7 +35,7 @@ Crie um recurso dos **Serviços Cognitivos** em sua assinatura do Azure.
 
 1. Examine e crie o recurso e aguarde a conclusão da implantação. Em seguida, vá para o recurso implantado.
 
-1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos Serviços Cognitivos. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
+1. Exiba a página **Chaves e Ponto de Extremidade** do recurso dos serviços de IA do Azure. Você precisará do ponto de extremidade e das chaves para se conectar em aplicativos cliente.
 
 ## Criar um projeto de Visão Personalizada
 
@@ -203,6 +203,3 @@ Agora você pode usar o aplicativo cliente de exemplo para detectar ciclistas e 
 
 Com corte, seu modelo de detecção de objetos fez um bom trabalho detectando pedestres e ciclistas nas imagens de teste.
 
-## Saiba mais
-
-Esse exercício mostra apenas alguns dos recursos do serviço de Visão Personalizada. Saiba mais sobre o que você pode fazer com esse serviço consultando a [página Visão Personalizada](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).

@@ -81,7 +81,7 @@ Agora que você tem um ambiente de Cloud Shell, pode executar um aplicativo simp
 
     ![O editor que contém o código para analisar uma imagem](media/analyze-images-computer-vision-service/analyze-image-code.png)
 
-1. Não se preocupe muito com o código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do seu recurso de serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e cole no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
+1. Não se preocupe muito com o código, o importante é que ele precisa da URL do ponto de extremidade e de uma das chaves do seu recurso de serviços de IA do Azure. Copie-os da página **Chaves e Pontos de Extremidade** do seu recurso do portal do Azure e os copie no editor de códigos, substituindo os valores de espaço reservado **YOUR_KEY** e **YOUR_ENDPOINT**, respectivamente.
 
     > **Dica** Talvez seja necessário usar a barra separadora para ajustar a área da tela durante o trabalho com os painéis **Chaves e ponto de extremidade** e **Editor**.
 
